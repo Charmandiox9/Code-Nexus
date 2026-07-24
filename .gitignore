@@ -1,0 +1,46 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environments
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# Flutter/Dart
+app/.dart_tool/
+app/.packages
+app/build/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/**/*.log
+app/android/app/build/
+app/ios/Pods/
+app/ios/.symlinks/
+app/ios/Flutter/Flutter.podspec
+
+# Node/NestJS
+backend/node_modules/
+backend/dist/
+backend/coverage/
+backend/.nestjs/
+backend/npm-debug.log
+backend/yarn-error.log
+
+# Prisma
+backend/prisma/*.db
+backend/prisma/*.db-journal
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo

@@ -1,0 +1,230 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Achievement {
+  description: String!
+  icon: String!
+  id: ID!
+  name: String!
+}
+
+"""Respuesta al iniciar sesión exitosamente"""
+type AuthResponse {
+  """Token JWT para enviar en el header de autorización"""
+  accessToken: String!
+  user: User!
+}
+
+type CodePet {
+  evolutionStage: Int!
+  happiness: Int!
+  health: Int!
+  id: ID!
+  isEquipped: Boolean!
+  languageId: String
+  level: Int!
+  name: String!
+  type: String!
+  xp: Int!
+}
+
+type Concept {
+  description: String!
+  id: ID!
+  lessons: [Lesson!]
+  orderIndex: Int!
+  title: String!
+}
+
+"""Datos necesarios para registrar un nuevo usuario"""
+input CreateUserInput {
+  email: String!
+  password: String!
+  username: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type ExecutionResult {
+  executionTimeMs: Int!
+  memoryDump: String
+  status: String!
+  stderr: String!
+  stdout: String!
+}
+
+type GamificationProfile {
+  achievements: [UserAchievement!]
+  activeBoosts: [String!]!
+  bestStreak: Int!
+  completedLessons: [String!]!
+  credits: Int!
+  crystals: Int!
+  currentStreak: Int!
+  id: ID!
+  inventory: [String!]!
+  labItems: [UserLabItem!]
+  lastActivityAt: DateTime!
+  level: Int!
+  pets: [CodePet!]
+  skills: JSONObject!
+  titles: [UserTitle!]
+  user: User
+  userId: String!
+  xp: Int!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+type LabItem {
+  description: String!
+  id: ID!
+  name: String!
+  type: String!
+}
+
+type Language {
+  id: ID!
+  name: String!
+  slug: String!
+}
+
+type Lesson {
+  content: LessonContent
+  id: ID!
+  language: Language
+  title: String!
+  type: String!
+  xpReward: Int!
+}
+
+type LessonContent {
+  expectedOutput: String
+  initialCode: String
+  instructions: String
+  theory: String
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input LoginWithGoogleInput {
+  idToken: String!
+}
+
+type Mutation {
+  acceptFriendRequest(friendId: String!, userId: String!): Boolean!
+
+  """Dev only: Añade cristales"""
+  addCrystals(amount: Int!, userId: String!): GamificationProfile!
+
+  """Dev only: Añade cristales por nombre de usuario"""
+  addCrystalsToUsername(amount: Int!, username: String!): GamificationProfile!
+
+  """Añade XP a un usuario (solo para uso interno/backend en el futuro)"""
+  addXp(userId: String!, xp: Int!): GamificationProfile!
+
+  """Registra un nuevo usuario en la plataforma"""
+  createUser(input: CreateUserInput!): User!
+
+  """Inicia sesión y devuelve un JWT"""
+  login(input: LoginInput!): AuthResponse!
+
+  """Inicia sesión o registra usuario con Google"""
+  loginWithGoogle(input: LoginWithGoogleInput!): AuthResponse!
+  sendFriendRequest(targetUsername: String!, userId: String!): Boolean!
+
+  """Gasta cristales para comprar en la tienda"""
+  spendCrystals(amount: Int!, itemName: String!, userId: String!): GamificationProfile!
+
+  """Envía un fragmento de código al motor de ejecución aislado"""
+  submitCode(input: SubmitCodeInput!): ExecutionResult!
+
+  """Actualiza el perfil del usuario"""
+  updateUser(input: UpdateUserInput!): User!
+
+  """Simula el flujo de compra y actualiza el plan a PREMIUM"""
+  upgradeToPremium(userId: String!): User!
+
+  """Usa un item del inventario"""
+  useItem(itemName: String!, userId: String!): GamificationProfile!
+}
+
+"""Tipo de plan de monetización del usuario"""
+enum PlanType {
+  FREE
+  PREMIUM
+}
+
+type Query {
+  concepts: [Concept!]!
+
+  """Obtiene el perfil de gamificación (niveles, xp, rachas) de un usuario"""
+  gamificationProfile(userId: String!): GamificationProfile!
+  getFriendActivityFeed(userId: String!): [JSON!]!
+  getFriends(userId: String!): [JSON!]!
+  getLeaderboard(language: String, userId: String!): [JSON!]!
+  getMentorHint(code: String!, errorMessage: String!): String!
+  getProMentorAnalysis(code: String!, errorMessage: String!, task: String!, userId: String!): String!
+
+  """Obtiene la lista de todos los usuarios"""
+  users: [User!]!
+}
+
+input SubmitCodeInput {
+  code: String!
+  language: String!
+  lessonId: String
+  userId: ID
+}
+
+type Title {
+  description: String!
+  id: ID!
+  name: String!
+}
+
+input UpdateUserInput {
+  avatarUrl: String
+  id: String!
+  username: String
+}
+
+"""Modelo principal del usuario de CodeNexus"""
+type User {
+  avatarUrl: String
+  createdAt: DateTime!
+  email: String!
+  googleId: String
+  id: ID!
+  plan: PlanType!
+  username: String!
+}
+
+type UserAchievement {
+  achievement: Achievement!
+}
+
+type UserLabItem {
+  isEquipped: Boolean!
+  item: LabItem!
+}
+
+type UserTitle {
+  isEquipped: Boolean!
+  title: Title!
+}

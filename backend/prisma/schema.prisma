@@ -1,0 +1,291 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ==========================================
+// CONTEXTO: IAM (Identity & Access)
+// ==========================================
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  username     String   @unique
+  avatarUrl    String?
+  googleId     String?  @unique
+  passwordHash String?  // Opcional por si entra por OAuth (Google/Github)
+  plan         PlanType @default(FREE) // Monetización
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relaciones
+  gamification GamificationProfile?
+  labItems     UserLabItem[]
+  progress     UserLessonProgress[]
+  friends      Friendship[] @relation("UserFriends")
+  friendOf     Friendship[] @relation("FriendUsers")
+  activities   ActivityFeed[]
+
+  @@map("users")
+}
+
+enum PlanType {
+  FREE
+  PREMIUM
+}
+
+// ==========================================
+// CONTEXTO: GAMIFICATION & LAB
+// ==========================================
+
+model GamificationProfile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  level           Int      @default(1)
+  xp              Int      @default(0)
+  credits         Int      @default(0) // Moneda normal
+  crystals        Int      @default(0) // Moneda premium
+  currentStreak   Int      @default(0)
+  bestStreak      Int      @default(0)
+  lastActivityAt  DateTime @default(now())
+  completedLessons String[] @default([])
+  skills          Json     @default("{}") // e.g. {"logic": 10, "syntax": 5}
+  inventory       Json     @default("[]") // Nombres de los items comprados
+  activeBoosts    Json     @default("[]") // Boosts activos
+  
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  titles          UserTitle[]
+  achievements    UserAchievement[]
+  pets            CodePet[]
+
+  @@map("gamification_profiles")
+}
+
+model CodePet {
+  id              String   @id @default(uuid())
+  profileId       String   
+  name            String
+  type            PetType  @default(BOT)
+  languageId      String?  // Ej: id de Python, null si es el bot genérico
+  level           Int      @default(1)
+  happiness       Int      @default(100)
+  health          Int      @default(100)
+  xp              Int      @default(0)
+  evolutionStage  Int      @default(1)
+  isEquipped      Boolean  @default(false)
+
+  profile         GamificationProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@map("code_pets")
+}
+
+enum PetType {
+  BOT
+  SNAKE       // Python
+  COFFEE_CUP  // Java
+  GOPHER      // Go
+  CRAB        // Rust
+}
+
+model Achievement {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  name        String
+  description String
+  icon        String
+  xpReward    Int      @default(0)
+  crystalReward Int    @default(0)
+  
+  users       UserAchievement[]
+
+  @@map("achievements")
+}
+
+model UserAchievement {
+  profileId     String
+  achievementId String
+  unlockedAt    DateTime @default(now())
+
+  profile     GamificationProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  achievement Achievement         @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@id([profileId, achievementId])
+  @@map("user_achievements")
+}
+
+model Title {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  
+  users       UserTitle[]
+
+  @@map("titles")
+}
+
+model UserTitle {
+  profileId   String
+  titleId     String
+  unlockedAt  DateTime @default(now())
+  isEquipped  Boolean  @default(false)
+
+  profile     GamificationProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  title       Title               @relation(fields: [titleId], references: [id], onDelete: Cascade)
+
+  @@id([profileId, titleId])
+  @@map("user_titles")
+}
+
+model LabItem {
+  id            String   @id @default(uuid())
+  name          String   @unique // Ej: "Rack de servidores"
+  description   String
+  type          ItemType 
+  requiredLevel Int      @default(1)
+  
+  owners        UserLabItem[]
+
+  @@map("lab_items")
+}
+
+model UserLabItem {
+  userId     String
+  labItemId  String
+  acquiredAt DateTime @default(now())
+  isEquipped Boolean  @default(false)
+
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  item       LabItem  @relation(fields: [labItemId], references: [id], onDelete: Cascade)
+
+  @@id([userId, labItemId]) // Llave primaria compuesta
+  @@map("user_lab_items")
+}
+
+enum ItemType {
+  DESK
+  TERMINAL
+  MONITOR
+  SERVER_RACK
+  DATA_CENTER
+  AI_LAB
+}
+
+// ==========================================
+// CONTEXTO: LEARNING (Conceptos > Sintaxis)
+// ==========================================
+
+model Concept {
+  id          String   @id @default(uuid())
+  slug        String   @unique // Ej: "variables-y-memoria"
+  title       String
+  description String
+  orderIndex  Int      // Para armar el mapa de aprendizaje general
+
+  lessons     Lesson[]
+
+  @@map("concepts")
+}
+
+model Language {
+  id          String   @id @default(uuid())
+  slug        String   @unique // Ej: "python"
+  name        String
+  version     String   // Versión del execution engine
+  
+  lessons     Lesson[]
+
+  @@map("languages")
+}
+
+model Lesson {
+  id          String     @id @default(uuid())
+  conceptId   String
+  languageId  String
+  title       String
+  type        LessonType // INTRO, DEMO, EXERCISE, BOSS
+  content     Json       // Instrucciones, código inicial, aserciones
+  xpReward    Int        @default(10)
+  
+  concept     Concept    @relation(fields: [conceptId], references: [id], onDelete: Cascade)
+  language    Language   @relation(fields: [languageId], references: [id], onDelete: Cascade)
+  userProgress UserLessonProgress[]
+
+  @@map("lessons")
+}
+
+model UserLessonProgress {
+  userId      String
+  lessonId    String
+  status      Status   @default(LOCKED)
+  completedAt DateTime?
+  codeSnippet String?  // Último código escrito por el usuario
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@id([userId, lessonId])
+  @@map("user_lesson_progress")
+}
+
+enum LessonType {
+  INTRO
+  DEMO
+  EXERCISE_GUIDED
+  EXERCISE_FREE
+  PROJECT
+  BOSS
+}
+
+enum Status {
+  LOCKED
+  UNLOCKED
+  COMPLETED
+}
+
+// ==========================================
+// CONTEXTO: SOCIAL
+// ==========================================
+
+model Friendship {
+  id        String       @id @default(uuid())
+  userId    String
+  friendId  String
+  status    FriendStatus @default(PENDING) // PENDING, ACCEPTED, BLOCKED
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  user      User         @relation("UserFriends", fields: [userId], references: [id], onDelete: Cascade)
+  friend    User         @relation("FriendUsers", fields: [friendId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, friendId])
+  @@map("friendships")
+}
+
+enum FriendStatus {
+  PENDING
+  ACCEPTED
+  BLOCKED
+}
+
+model ActivityFeed {
+  id        String       @id @default(uuid())
+  userId    String
+  type      ActivityType
+  metadata  Json         @default("{}")
+  createdAt DateTime     @default(now())
+
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("activity_feeds")
+}
+
+enum ActivityType {
+  LESSON_COMPLETED
+  ACHIEVEMENT_UNLOCKED
+  LEVEL_UP
+  NEW_PET
+  EQUIPPED_THEME
+}
