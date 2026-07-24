@@ -19,8 +19,11 @@ export class ExecutionService {
     this.logger.log(`Enviando código a ejecutar en ${input.language}...`);
 
     try {
+      // Timeout extendido: Rust y C++ necesitan tiempo de compilación
+      // python/js: ~5s, typescript: ~15s, java: ~20s, c++: ~30s, rust: ~90s
+      const TIMEOUT_MS = input.language === 'rust' ? 90000 : input.language === 'cpp' ? 35000 : input.language === 'java' ? 25000 : 15000;
       const result = await firstValueFrom(
-        this.client.send('execute_code', input).pipe(timeout(5000)),
+        this.client.send('execute_code', input).pipe(timeout(TIMEOUT_MS)),
       );
       
       let memoryDump = '';

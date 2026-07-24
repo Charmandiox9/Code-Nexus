@@ -125,26 +125,28 @@ def execute_javascript(code_str, timeout_seconds=5):
         os.remove(script_path)
     return result
 
-def execute_typescript(code_str, timeout_seconds=5):
+def execute_typescript(code_str, timeout_seconds=10):
     with tempfile.NamedTemporaryFile(mode='w', suffix='.ts', delete=False) as temp_script:
         temp_script.write(code_str)
         script_path = temp_script.name
 
     result = {"stdout": "", "stderr": "", "status": "SUCCESS", "executionTimeMs": 0, "memory_trace": []}
     try:
-        process = subprocess.run(['ts-node', script_path], capture_output=True, text=True, timeout=timeout_seconds)
+        process = subprocess.run(['ts-node', '--skipLibCheck', script_path], capture_output=True, text=True, timeout=timeout_seconds)
         result["stdout"] = process.stdout
         result["stderr"] = process.stderr
         if process.returncode != 0: result["status"] = "ERROR"
+    except FileNotFoundError:
+        result["status"], result["stderr"] = "ERROR", "Error: 'ts-node' no encontrado en el contenedor. Contacta al soporte."
     except subprocess.TimeoutExpired:
         result["status"], result["stderr"] = "TIMEOUT", "Execution timed out."
     except Exception as e:
         result["status"], result["stderr"] = "ERROR", traceback.format_exc()
     finally:
-        os.remove(script_path)
+        if os.path.exists(script_path): os.remove(script_path)
     return result
 
-def execute_cpp(code_str, timeout_seconds=5):
+def execute_cpp(code_str, timeout_seconds=15):
     with tempfile.NamedTemporaryFile(mode='w', suffix='.cpp', delete=False) as temp_script:
         temp_script.write(code_str)
         script_path = temp_script.name
@@ -152,7 +154,7 @@ def execute_cpp(code_str, timeout_seconds=5):
 
     result = {"stdout": "", "stderr": "", "status": "SUCCESS", "executionTimeMs": 0, "memory_trace": []}
     try:
-        comp = subprocess.run(['g++', script_path, '-o', out_path], capture_output=True, text=True, timeout=timeout_seconds)
+        comp = subprocess.run(['g++', '-std=c++17', script_path, '-o', out_path], capture_output=True, text=True, timeout=30)
         if comp.returncode != 0:
             result["status"], result["stderr"] = "ERROR", comp.stderr
             return result
@@ -160,6 +162,8 @@ def execute_cpp(code_str, timeout_seconds=5):
         result["stdout"] = process.stdout
         result["stderr"] = process.stderr
         if process.returncode != 0: result["status"] = "ERROR"
+    except FileNotFoundError:
+        result["status"], result["stderr"] = "ERROR", "Error: Compilador 'g++' no encontrado en el contenedor."
     except subprocess.TimeoutExpired:
         result["status"], result["stderr"] = "TIMEOUT", "Execution timed out."
     except Exception as e:
@@ -195,15 +199,15 @@ def execute_java(code_str, timeout_seconds=5):
         os.rmdir(dir_path)
     return result
 
-def execute_rust(code_str, timeout_seconds=5):
+def execute_rust(code_str, timeout_seconds=15):
     with tempfile.NamedTemporaryFile(mode='w', suffix='.rs', delete=False) as temp_script:
         temp_script.write(code_str)
         script_path = temp_script.name
-    out_path = script_path[:-3] # Remover .rs
+    out_path = script_path[:-3]  # Remover .rs
 
     result = {"stdout": "", "stderr": "", "status": "SUCCESS", "executionTimeMs": 0, "memory_trace": []}
     try:
-        comp = subprocess.run(['rustc', script_path, '-o', out_path], capture_output=True, text=True, timeout=timeout_seconds)
+        comp = subprocess.run(['rustc', script_path, '-o', out_path], capture_output=True, text=True, timeout=60)
         if comp.returncode != 0:
             result["status"], result["stderr"] = "ERROR", comp.stderr
             return result
@@ -211,8 +215,10 @@ def execute_rust(code_str, timeout_seconds=5):
         result["stdout"] = process.stdout
         result["stderr"] = process.stderr
         if process.returncode != 0: result["status"] = "ERROR"
+    except FileNotFoundError:
+        result["status"], result["stderr"] = "ERROR", "Error: Compilador 'rustc' no encontrado en el contenedor."
     except subprocess.TimeoutExpired:
-        result["status"], result["stderr"] = "TIMEOUT", "Execution timed out."
+        result["status"], result["stderr"] = "TIMEOUT", "Compilation/Execution timed out. Rust puede tardar más en compilar la primera vez."
     except Exception as e:
         result["status"], result["stderr"] = "ERROR", traceback.format_exc()
     finally:
