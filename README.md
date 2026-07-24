@@ -1,77 +1,115 @@
-# CodeNexus
+<div align="center">
+  <h1>🌌 CodeNexus</h1>
+  <p><strong>A Gamified Learning Platform & Interactive Execution Environment</strong></p>
+  <p>
+    <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
+    <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" />
+    <img src="https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white" alt="GraphQL" />
+    <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  </p>
+</div>
 
-CodeNexus es una plataforma gamificada de aprendizaje de programación y un entorno de ejecución interactivo. Permite a los usuarios aprender diferentes lenguajes de programación (Python, JavaScript, TypeScript, Java, C++, Rust, SQL) a través de misiones y retos inmersivos dentro de un universo Sci-Fi (estilo Matrix/Cyberpunk), subir de nivel, equipar items, y recibir mentoría potenciada por Inteligencia Artificial.
+---
 
-## Estructura del Monorepo
+## 📖 Overview
 
-Este proyecto funciona como un monorepo que contiene tanto la aplicación cliente (Flutter) como el servidor backend (NestJS).
+**CodeNexus** is a next-generation platform designed to revolutionize the way users learn programming. By blending a **Matrix/Cyberpunk aesthetic** with advanced gamification mechanics, users embark on missions to master multiple languages including `Python`, `JavaScript`, `TypeScript`, `Java`, `C++`, `Rust`, and `SQL`.
 
-*   `app/`: Contiene la aplicación móvil/escritorio desarrollada en **Flutter** (Dart).
-*   `backend/`: Contiene la API GraphQL desarrollada en **NestJS** (TypeScript) con Prisma ORM y la infraestructura de ejecución de código aislada usando Docker y RabbitMQ.
+Beyond traditional learning, CodeNexus offers an **AI-powered Mentor** that deeply analyzes AST syntax and runtime errors, and an isolated **interactive 3D execution laboratory** powered by Docker and RabbitMQ.
 
-## Requisitos Previos
+## 🏗️ Architecture
 
-*   **Flutter SDK**: ^3.12.2
-*   **Node.js**: v18+ y npm/yarn
-*   **Docker Desktop**: Necesario para levantar la base de datos PostgreSQL, RabbitMQ y los workers de ejecución de código (Python Sandbox).
+This repository is structured as a **Monorepo**, housing both the client-side application and the server-side infrastructure.
 
-## Configuración Inicial
+```mermaid
+graph TD;
+    Client[📱 Flutter App] -->|GraphQL Queries/Mutations| Backend[⚙️ NestJS Server];
+    Client -->|WebSockets| Backend;
+    Backend -->|Prisma ORM| DB[(PostgreSQL)];
+    Backend -->|Tasks| Queue[🐇 RabbitMQ];
+    Queue -->|Executes Code| Sandbox[🐳 Python/JS Sandbox Workers];
+```
 
-### 1. Backend (NestJS)
+### 📂 Directory Structure
 
-1. Ve al directorio del backend:
-   ```bash
-   cd backend
-   ```
-2. Instala las dependencias:
-   ```bash
-   npm install
-   ```
-3. Configura el archivo `.env`:
-   Asegúrate de tener configurado tu archivo `.env` en la carpeta `backend` con las variables `DATABASE_URL`, `JWT_SECRET`, y `RABBITMQ_URL` (se pueden usar los valores por defecto locales).
-4. Levanta la infraestructura de Docker (Base de datos y RabbitMQ):
-   ```bash
-   docker-compose up -d
-   ```
-5. Ejecuta las migraciones de base de datos y el Seed:
-   ```bash
-   npx prisma migrate dev
-   npx prisma db seed
-   ```
-6. Inicia el servidor de desarrollo:
-   ```bash
-   npm run start:dev
-   ```
+| Directory | Description |
+|-----------|-------------|
+| 📱 `app/` | The cross-platform client built with **Flutter** (Dart). Implements a highly customized UI, 3D Canvas integration, and Riverpod for state management. |
+| ⚙️ `backend/` | The core API built with **NestJS** (TypeScript). Exposes a Code-First GraphQL schema, integrates with Prisma, and manages RabbitMQ for execution workers. |
+| 🐳 `backend/workers/` | Isolated Docker containers that safely execute user-submitted code in sandboxed environments (e.g., Python, Node, GCC). |
 
-### 2. Frontend (Flutter)
+## 🚀 Getting Started
 
-1. Ve al directorio de la app:
-   ```bash
-   cd app
-   ```
-2. Instala las dependencias de Flutter:
-   ```bash
-   flutter pub get
-   ```
-3. Configura las variables de entorno:
-   Crea o verifica que exista un archivo `app/.env` con la IP de tu backend. Ejemplo:
-   ```env
-   API_URL=http://10.0.2.2:3000/graphql
-   WS_URL=http://10.0.2.2:3000
-   ```
-   *(Nota: Usa `10.0.2.2` para emuladores Android o la IP local `192.168.x.x` para probar en dispositivos físicos en la misma red LAN).*
-4. Ejecuta la aplicación:
-   ```bash
-   flutter run
-   ```
+### Prerequisites
 
-## Arquitectura y Tecnologías
+Ensure you have the following installed on your machine:
+*   [Flutter SDK](https://flutter.dev/docs/get-started/install) (`^3.12.0`)
+*   [Node.js](https://nodejs.org/) (`v18+`)
+*   [Docker Desktop](https://www.docker.com/products/docker-desktop) (For PostgreSQL and Execution Workers)
 
-*   **Frontend**: Flutter, Riverpod (Gestión de estado), GraphQL Flutter, Socket.io (Ejecución en tiempo real).
-*   **Backend**: NestJS, GraphQL (Code-first), Prisma ORM, PostgreSQL.
-*   **Ejecución de Código Aislada**: RabbitMQ (Message Broker) que distribuye las tareas hacia contenedores Docker (Workers) efímeros y seguros.
-*   **IA**: Mentor Nexus (Agente heurístico/LLM para análisis profundo de código basado en AST y errores de consola).
+### 1️⃣ Backend Setup (NestJS)
 
-## Licencia
+Navigate to the backend directory and set up the infrastructure:
 
-Este proyecto es privado.
+```bash
+cd backend
+npm install
+```
+
+Configure your environment variables in `backend/.env`. (Default values are generally sufficient for local development).
+
+Start the supporting infrastructure (PostgreSQL & RabbitMQ):
+```bash
+docker-compose up -d
+```
+
+Run database migrations and seed the database with missions and languages:
+```bash
+npx prisma migrate dev
+npx prisma db seed
+```
+
+Start the NestJS development server:
+```bash
+npm run start:dev
+```
+*The GraphQL Playground will be available at: http://localhost:3000/graphql*
+
+### 2️⃣ Frontend Setup (Flutter)
+
+Navigate to the app directory:
+
+```bash
+cd app
+flutter pub get
+```
+
+Configure your environment variables by creating an `app/.env` file:
+```env
+# Use 10.0.2.2 for Android Emulator, or your local IP (e.g. 192.168.1.5) for physical devices
+API_URL=http://10.0.2.2:3000/graphql
+WS_URL=http://10.0.2.2:3000
+```
+
+Run the application:
+```bash
+flutter run
+```
+
+## ✨ Key Features
+
+*   **🌐 Multi-Language Support**: Learn and execute Python, JS, TS, Java, C++, Rust, and SQL directly in the app.
+*   **🤖 AI Mentor Nexus**: Advanced heuristic and LLM-based analysis of code submissions. It doesn't just match strings; it understands tokens and syntax to guide the user without revealing the answer.
+*   **🎮 RPG Gamification**: Earn XP, level up, collect Crystals, maintain Streaks, unlock Titles, and nurture virtual "CodePets".
+*   **🧪 3D Sandbox Lab**: An immersive physical laboratory where users interact with 3D nodes representing code modules, capable of persistent positioning and real-time execution feedback.
+*   **🛡️ Secure Execution**: All user code is executed in ephemeral, isolated Docker containers orchestrated via RabbitMQ to prevent system compromise.
+
+## 📚 Documentation
+
+*   [GraphQL API Documentation](./GRAPHQL_API.md) - Detailed guide to available Queries and Mutations.
+*   [Learning Fundamentals](./fundamentos.md) - The theoretical structure of the CodeNexus curriculum.
+
+## 🛡️ License & Copyright
+
+CodeNexus is a proprietary platform. All rights reserved.
