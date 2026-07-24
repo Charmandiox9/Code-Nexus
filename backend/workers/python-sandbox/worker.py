@@ -226,19 +226,28 @@ def execute_rust(code_str, timeout_seconds=15):
         if os.path.exists(out_path): os.remove(out_path)
     return result
 
-def execute_sql(code_str, timeout_seconds=5):
+def execute_sql(code_str, timeout_seconds=10):
     result = {"stdout": "", "stderr": "", "status": "SUCCESS", "executionTimeMs": 0, "memory_trace": []}
     try:
-        # Ejecutamos el sql contra la DB PostgreSQL de Sandbox (pagila)
-        process = subprocess.run(['psql', 'postgresql://sandbox:sandbox_password@sandbox-db:5432/pagila', '-c', code_str], capture_output=True, text=True, timeout=timeout_seconds)
+        # Usamos --csv para que la salida sea CSV fácil de comparar
+        # -A: unaligned, -F '|': separador |, -t: sin encabezados de conteo
+        process = subprocess.run(
+            ['psql', 'postgresql://sandbox:sandbox_password@sandbox-db:5432/pagila',
+             '--csv', '-c', code_str],
+            capture_output=True, text=True, timeout=timeout_seconds
+        )
         result["stdout"] = process.stdout
         result["stderr"] = process.stderr
-        if process.returncode != 0: result["status"] = "ERROR"
+        if process.returncode != 0:
+            result["status"] = "ERROR"
+    except FileNotFoundError:
+        result["status"], result["stderr"] = "ERROR", "Error: 'psql' no encontrado en el contenedor."
     except subprocess.TimeoutExpired:
-        result["status"], result["stderr"] = "TIMEOUT", "Execution timed out."
+        result["status"], result["stderr"] = "TIMEOUT", "SQL query timed out."
     except Exception as e:
         result["status"], result["stderr"] = "ERROR", traceback.format_exc()
     return result
+
 
 def on_request(ch, method, props, body):
     payload = json.loads(body.decode("utf-8"))

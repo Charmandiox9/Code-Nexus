@@ -6,6 +6,33 @@ import { firstValueFrom } from 'rxjs';
 import { timeout } from 'rxjs/operators';
 import { GamificationService } from '../gamification/gamification.service';
 
+/** Normaliza la salida de psql (tabla o CSV) a un formato comparable.
+ *  Soporta dos formatos de entrada:
+ *  1. Tabla formateada: "actor_id | first_name" con separadores ---+---
+ *  2. CSV: "actor_id,first_name" (desde psql --csv)
+ *  Ambos se convierten a líneas de valores separados por | en minúsculas para comparar.
+ */
+function normalizeSqlOutput(raw: string): string {
+  const lines = raw
+    .split('\n')
+    .map(l => l.trim())
+    .filter(l => l.length > 0)
+    // Eliminar líneas de separadores (---+---) y de conteo "(N rows)"
+    .filter(l => !l.match(/^[-|+\s]+$/) && !l.match(/^\(\d+ rows?\)$/i));
+
+  return lines
+    .map(line => {
+      // Si tiene comas y sin pipes es CSV
+      const sep = line.includes('|') ? '|' : ',';
+      return line
+        .split(sep)
+        .map(cell => cell.trim().replace(/^"|"$/g, '').toLowerCase())
+        .join('|');
+    })
+    .join('\n')
+    .trim();
+}
+
 @Injectable()
 export class ExecutionService {
   private readonly logger = new Logger(ExecutionService.name);
@@ -46,7 +73,14 @@ export class ExecutionService {
       if (result.status === 'SUCCESS' && input.userId) {
         let isCorrect = true;
         if ((input as any).expectedOutput) {
-          isCorrect = result.stdout.trim() === (input as any).expectedOutput.trim();
+          const expected = ((input as any).expectedOutput as string).trim();
+          const actual = result.stdout.trim();
+          if (input.language === 'sql') {
+            // Para SQL normalizamos la salida tabulada de psql antes de comparar
+            isCorrect = normalizeSqlOutput(actual) === normalizeSqlOutput(expected);
+          } else {
+            isCorrect = actual === expected;
+          }
         }
 
         if (isCorrect) {

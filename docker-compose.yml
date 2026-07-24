@@ -69,7 +69,8 @@ services:
       - ALL
     read_only: true
     tmpfs:
-      - /tmp
+      - /tmp:exec,mode=1777
+      - /var/tmp:exec,mode=1777
 
   # Base de datos aislada para el modo Sandbox (SQL Premium)
   sandbox-db:
