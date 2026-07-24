@@ -57,7 +57,25 @@ cd backend
 npm install
 ```
 
-Configure your environment variables in `backend/.env`. (Default values are generally sufficient for local development).
+Configure your environment variables. Copy the example file and fill in your values:
+```bash
+cp backend/.env.example backend/.env
+```
+
+Your `backend/.env` should look like:
+```env
+# PostgreSQL Connection
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/codenexus-postgres?schema=public"
+
+# JWT Secret (use a strong, random string in production)
+JWT_SECRET="your-super-secret-key"
+
+# RabbitMQ for the code execution workers
+RABBITMQ_URL="amqp://localhost:5672"
+
+# Server Port
+PORT=3000
+```
 
 Start the supporting infrastructure (PostgreSQL & RabbitMQ):
 ```bash
@@ -85,12 +103,27 @@ cd app
 flutter pub get
 ```
 
-Configure your environment variables by creating an `app/.env` file:
+Configure your environment variables by copying the example file:
+```bash
+cp app/.env.example app/.env
+```
+
+Then edit `app/.env` with the correct values for your environment:
 ```env
-# Use 10.0.2.2 for Android Emulator, or your local IP (e.g. 192.168.1.5) for physical devices
+# ✅ Android Emulator (default)
 API_URL=http://10.0.2.2:3000/graphql
 WS_URL=http://10.0.2.2:3000
+
+# ✅ iOS Simulator
+# API_URL=http://127.0.0.1:3000/graphql
+# WS_URL=http://127.0.0.1:3000
+
+# ✅ Physical Device on same WiFi network
+# API_URL=http://192.168.1.X:3000/graphql
+# WS_URL=http://192.168.1.X:3000
 ```
+
+> **Note:** The `.env` file is gitignored for security. Never commit your actual secrets. Use `.env.example` as a reference.
 
 Run the application:
 ```bash
