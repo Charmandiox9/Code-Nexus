@@ -1,6 +1,7 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GamificationService } from './gamification.service';
 import { GamificationProfile } from './models/gamification-profile.model';
+import { GraphQLJSONObject } from 'graphql-type-json';
 
 @Resolver(() => GamificationProfile)
 export class GamificationResolver {
@@ -72,5 +73,17 @@ export class GamificationResolver {
     });
     if (!user) throw new Error('User not found');
     return this.gamificationService.addCrystals(user.id, amount);
+  }
+
+  @Mutation(() => GamificationProfile, {
+    name: 'updateLabLayout',
+    description: 'Actualiza la disposición del laboratorio 3D del usuario',
+  })
+  async updateLabLayout(
+    @Args('userId') userId: string,
+    @Args('positions', { type: () => GraphQLJSONObject }) positions: any,
+    @Args('rotations', { type: () => GraphQLJSONObject }) rotations: any,
+  ): Promise<GamificationProfile> {
+    return this.gamificationService.updateLabLayout(userId, positions, rotations);
   }
 }

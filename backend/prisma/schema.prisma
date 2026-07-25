@@ -55,6 +55,8 @@ model GamificationProfile {
   skills          Json     @default("{}") // e.g. {"logic": 10, "syntax": 5}
   inventory       Json     @default("[]") // Nombres de los items comprados
   activeBoosts    Json     @default("[]") // Boosts activos
+  labPositions    Json     @default("{}") // Persistent positions for the 3D physical lab
+  labRotations    Json     @default("{}") // Persistent rotations for the 3D physical lab
   
   user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   titles          UserTitle[]

@@ -7,6 +7,8 @@ import 'dart:math' as math;
 import '../../../../core/providers/auth_provider.dart';
 import '../../../gamification/providers/gamification_provider.dart';
 import '../../../ide/providers/editor_theme_provider.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import '../../../../core/network/graphql_provider.dart';
 
 class PhysicalLabScreen extends ConsumerStatefulWidget {
   final Map<String, dynamic> profile;
@@ -33,9 +35,30 @@ class _PhysicalLabScreenState extends ConsumerState<PhysicalLabScreen> {
     super.didChangeDependencies();
     final userProfile = ref.watch(gamificationProfileProvider(ref.read(authUserIdProvider))).value;
     if (userProfile != null) {
+      if (_customPositions.isEmpty && userProfile.containsKey('labPositions') && userProfile['labPositions'] != null) {
+        final posMap = userProfile['labPositions'] as Map<String, dynamic>;
+        posMap.forEach((key, value) {
+          if (value is Map && value.containsKey('dx') && value.containsKey('dy')) {
+            _customPositions[key] = Offset(value['dx'].toDouble(), value['dy'].toDouble());
+          }
+        });
+      }
+      if (_customRotations.isEmpty && userProfile.containsKey('labRotations') && userProfile['labRotations'] != null) {
+        final rotMap = userProfile['labRotations'] as Map<String, dynamic>;
+        rotMap.forEach((key, value) {
+          _customRotations[key] = (value as num).toInt();
+        });
+      }
+
       final List<dynamic> inventory = List.from(widget.profile['inventory'] as List<dynamic>? ?? []);
       if (!inventory.contains('Escritorio')) inventory.add('Escritorio');
       if (!inventory.contains('Terminal')) inventory.add('Terminal');
+      if (!inventory.contains('Monitor 4K')) inventory.add('Monitor 4K');
+      if (!inventory.contains('Servidor Blade')) inventory.add('Servidor Blade');
+      if (!inventory.contains('Planta Monstera')) inventory.add('Planta Monstera');
+      if (!inventory.contains('Pizarra Acrílica')) inventory.add('Pizarra Acrílica');
+      if (!inventory.contains('Máquina Arcade')) inventory.add('Máquina Arcade');
+      if (!inventory.contains('Cafetera Express')) inventory.add('Cafetera Express');
       if (widget.profile['currentStreak'] != null && (widget.profile['currentStreak'] as num) > 0) {
         inventory.add('Trofeo de Llama');
       }
@@ -73,6 +96,46 @@ class _PhysicalLabScreenState extends ConsumerState<PhysicalLabScreen> {
     });
   }
 
+  Future<void> _toggleEditingMode() async {
+    if (_isEditingMode) {
+      // Saliendo de modo edición: guardar posiciones en BD
+      final positionsMap = _customPositions.map((k, v) => MapEntry(k, {'dx': v.dx, 'dy': v.dy}));
+      
+      const updateLayoutMutation = '''
+        mutation UpdateLabLayout(\$userId: String!, \$positions: JSONObject!, \$rotations: JSONObject!) {
+          updateLabLayout(userId: \$userId, positions: \$positions, rotations: \$rotations) {
+            id
+          }
+        }
+      ''';
+      
+      try {
+        final userId = ref.read(authUserIdProvider);
+        if (userId != null) {
+          final client = ref.read(graphqlClientProvider).value;
+          if (client != null) {
+            // Note: Use a generic map for JSON
+            await client.mutate(
+              MutationOptions(
+                document: gql(updateLayoutMutation),
+                variables: {
+                  'userId': userId,
+                  'positions': positionsMap,
+                  'rotations': _customRotations,
+                },
+              ),
+            );
+          }
+        }
+      } catch (e) {
+        debugPrint('Error saving lab layout: \$e');
+      }
+    }
+    setState(() {
+      _isEditingMode = !_isEditingMode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final currentTheme = ref.watch(editorThemeProvider);
@@ -99,9 +162,9 @@ class _PhysicalLabScreenState extends ConsumerState<PhysicalLabScreen> {
         elevation: 0,
         actions: [
           TextButton.icon(
-            onPressed: () => setState(() => _isEditingMode = !_isEditingMode),
+            onPressed: _toggleEditingMode,
             icon: Icon(_isEditingMode ? Icons.check : Icons.edit, color: AppColors.primary),
-            label: Text(_isEditingMode ? 'Hecho' : 'Editar 2D', style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold)),
+            label: Text(_isEditingMode ? 'Guardar' : 'Editar 2D', style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold)),
           ),
         ],
       ),

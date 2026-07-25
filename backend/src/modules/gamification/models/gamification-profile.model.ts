@@ -157,4 +157,10 @@ export class GamificationProfile {
 
   @Field(() => [UserLabItem], { nullable: true })
   labItems?: UserLabItem[];
+
+  @Field(() => GraphQLJSONObject, { nullable: true })
+  labPositions?: any;
+
+  @Field(() => GraphQLJSONObject, { nullable: true })
+  labRotations?: any;
 }

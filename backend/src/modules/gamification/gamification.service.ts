@@ -203,7 +203,19 @@ export class GamificationService {
     return this.prisma.gamificationProfile.update({
       where: { userId },
       data: {
-        crystals: profile.crystals + amount,
+        crystals: { increment: amount },
+      },
+    });
+  }
+
+  async updateLabLayout(userId: string, positions: any, rotations: any): Promise<GamificationProfile> {
+    const profile = await this.getProfile(userId);
+    
+    return this.prisma.gamificationProfile.update({
+      where: { userId },
+      data: {
+        labPositions: positions,
+        labRotations: rotations,
       },
     });
   }
