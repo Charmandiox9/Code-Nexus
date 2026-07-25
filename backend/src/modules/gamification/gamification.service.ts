@@ -305,4 +305,48 @@ export class GamificationService {
       },
     });
   }
+
+  // =====================================
+  // VIVERO DE MASCOTAS (PET NURSERY)
+  // =====================================
+
+  async getMyPets(userId: string) {
+    const profile = await this.getProfile(userId);
+    return this.prisma.codePet.findMany({
+      where: { profileId: profile.id },
+      orderBy: { level: 'desc' }
+    });
+  }
+
+  async interactWithPet(userId: string, petId: string, action: 'FEED' | 'PLAY') {
+    const profile = await this.getProfile(userId);
+    const pet = await this.prisma.codePet.findFirst({
+      where: { id: petId, profileId: profile.id }
+    });
+
+    if (!pet) throw new Error('Mascota no encontrada');
+
+    let happiness = pet.happiness;
+    let xp = pet.xp;
+
+    if (action === 'FEED') {
+      happiness = Math.min(100, happiness + 20);
+      xp += 5; // Darle de comer da algo de XP
+    } else if (action === 'PLAY') {
+      happiness = Math.min(100, happiness + 30);
+      xp += 10;
+    }
+
+    const newLevel = Math.floor(Math.sqrt(xp / 50)) + 1;
+    let newEvolutionStage = pet.evolutionStage;
+      
+    if (newLevel >= 5 && newEvolutionStage < 2) newEvolutionStage = 2;
+    if (newLevel >= 15 && newEvolutionStage < 3) newEvolutionStage = 3;
+    if (newLevel >= 30 && newEvolutionStage < 4) newEvolutionStage = 4;
+
+    return this.prisma.codePet.update({
+      where: { id: pet.id },
+      data: { happiness, xp, level: newLevel, evolutionStage: newEvolutionStage }
+    });
+  }
 }

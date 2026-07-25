@@ -28,6 +28,8 @@ model User {
   friends      Friendship[] @relation("UserFriends")
   friendOf     Friendship[] @relation("FriendUsers")
   activities   ActivityFeed[]
+  pets            CodePet[]
+  dailyQuests     UserDailyQuest[]
 
   @@map("users")
 }
@@ -290,4 +292,33 @@ enum ActivityType {
   LEVEL_UP
   NEW_PET
   EQUIPPED_THEME
+}// ==========================================
+// CONTEXTO: DAILY QUESTS
+// ==========================================
+model DailyQuest {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  xpReward    Int      @default(50)
+  crystals    Int      @default(10)
+  target      Int      @default(1) // Ej: "Completa 3 lecciones" -> 3
+  actionType  String   // Ej: "LESSON_COMPLETED", "LOGIN", "PET_FED"
+  
+  users       UserDailyQuest[]
+
+  @@map("daily_quests")
+}
+
+model UserDailyQuest {
+  userId      String
+  questId     String
+  progress    Int      @default(0)
+  completed   Boolean  @default(false)
+  assignedAt  DateTime @default(now())
+
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quest       DailyQuest @relation(fields: [questId], references: [id], onDelete: Cascade)
+
+  @@id([userId, questId])
+  @@map("user_daily_quests")
 }

@@ -51,7 +51,7 @@ export class CodePet {
   type: string;
 
   @Field(() => String, { nullable: true })
-  languageId?: string;
+  languageId?: string | null;
 
   @Field(() => Int)
   level: number;

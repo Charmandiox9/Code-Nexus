@@ -99,6 +99,21 @@ export class SocialService {
       return []; 
     }
 
+    const profiles = await this.db.gamificationProfile.findMany({
+      include: { user: true },
+    });
+
+    // Helper para parsear skills y obtener xp de un lenguaje
+    const getLanguageXp = (profile: any, lang: string) => {
+      try {
+        const skills = profile.skills as Record<string, any>;
+        if (skills && skills[lang]) {
+          return skills[lang].xp || 0;
+        }
+      } catch (e) {}
+      return 0;
+    };
+
     const getUserLeague = (xp: number) => {
       if (xp > 3000) return 'Diamante';
       if (xp > 1500) return 'Oro';
@@ -106,17 +121,19 @@ export class SocialService {
       return 'Bronce';
     };
 
-    const myLeague = getUserLeague(userProfile.xp);
+    const targetXp = language ? getLanguageXp(userProfile, language) : userProfile.xp;
+    const myLeague = getUserLeague(targetXp);
 
-    const profiles = await this.db.gamificationProfile.findMany({
-      orderBy: { xp: 'desc' },
-      include: { user: true },
-    });
-
-    return profiles
-      .map(p => ({ ...p, league: getUserLeague(p.xp) }))
+    const sortedProfiles = profiles
+      .map(p => {
+        const xp = language ? getLanguageXp(p, language) : p.xp;
+        return { ...p, league: getUserLeague(xp), sortXp: xp };
+      })
       .filter(p => p.league === myLeague)
+      .sort((a, b) => (b.sortXp as number) - (a.sortXp as number))
       .slice(0, limit);
+
+    return sortedProfiles;
   }
 
   // Internal: Log Activity

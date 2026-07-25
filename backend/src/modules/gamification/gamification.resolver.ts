@@ -1,6 +1,6 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GamificationService } from './gamification.service';
-import { GamificationProfile } from './models/gamification-profile.model';
+import { GamificationProfile, CodePet } from './models/gamification-profile.model';
 import { GraphQLJSONObject } from 'graphql-type-json';
 
 @Resolver(() => GamificationProfile)
@@ -85,5 +85,29 @@ export class GamificationResolver {
     @Args('rotations', { type: () => GraphQLJSONObject }) rotations: any,
   ): Promise<GamificationProfile> {
     return this.gamificationService.updateLabLayout(userId, positions, rotations);
+  }
+
+  // ==========================================
+  // PET NURSERY ENDPOINTS
+  // ==========================================
+
+  @Query(() => [CodePet], {
+    name: 'getMyPets',
+    description: 'Obtiene las mascotas del usuario',
+  })
+  async getMyPets(@Args('userId') userId: string): Promise<CodePet[]> {
+    return this.gamificationService.getMyPets(userId);
+  }
+
+  @Mutation(() => CodePet, {
+    name: 'interactWithPet',
+    description: 'Interactúa con la mascota (FEED o PLAY)',
+  })
+  async interactWithPet(
+    @Args('userId') userId: string,
+    @Args('petId') petId: string,
+    @Args('action') action: string,
+  ): Promise<CodePet> {
+    return this.gamificationService.interactWithPet(userId, petId, action as 'FEED' | 'PLAY');
   }
 }
