@@ -8,76 +8,76 @@ export const getCppSeed: SeederFunction = async (prisma) => {
     version: '17',
     sections: [
       {
-      concept: { slug: "phase-1-boot-sequence-core-mechanics", title: "Phase 1: Boot Sequence & Core Mechanics", description: "Infiltrate and master this sector.", orderIndex: 1 },
+      concept: { slug: "phase-1-boot-sequence-core-mechanics", title: "Fase 1: Secuencia de Inicio y Mecánicas Principales", description: "Infiltra y domina este sector.", orderIndex: 1 },
       lessons: [
           {
-            title: "Initialization Protocol",
+            title: "Protocolo de Inicialización",
             
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: "C++ is a high-performance, statically-typed compiled language. The entry point of every C++ program is the `int main()` function. To output text, we use `std::cout` from the `<iostream>` library.",
-              instructions: "Operative, we need to verify the terminal's structural integrity. Output 'System Online' to confirm.",
-              initialCode: "#include <iostream>\n\nint main() {\n  // Output 'System Online'\n  \n  return 0;\n}",
+              theory: "C++ es un lenguaje compilado de alto rendimiento y tipado estático. El punto de entrada de todo programa en C++ es la función `int main()`. Para imprimir texto, usamos `std::cout` de la biblioteca `<iostream>`.",
+              instructions: "Operativo, necesitamos verificar la integridad estructural de la terminal. Imprime 'System Online' para confirmar.",
+              initialCode: "#include <iostream>\n\nint main() {\n  // Imprime 'System Online'\n  \n  return 0;\n}",
               expectedOutput: "System Online"
             }
           },
           {
-            title: "Directives and Namespaces",
+            title: "Directivas y Espacios de Nombres",
             
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: "`using namespace std;` brings the standard library namespace into the global scope. While useful for small scripts, it can cause name collisions in large architectures. Directives like `#include` are handled by the preprocessor before compilation.",
-              instructions: "Analyze the provided transmission script. Run the code to observe how `std::` can be omitted when the namespace is declared.",
+              theory: "`using namespace std;` trae el espacio de nombres de la biblioteca estándar al ámbito global. Aunque es útil para scripts pequeños, puede causar colisiones de nombres en arquitecturas grandes. Las directivas como `#include` son manejadas por el preprocesador antes de la compilación.",
+              instructions: "Analiza el script de transmisión proporcionado. Ejecuta el código para observar cómo se puede omitir `std::` cuando se declara el espacio de nombres.",
               initialCode: "#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Bypassing security protocols...\";\n  return 0;\n}",
               expectedOutput: "Bypassing security protocols..."
             }
           },
           {
-            title: "Primitive Variables",
+            title: "Variables Primitivas",
             
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 10,
             content: {
-              theory: "Variables are typed memory allocations. C++ requires explicit type declaration: `int` for integers, `double` for floating-point, `char` for single characters, and `bool` for booleans.",
-              instructions: "We need to store the target server's access code. Declare an `int` named `accessCode` and assign it the value `404`.",
-              initialCode: "#include <iostream>\n\nint main() {\n  // Declare and initialize accessCode here\n  \n  std::cout << accessCode;\n  return 0;\n}",
+              theory: "Las variables son asignaciones de memoria tipadas. C++ requiere una declaración de tipo explícita: `int` para enteros, `double` para punto flotante, `char` para caracteres individuales, y `bool` para booleanos.",
+              instructions: "Necesitamos almacenar el código de acceso del servidor objetivo. Declara un `int` llamado `accessCode` y asígnale el valor `404`.",
+              initialCode: "#include <iostream>\n\nint main() {\n  // Declara e inicializa accessCode aquí\n  \n  std::cout << accessCode;\n  return 0;\n}",
               expectedOutput: "404"
             }
           },
           {
-            title: "The String Standard",
+            title: "El Estándar String",
             
             type: LessonType.EXERCISE_FREE,
             xpReward: 10,
             content: {
-              theory: "Unlike basic `char` arrays (C-strings), modern C++ utilizes the `std::string` class from the `<string>` library for robust text manipulation, providing built-in methods for appending, comparing, and sizing.",
-              instructions: "Construct a `std::string` variable named `payload` containing 'Trojan_v1'. Output it to the terminal.",
+              theory: "A diferencia de los arreglos básicos de `char` (C-strings), el C++ moderno utiliza la clase `std::string` de la biblioteca `<string>` para una manipulación de texto robusta, proporcionando métodos incorporados para concatenar, comparar y medir el tamaño.",
+              instructions: "Construye una variable `std::string` llamada `payload` que contenga 'Trojan_v1'. Imprímela en la terminal.",
               initialCode: "#include <iostream>\n#include <string>\n\nint main() {\n  \n  return 0;\n}",
               expectedOutput: "Trojan_v1"
             }
           },
           {
-            title: "Mathematical Operators",
+            title: "Operadores Matemáticos",
             
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 10,
             content: {
-              theory: "C++ supports standard arithmetic operations: `+`, `-`, `*`, `/`, and `%`. Note that integer division truncates decimals. To get a floating-point result, at least one operand must be a float or double.",
-              instructions: "Calculate the encryption key multiplier. Multiply 7 by 8 and store it in an `int` variable called `key`. Output the result.",
+              theory: "C++ soporta operaciones aritméticas estándar: `+`, `-`, `*`, `/`, y `%`. Ten en cuenta que la división de enteros trunca los decimales. Para obtener un resultado de punto flotante, al menos un operando debe ser float o double.",
+              instructions: "Calcula el multiplicador de la clave de encriptación. Multiplica 7 por 8 y guárdalo en una variable `int` llamada `key`. Imprime el resultado.",
               initialCode: "#include <iostream>\n\nint main() {\n  \n  return 0;\n}",
               expectedOutput: "56"
             }
           },
           {
-            title: "Boss: Knowledge Check - Basics",
+            title: "Jefe: Prueba de Conocimiento - Conceptos Básicos",
             
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              theory: "Assessment of fundamental C++ syntax, variable declaration, and basic I/O operations.",
-              instructions: "Which of the following is the correct way to output 'Hacked' to the console in C++ using the standard library?",
+              theory: "Evaluación de la sintaxis fundamental de C++, declaración de variables y operaciones básicas de E/S.",
+              instructions: "¿Cuál de las siguientes es la forma correcta de imprimir 'Hacked' en la consola en C++ usando la biblioteca estándar?",
               initialCode: "",
               quizOptions: [
                 "console.log('Hacked');",
@@ -91,76 +91,76 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-      concept: { slug: "phase-2-conditional-branches-data-flow", title: "Phase 2: Conditional Branches & Data Flow", description: "Infiltrate and master this sector.", orderIndex: 2 },
+      concept: { slug: "phase-2-conditional-branches-data-flow", title: "Fase 2: Ramificaciones Condicionales y Flujo de Datos", description: "Infiltra y domina este sector.", orderIndex: 2 },
       lessons: [
           {
-            title: "If/Else Statements",
+            title: "Sentencias If/Else",
             
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: "Conditional branching allows a program to execute different code blocks based on boolean evaluations. The syntax is `if (condition) { ... } else { ... }`.",
-              instructions: "A firewall is blocking our path. If `bypass` is true, output 'Access Granted'. Otherwise, output 'Access Denied'.",
-              initialCode: "#include <iostream>\n\nint main() {\n  bool bypass = true;\n  // Write your if/else statement here\n  \n  return 0;\n}",
+              theory: "La ramificación condicional permite que un programa ejecute diferentes bloques de código basándose en evaluaciones booleanas. La sintaxis es `if (condición) { ... } else { ... }`.",
+              instructions: "Un cortafuegos está bloqueando nuestro camino. Si `bypass` es verdadero, imprime 'Access Granted'. De lo contrario, imprime 'Access Denied'.",
+              initialCode: "#include <iostream>\n\nint main() {\n  bool bypass = true;\n  // Escribe tu sentencia if/else aquí\n  \n  return 0;\n}",
               expectedOutput: "Access Granted"
             }
           },
           {
-            title: "Logical Operators",
+            title: "Operadores Lógicos",
             
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 10,
             content: {
-              theory: "Multiple conditions can be combined using logical operators: `&&` (AND), `||` (OR), and `!` (NOT). Short-circuit evaluation applies.",
-              instructions: "We can only inject the payload if `isAdmin` is true AND `firewallDown` is true. Create an if statement to check this, outputting 'Injecting...' if successful.",
-              initialCode: "#include <iostream>\n\nint main() {\n  bool isAdmin = true;\n  bool firewallDown = true;\n  // Check conditions here\n  \n  return 0;\n}",
+              theory: "Múltiples condiciones se pueden combinar usando operadores lógicos: `&&` (Y), `||` (O), y `!` (NO). Aplica la evaluación de cortocircuito.",
+              instructions: "Solo podemos inyectar la carga útil si `isAdmin` es verdadero Y `firewallDown` es verdadero. Crea una sentencia if para comprobar esto, imprimiendo 'Injecting...' si tiene éxito.",
+              initialCode: "#include <iostream>\n\nint main() {\n  bool isAdmin = true;\n  bool firewallDown = true;\n  // Comprueba las condiciones aquí\n  \n  return 0;\n}",
               expectedOutput: "Injecting..."
             }
           },
           {
-            title: "The Switch Statement",
+            title: "La Sentencia Switch",
             
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: "A `switch` statement evaluates a single integral expression against multiple `case` labels. Without a `break;` statement, execution 'falls through' to subsequent cases.",
-              instructions: "Run this simulation to see how the system routes requests based on the `port` variable.",
+              theory: "Una sentencia `switch` evalúa una única expresión integral contra múltiples etiquetas `case`. Sin una sentencia `break;`, la ejecución 'cae' hacia los casos subsiguientes.",
+              instructions: "Ejecuta esta simulación para ver cómo el sistema enruta las solicitudes basándose en la variable `port`.",
               initialCode: "#include <iostream>\n\nint main() {\n  int port = 80;\n  switch (port) {\n    case 80:\n      std::cout << \"HTTP Traffic\";\n      break;\n    case 443:\n      std::cout << \"HTTPS Traffic\";\n      break;\n    default:\n      std::cout << \"Unknown Port\";\n  }\n  return 0;\n}",
               expectedOutput: "HTTP Traffic"
             }
           },
           {
-            title: "While & Do-While Loops",
+            title: "Bucles While y Do-While",
             
             type: LessonType.EXERCISE_FREE,
             xpReward: 10,
             content: {
-              theory: "A `while` loop continuously executes its block as long as the condition evaluates to true. A `do-while` loop executes at least once before checking its condition.",
-              instructions: "Create a `while` loop that counts down from 3 to 1, outputting each number, then output 'Ignition'.",
+              theory: "Un bucle `while` ejecuta continuamente su bloque siempre que la condición se evalúe como verdadera. Un bucle `do-while` se ejecuta al menos una vez antes de verificar su condición.",
+              instructions: "Crea un bucle `while` que cuente hacia atrás del 3 al 1, imprimiendo cada número, y luego imprima 'Ignition'.",
               initialCode: "#include <iostream>\n\nint main() {\n  int count = 3;\n  \n  return 0;\n}",
               expectedOutput: "321Ignition"
             }
           },
           {
-            title: "For Loops",
+            title: "Bucles For",
             
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 10,
             content: {
-              theory: "The `for` loop condenses initialization, condition checking, and iteration into a single statement: `for (init; condition; increment)`.",
-              instructions: "Use a `for` loop to iterate exactly 5 times, outputting 'Ping' each time.",
-              initialCode: "#include <iostream>\n\nint main() {\n  // Write your for loop here\n  \n  return 0;\n}",
+              theory: "El bucle `for` condensa la inicialización, la verificación de condición y la iteración en una sola sentencia: `for (inicio; condición; incremento)`.",
+              instructions: "Usa un bucle `for` para iterar exactamente 5 veces, imprimiendo 'Ping' cada vez.",
+              initialCode: "#include <iostream>\n\nint main() {\n  // Escribe tu bucle for aquí\n  \n  return 0;\n}",
               expectedOutput: "PingPingPingPingPing"
             }
           },
           {
-            title: "Boss: Algorithm Decryption",
+            title: "Jefe: Descifrado de Algoritmos",
             
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              theory: "Synthesizing conditionals and loops to traverse and manipulate data sets.",
-              instructions: "Write a program that uses a loop to output all even numbers between 1 and 10, sequentially with no spaces.",
+              theory: "Sintetizando condicionales y bucles para recorrer y manipular conjuntos de datos.",
+              instructions: "Escribe un programa que use un bucle para imprimir todos los números pares entre 1 y 10, secuencialmente sin espacios.",
               initialCode: "#include <iostream>\n\nint main() {\n  \n  return 0;\n}",
               expectedOutput: "246810"
             }
@@ -168,28 +168,28 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-      concept: { slug: "phase-3-data-structures-iteration", title: "Phase 3: Data Structures & Iteration", description: "Infiltrate and master this sector.", orderIndex: 3 },
+      concept: { slug: "phase-3-data-structures-iteration", title: "Fase 3: Estructuras de Datos e Iteración", description: "Infiltra y domina este sector.", orderIndex: 3 },
       lessons: [
           {
-            title: "C-Style Arrays",
+            title: "Arreglos Estilo C",
             
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: "An array is a fixed-size contiguous block of memory storing elements of the same type. Array indices start at 0. Accessing out-of-bounds indices leads to undefined behavior.",
-              instructions: "Access the third element of the `serverNodes` array and output it.",
-              initialCode: "#include <iostream>\n\nint main() {\n  int serverNodes[5] = {10, 20, 30, 40, 50};\n  // Output the 3rd node (value 30)\n  \n  return 0;\n}",
+              theory: "Un arreglo es un bloque de memoria contiguo de tamaño fijo que almacena elementos del mismo tipo. Los índices de los arreglos comienzan en 0. Acceder a índices fuera de los límites provoca un comportamiento indefinido.",
+              instructions: "Accede al tercer elemento del arreglo `serverNodes` e imprímelo.",
+              initialCode: "#include <iostream>\n\nint main() {\n  int serverNodes[5] = {10, 20, 30, 40, 50};\n  // Imprime el 3er nodo (valor 30)\n  \n  return 0;\n}",
               expectedOutput: "30"
             }
           },
           {
-            title: "Iterating Arrays",
+            title: "Iterando Arreglos",
             
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 10,
             content: {
-              theory: "Loops are commonly used to traverse arrays. The length of a standard C-array isn't inherently known by the array itself, so you often calculate it with `sizeof(array) / sizeof(array[0])`.",
-              instructions: "Use a `for` loop to print every element in the `ports` array.",
+              theory: "Los bucles se usan comúnmente para recorrer arreglos. La longitud de un arreglo estándar de C no es inherentemente conocida por el propio arreglo, por lo que a menudo se calcula con `sizeof(arreglo) / sizeof(arreglo[0])`.",
+              instructions: "Usa un bucle `for` para imprimir cada elemento en el arreglo `ports`.",
               initialCode: "#include <iostream>\n\nint main() {\n  int ports[] = {21, 22, 80, 443};\n  int size = sizeof(ports) / sizeof(ports[0]);\n  \n  return 0;\n}",
               expectedOutput: "212280443"
             }
@@ -200,8 +200,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: "Modern C++ introduced `std::array` in `<array>`, providing a safer, object-oriented alternative to C-style arrays without performance overhead. It knows its own size via `.size()`.",
-              instructions: "Run this script to observe the safety and syntax of `std::array`.",
+              theory: "El C++ moderno introdujo `std::array` en `<array>`, proporcionando una alternativa más segura y orientada a objetos a los arreglos estilo C sin sobrecarga de rendimiento. Conoce su propio tamaño mediante `.size()`.",
+              instructions: "Ejecuta este script para observar la seguridad y sintaxis de `std::array`.",
               initialCode: "#include <iostream>\n#include <array>\n\nint main() {\n  std::array<int, 3> keys = {101, 202, 303};\n  std::cout << keys.size() << \"-\" << keys.front();\n  return 0;\n}",
               expectedOutput: "3-101"
             }
@@ -212,37 +212,37 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             type: LessonType.EXERCISE_FREE,
             xpReward: 10,
             content: {
-              theory: "`std::vector` in `<vector>` is a dynamic array. It automatically resizes itself when elements are added via `.push_back()`. It is the default sequence container in C++.",
-              instructions: "Include `<vector>`. Create a `std::vector<int>` named `logs`. Push the values `404` and `500` into it. Output the first element.",
+              theory: "`std::vector` en `<vector>` es un arreglo dinámico. Se redimensiona automáticamente cuando se agregan elementos mediante `.push_back()`. Es el contenedor de secuencias por defecto en C++.",
+              instructions: "Incluye `<vector>`. Crea un `std::vector<int>` llamado `logs`. Agrega (push) los valores `404` y `500`. Imprime el primer elemento.",
               initialCode: "#include <iostream>\n\nint main() {\n  \n  return 0;\n}",
               expectedOutput: "404"
             }
           },
           {
-            title: "Range-Based For Loops",
+            title: "Bucles For Basados en Rangos",
             
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 10,
             content: {
-              theory: "C++11 introduced range-based for loops, which provide a cleaner syntax for iterating over containers like arrays and vectors: `for (type var : container) { ... }`.",
-              instructions: "Use a range-based for loop to iterate through the `signatures` vector and print each.",
+              theory: "C++11 introdujo los bucles for basados en rangos, que proporcionan una sintaxis más limpia para iterar sobre contenedores como arreglos y vectores: `for (tipo var : contenedor) { ... }`.",
+              instructions: "Usa un bucle for basado en rangos para iterar a través del vector `signatures` e imprimir cada uno.",
               initialCode: "#include <iostream>\n#include <vector>\n#include <string>\n\nint main() {\n  std::vector<std::string> signatures = {\"Worm\", \"Trojan\"};\n  \n  return 0;\n}",
               expectedOutput: "WormTrojan"
             }
           },
           {
-            title: "Boss: Data Manipulation Quiz",
+            title: "Jefe: Prueba de Manipulación de Datos",
             
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              theory: "Understanding the difference between fixed-size and dynamic data structures in C++ memory management.",
-              instructions: "Which STL container should you choose if you need an array that can change size at runtime?",
+              theory: "Comprendiendo la diferencia entre estructuras de datos de tamaño fijo y dinámicas en la gestión de memoria de C++.",
+              instructions: "¿Qué contenedor de la STL deberías elegir si necesitas un arreglo que pueda cambiar de tamaño en tiempo de ejecución?",
               initialCode: "",
               quizOptions: [
                 "std::list",
                 "std::array",
-                "C-style array",
+                "Arreglo estilo C",
                 "std::vector"
               ],
               correctOptionIndex: 3
@@ -251,82 +251,82 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-      concept: { slug: "phase-4-modular-subroutines-functions", title: "Phase 4: Modular Subroutines (Functions)", description: "Infiltrate and master this sector.", orderIndex: 4 },
+      concept: { slug: "phase-4-modular-subroutines-functions", title: "Fase 4: Subrutinas Modulares (Funciones)", description: "Infiltra y domina este sector.", orderIndex: 4 },
       lessons: [
           {
-            title: "Function Declaration & Definition",
+            title: "Declaración y Definición de Funciones",
             
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: "Functions break code into reusable modules. A function must be declared before it is called. The signature includes the return type, name, and parameters.",
-              instructions: "We need a subroutine to initiate an override. Define a void function `overrideProtocol()` that outputs 'Override'. Call it from `main`.",
-              initialCode: "#include <iostream>\n\n// Define overrideProtocol here\n\nint main() {\n  // Call it here\n  return 0;\n}",
+              theory: "Las funciones dividen el código en módulos reutilizables. Una función debe ser declarada antes de ser llamada. La firma incluye el tipo de retorno, el nombre y los parámetros.",
+              instructions: "Necesitamos una subrutina para iniciar una anulación. Define una función void `overrideProtocol()` que imprima 'Override'. Llámala desde `main`.",
+              initialCode: "#include <iostream>\n\n// Define overrideProtocol aquí\n\nint main() {\n  // Llámala aquí\n  return 0;\n}",
               expectedOutput: "Override"
             }
           },
           {
-            title: "Parameters & Arguments",
+            title: "Parámetros y Argumentos",
             
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 10,
             content: {
-              theory: "Functions accept inputs via parameters. When you call the function, you pass arguments. By default, arguments are passed by value (a copy is made).",
-              instructions: "Complete the `decrypt` function so it takes an `int` parameter `cipher`, adds 10 to it, and returns the result. Output the result for `cipher = 5`.",
-              initialCode: "#include <iostream>\n\nint decrypt(int cipher) {\n  // Return cipher + 10\n}\n\nint main() {\n  std::cout << decrypt(5);\n  return 0;\n}",
+              theory: "Las funciones aceptan entradas a través de parámetros. Cuando llamas a la función, pasas argumentos. Por defecto, los argumentos se pasan por valor (se hace una copia).",
+              instructions: "Completa la función `decrypt` para que tome un parámetro `int` `cipher`, le sume 10, y devuelva el resultado. Imprime el resultado para `cipher = 5`.",
+              initialCode: "#include <iostream>\n\nint decrypt(int cipher) {\n  // Devuelve cipher + 10\n}\n\nint main() {\n  std::cout << decrypt(5);\n  return 0;\n}",
               expectedOutput: "15"
             }
           },
           {
-            title: "Return Types",
+            title: "Tipos de Retorno",
             
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: "The return type specifies what data the function sends back to the caller. If a function returns nothing, its type is `void`. Any non-void function must have a `return` statement in all code paths.",
-              instructions: "Analyze this function that checks if a port is secure, returning a boolean.",
+              theory: "El tipo de retorno especifica qué datos devuelve la función a quien la llama. Si una función no devuelve nada, su tipo es `void`. Cualquier función que no sea void debe tener una sentencia `return` en todas las rutas de código.",
+              instructions: "Analiza esta función que comprueba si un puerto es seguro, devolviendo un booleano.",
               initialCode: "#include <iostream>\n\nbool isSecurePort(int port) {\n  return (port == 443 || port == 22);\n}\n\nint main() {\n  if (isSecurePort(80)) std::cout << \"Secure\";\n  else std::cout << \"Vulnerable\";\n  return 0;\n}",
               expectedOutput: "Vulnerable"
             }
           },
           {
-            title: "Function Overloading",
+            title: "Sobrecarga de Funciones",
             
             type: LessonType.EXERCISE_FREE,
             xpReward: 10,
             content: {
-              theory: "C++ allows function overloading: defining multiple functions with the same name but different parameter lists (signatures). The compiler determines which one to call based on the arguments.",
-              instructions: "Create two `printData` functions. One takes an `int` and outputs 'Int', the other takes a `std::string` and outputs 'Str'. Call both from main.",
-              initialCode: "#include <iostream>\n#include <string>\n\n// Create overloads here\n\nint main() {\n  \n  return 0;\n}",
+              theory: "C++ permite la sobrecarga de funciones: definir múltiples funciones con el mismo nombre pero diferentes listas de parámetros (firmas). El compilador determina cuál llamar basándose en los argumentos.",
+              instructions: "Crea dos funciones `printData`. Una toma un `int` e imprime 'Int', la otra toma un `std::string` e imprime 'Str'. Llama a ambas desde main.",
+              initialCode: "#include <iostream>\n#include <string>\n\n// Crea sobrecargas aquí\n\nint main() {\n  \n  return 0;\n}",
               expectedOutput: "IntStr"
             }
           },
           {
-            title: "Boss: Default Arguments Logic",
+            title: "Jefe: Lógica de Argumentos por Defecto",
             
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              theory: "Parameters can have default values. If the caller omits the argument, the default is used. Default arguments must be the right-most parameters in the list.",
-              instructions: "Modify the `connect` function so that the `port` parameter defaults to `80`. Call `connect(\"192\")` without the second argument.",
-              initialCode: "#include <iostream>\n#include <string>\n\n// Add default argument to port\nvoid connect(std::string ip, int port) {\n  std::cout << ip << \":\" << port;\n}\n\nint main() {\n  connect(\"192\");\n  return 0;\n}",
+              theory: "Los parámetros pueden tener valores por defecto. Si el llamador omite el argumento, se usa el valor por defecto. Los argumentos por defecto deben ser los parámetros más a la derecha en la lista.",
+              instructions: "Modifica la función `connect` para que el parámetro `port` tenga por defecto `80`. Llama a `connect(\"192\")` sin el segundo argumento.",
+              initialCode: "#include <iostream>\n#include <string>\n\n// Agrega un argumento por defecto a port\nvoid connect(std::string ip, int port) {\n  std::cout << ip << \":\" << port;\n}\n\nint main() {\n  connect(\"192\");\n  return 0;\n}",
               expectedOutput: "192:80"
             }
           },
           {
-            title: "Boss: Modularity Architecture",
+            title: "Jefe: Arquitectura de Modularidad",
             
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              theory: "Evaluating function signatures and return types.",
-              instructions: "What is the output of the following code snippet?",
+              theory: "Evaluando firmas de funciones y tipos de retorno.",
+              instructions: "¿Cuál es la salida del siguiente fragmento de código?",
               initialCode: "int compute(int x=5) { return x * 2; }\nint main() { cout << compute() << \" \" << compute(3); }",
               quizOptions: [
                 "10 6",
                 "5 3",
                 "10 3",
-                "Error: default arguments are not allowed"
+                "Error: los argumentos por defecto no están permitidos"
               ],
               correctOptionIndex: 0
             }
@@ -334,82 +334,82 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-      concept: { slug: "phase-5-memory-access-pointers-references", title: "Phase 5: Memory Access (Pointers & References)", description: "Infiltrate and master this sector.", orderIndex: 5 },
+      concept: { slug: "phase-5-memory-access-pointers-references", title: "Fase 5: Acceso a Memoria (Punteros y Referencias)", description: "Infiltra y domina este sector.", orderIndex: 5 },
       lessons: [
           {
-            title: "Memory Addresses",
+            title: "Direcciones de Memoria",
             
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: "Every variable resides at a specific memory address in RAM. You can retrieve this address using the address-of operator `&`. Hexadecimal formats are typically used to display addresses.",
-              instructions: "Retrieve the memory address of the `core` variable. (Note: Since addresses change every run, output a dummy address like '0x7ffd' for this exercise).",
-              initialCode: "#include <iostream>\n\nint main() {\n  int core = 1;\n  // Normally you'd print &core, but for testing, output \"0x7ffd\"\n  std::cout << \"0x7ffd\";\n  return 0;\n}",
+              theory: "Cada variable reside en una dirección de memoria específica en la RAM. Puedes recuperar esta dirección usando el operador de dirección `&`. Típicamente se usan formatos hexadecimales para mostrar direcciones.",
+              instructions: "Recupera la dirección de memoria de la variable `core`. (Nota: Como las direcciones cambian en cada ejecución, imprime una dirección ficticia como '0x7ffd' para este ejercicio).",
+              initialCode: "#include <iostream>\n\nint main() {\n  int core = 1;\n  // Normalmente imprimirías &core, pero para las pruebas, imprime \"0x7ffd\"\n  std::cout << \"0x7ffd\";\n  return 0;\n}",
               expectedOutput: "0x7ffd"
             }
           },
           {
-            title: "Introduction to Pointers",
+            title: "Introducción a los Punteros",
             
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 10,
             content: {
-              theory: "A pointer is a variable that stores a memory address. Declared with `*`, such as `int* ptr`. Pointers are the heart of C++, allowing direct manipulation of hardware and memory.",
-              instructions: "Declare a pointer `int* ptr` and assign it the address of `secretKey`. Then output '0xabcd' to represent it.",
-              initialCode: "#include <iostream>\n\nint main() {\n  int secretKey = 9934;\n  // Declare pointer here\n  \n  std::cout << \"0xabcd\";\n  return 0;\n}",
+              theory: "Un puntero es una variable que almacena una dirección de memoria. Se declara con `*`, como `int* ptr`. Los punteros son el corazón de C++, permitiendo la manipulación directa del hardware y la memoria.",
+              instructions: "Declara un puntero `int* ptr` y asígnale la dirección de `secretKey`. Luego imprime '0xabcd' para representarlo.",
+              initialCode: "#include <iostream>\n\nint main() {\n  int secretKey = 9934;\n  // Declara el puntero aquí\n  \n  std::cout << \"0xabcd\";\n  return 0;\n}",
               expectedOutput: "0xabcd"
             }
           },
           {
-            title: "Dereferencing Pointers",
+            title: "Desreferenciando Punteros",
             
             type: LessonType.EXERCISE_FREE,
             xpReward: 10,
             content: {
-              theory: "To access or modify the value at the memory address a pointer holds, you use the dereference operator `*`. E.g., `*ptr = 10;` changes the original variable.",
-              instructions: "We have intercepted a pointer to the main security firewall switch. Dereference `ptr` and change its value to `0` to disable it. Output `fireStatus`.",
-              initialCode: "#include <iostream>\n\nint main() {\n  int fireStatus = 1;\n  int* ptr = &fireStatus;\n  \n  // Dereference and change to 0\n  \n  std::cout << fireStatus;\n  return 0;\n}",
+              theory: "Para acceder o modificar el valor en la dirección de memoria que contiene un puntero, usas el operador de desreferencia `*`. Ej., `*ptr = 10;` cambia la variable original.",
+              instructions: "Hemos interceptado un puntero al interruptor principal del cortafuegos de seguridad. Desreferencia `ptr` y cambia su valor a `0` para desactivarlo. Imprime `fireStatus`.",
+              initialCode: "#include <iostream>\n\nint main() {\n  int fireStatus = 1;\n  int* ptr = &fireStatus;\n  \n  // Desreferencia y cambia a 0\n  \n  std::cout << fireStatus;\n  return 0;\n}",
               expectedOutput: "0"
             }
           },
           {
-            title: "Pass by Reference",
+            title: "Paso por Referencia",
             
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: "C++ introduces references (`&`). A reference is an alias to an existing variable. Passing by reference to a function allows the function to modify the original variable without dealing with pointer syntax.",
-              instructions: "Observe how `hackTerminal` modifies the original `attempts` variable because it accepts it by reference.",
+              theory: "C++ introduce las referencias (`&`). Una referencia es un alias de una variable existente. Pasar por referencia a una función permite a la función modificar la variable original sin lidiar con la sintaxis de punteros.",
+              instructions: "Observa cómo `hackTerminal` modifica la variable original `attempts` porque la acepta por referencia.",
               initialCode: "#include <iostream>\n\nvoid hackTerminal(int& attemptsRef) {\n  attemptsRef -= 1;\n}\n\nint main() {\n  int attempts = 3;\n  hackTerminal(attempts);\n  std::cout << attempts;\n  return 0;\n}",
               expectedOutput: "2"
             }
           },
           {
-            title: "Boss: Pointer Arithmetic",
+            title: "Jefe: Aritmética de Punteros",
             
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              theory: "Pointers and arrays are deeply connected. Arrays decay into pointers to their first element. You can add to a pointer to traverse an array.",
-              instructions: "We have an array `int data[] = {10, 20, 30}`. Using a pointer initialized to `data`, dereference `ptr + 1` to output the second element.",
-              initialCode: "#include <iostream>\n\nint main() {\n  int data[] = {10, 20, 30};\n  int* ptr = data;\n  // Output the second element using pointer arithmetic\n  \n  return 0;\n}",
+              theory: "Los punteros y los arreglos están profundamente conectados. Los arreglos decaen en punteros a su primer elemento. Puedes sumar a un puntero para recorrer un arreglo.",
+              instructions: "Tenemos un arreglo `int data[] = {10, 20, 30}`. Usando un puntero inicializado con `data`, desreferencia `ptr + 1` para imprimir el segundo elemento.",
+              initialCode: "#include <iostream>\n\nint main() {\n  int data[] = {10, 20, 30};\n  int* ptr = data;\n  // Imprime el segundo elemento usando aritmética de punteros\n  \n  return 0;\n}",
               expectedOutput: "20"
             }
           },
           {
-            title: "Boss: Memory Leak Quiz",
+            title: "Jefe: Prueba de Fuga de Memoria",
             
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              theory: "Understanding dynamic memory allocation with `new` and `delete`.",
-              instructions: "When you allocate memory on the heap using the `new` keyword, what must you eventually do to prevent a memory leak?",
+              theory: "Comprendiendo la asignación dinámica de memoria con `new` y `delete`.",
+              instructions: "Cuando asignas memoria en el heap (montículo) usando la palabra clave `new`, ¿qué debes hacer eventualmente para prevenir una fuga de memoria?",
               initialCode: "",
               quizOptions: [
-                "Call free()",
-                "Wait for the Garbage Collector",
-                "Call delete on the pointer",
-                "Set the pointer to NULL"
+                "Llamar a free()",
+                "Esperar al Recolector de Basura (Garbage Collector)",
+                "Llamar a delete sobre el puntero",
+                "Establecer el puntero a NULL"
               ],
               correctOptionIndex: 2
             }
@@ -417,64 +417,64 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-      concept: { slug: "phase-6-object-oriented-schematics", title: "Phase 6: Object-Oriented Schematics", description: "Infiltrate and master this sector.", orderIndex: 6 },
+      concept: { slug: "phase-6-object-oriented-schematics", title: "Fase 6: Esquemas Orientados a Objetos", description: "Infiltra y domina este sector.", orderIndex: 6 },
       lessons: [
           {
-            title: "Classes & Objects",
+            title: "Clases y Objetos",
             
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: "C++ is an Object-Oriented language. A `class` is a blueprint for objects, encapsulating data (attributes) and functions (methods). Objects are instances of classes.",
-              instructions: "Define a class `Drone` with a public integer `battery`. In `main`, create a `Drone` object, set its battery to 100, and print it.",
-              initialCode: "#include <iostream>\n\nclass Drone {\npublic:\n  int battery;\n};\n\nint main() {\n  // Create object and set battery\n  \n  return 0;\n}",
+              theory: "C++ es un lenguaje orientado a objetos. Una clase (`class`) es un plano para objetos, que encapsula datos (atributos) y funciones (métodos). Los objetos son instancias de las clases.",
+              instructions: "Define una clase `Drone` con un entero público `battery`. En `main`, crea un objeto `Drone`, establece su batería en 100 e imprímelo.",
+              initialCode: "#include <iostream>\n\nclass Drone {\npublic:\n  int battery;\n};\n\nint main() {\n  // Crea el objeto y establece la batería\n  \n  return 0;\n}",
               expectedOutput: "100"
             }
           },
           {
-            title: "Constructors",
+            title: "Constructores",
             
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 10,
             content: {
-              theory: "A constructor is a special class method invoked automatically when an object is instantiated. It shares the same name as the class and has no return type.",
-              instructions: "Add a constructor to the `Server` class that takes an `int` and initializes the `uptime` attribute. Instantiate a Server with uptime 99 and print it.",
-              initialCode: "#include <iostream>\n\nclass Server {\npublic:\n  int uptime;\n  // Write constructor here\n};\n\nint main() {\n  Server s1(99);\n  std::cout << s1.uptime;\n  return 0;\n}",
+              theory: "Un constructor es un método especial de la clase que se invoca automáticamente cuando se instancia un objeto. Comparte el mismo nombre que la clase y no tiene tipo de retorno.",
+              instructions: "Agrega un constructor a la clase `Server` que tome un `int` e inicialice el atributo `uptime`. Instancia un Server con uptime de 99 e imprímelo.",
+              initialCode: "#include <iostream>\n\nclass Server {\npublic:\n  int uptime;\n  // Escribe el constructor aquí\n};\n\nint main() {\n  Server s1(99);\n  std::cout << s1.uptime;\n  return 0;\n}",
               expectedOutput: "99"
             }
           },
           {
-            title: "Encapsulation (Private & Public)",
+            title: "Encapsulamiento (Privado y Público)",
             
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: "By default, class members are `private`. They cannot be accessed outside the class. We use `public` getter and setter methods to control access to private data.",
-              instructions: "Observe how the private `encryptionKey` is protected, and only accessible via `setKey()` and `getKey()`.",
+              theory: "Por defecto, los miembros de la clase son privados (`private`). No se puede acceder a ellos desde fuera de la clase. Usamos métodos getter y setter públicos (`public`) para controlar el acceso a datos privados.",
+              instructions: "Observa cómo `encryptionKey` privado está protegido, y solo es accesible a través de `setKey()` y `getKey()`.",
               initialCode: "#include <iostream>\n\nclass Vault {\nprivate:\n  int encryptionKey;\npublic:\n  void setKey(int key) { encryptionKey = key; }\n  int getKey() { return encryptionKey; }\n};\n\nint main() {\n  Vault v;\n  v.setKey(1234);\n  std::cout << v.getKey();\n  return 0;\n}",
               expectedOutput: "1234"
             }
           },
           {
-            title: "Inheritance",
+            title: "Herencia",
             
             type: LessonType.EXERCISE_FREE,
             xpReward: 10,
             content: {
-              theory: "Inheritance allows a new class (derived) to inherit attributes and methods from an existing class (base). Syntax: `class Derived : public Base {}`.",
-              instructions: "Create a base class `Entity` with a public method `void scan() { std::cout << \"Scan\"; }`. Create a `Virus` class inheriting `Entity`. In `main`, call `scan()` on a `Virus` object.",
-              initialCode: "#include <iostream>\n\n// Define Entity\n\n// Define Virus inheriting from Entity\n\nint main() {\n  \n  return 0;\n}",
+              theory: "La herencia permite a una nueva clase (derivada) heredar atributos y métodos de una clase existente (base). Sintaxis: `class Derived : public Base {}`.",
+              instructions: "Crea una clase base `Entity` con un método público `void scan() { std::cout << \"Scan\"; }`. Crea una clase `Virus` que herede de `Entity`. En `main`, llama a `scan()` sobre un objeto `Virus`.",
+              initialCode: "#include <iostream>\n\n// Define Entity\n\n// Define Virus que hereda de Entity\n\nint main() {\n  \n  return 0;\n}",
               expectedOutput: "Scan"
             }
           },
           {
-            title: "Boss: Polymorphism Quiz",
+            title: "Jefe: Prueba de Polimorfismo",
             
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              theory: "Polymorphism allows methods to do different things based on the object it is acting upon, typically utilizing virtual functions.",
-              instructions: "To allow a derived class to override a base class method, what keyword must precede the base class method declaration?",
+              theory: "El polimorfismo permite que los métodos hagan cosas diferentes basándose en el objeto sobre el que actúan, típicamente utilizando funciones virtuales.",
+              instructions: "Para permitir que una clase derivada anule (override) un método de la clase base, ¿qué palabra clave debe preceder a la declaración del método en la clase base?",
               initialCode: "",
               quizOptions: [
                 "override",
@@ -488,29 +488,29 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-      concept: { slug: "phase-7-advanced-systems-stl", title: "Phase 7: Advanced Systems & STL", description: "Infiltrate and master this sector.", orderIndex: 7 },
+      concept: { slug: "phase-7-advanced-systems-stl", title: "Fase 7: Sistemas Avanzados y STL", description: "Infiltra y domina este sector.", orderIndex: 7 },
       lessons: [
           {
-            title: "Templates",
+            title: "Plantillas (Templates)",
             
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: "Templates allow functions and classes to operate with generic types, preventing code duplication. Syntax starts with `template <typename T>`.",
-              instructions: "Create a template function `getMax` that takes two parameters of type `T` and returns the larger one using the ternary operator `(a > b) ? a : b`. Call it with 5 and 10.",
-              initialCode: "#include <iostream>\n\n// Define template getMax here\n\nint main() {\n  std::cout << getMax(5, 10);\n  return 0;\n}",
+              theory: "Las plantillas (templates) permiten que las funciones y clases operen con tipos genéricos, evitando la duplicación de código. La sintaxis comienza con `template <typename T>`.",
+              instructions: "Crea una función de plantilla `getMax` que tome dos parámetros de tipo `T` y devuelva el mayor usando el operador ternario `(a > b) ? a : b`. Llámala con 5 y 10.",
+              initialCode: "#include <iostream>\n\n// Define la plantilla getMax aquí\n\nint main() {\n  std::cout << getMax(5, 10);\n  return 0;\n}",
               expectedOutput: "10"
             }
           },
           {
-            title: "Maps & Dictionaries",
+            title: "Mapas y Diccionarios",
             
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 10,
             content: {
-              theory: "`std::map` (in `<map>`) stores key-value pairs, sorting them by key automatically. `std::unordered_map` does the same but with faster O(1) access via hashing.",
-              instructions: "Include `<map>`. Create a `std::map<std::string, int>` called `credentials`. Insert `\"admin\"` with value `1234`. Output the value for `\"admin\"`.",
-              initialCode: "#include <iostream>\n#include <map>\n#include <string>\n\nint main() {\n  // Create map and insert pair\n  \n  return 0;\n}",
+              theory: "`std::map` (en `<map>`) almacena pares clave-valor, ordenándolos por clave automáticamente. `std::unordered_map` hace lo mismo pero con un acceso más rápido O(1) a través de hash.",
+              instructions: "Incluye `<map>`. Crea un `std::map<std::string, int>` llamado `credentials`. Inserta `\"admin\"` con el valor `1234`. Imprime el valor para `\"admin\"`.",
+              initialCode: "#include <iostream>\n#include <map>\n#include <string>\n\nint main() {\n  // Crea el mapa e inserta el par\n  \n  return 0;\n}",
               expectedOutput: "1234"
             }
           },
@@ -520,32 +520,32 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: "A `struct` in C++ is nearly identical to a `class`, but its members are `public` by default. They are typically used for grouping simple data variables.",
-              instructions: "Run the code to see how a `struct` groups a target's IP and status.",
+              theory: "Un `struct` en C++ es casi idéntico a una clase (`class`), pero sus miembros son públicos (`public`) por defecto. Típicamente se usan para agrupar variables de datos simples.",
+              instructions: "Ejecuta el código para ver cómo un `struct` agrupa la IP y el estado de un objetivo.",
               initialCode: "#include <iostream>\n#include <string>\n\nstruct Target {\n  std::string ip;\n  bool online;\n};\n\nint main() {\n  Target t1 = {\"192.168.0.1\", true};\n  std::cout << t1.ip << (t1.online ? \"Up\" : \"Down\");\n  return 0;\n}",
               expectedOutput: "192.168.0.1Up"
             }
           },
           {
-            title: "Boss: Final Algorithm Exam",
+            title: "Jefe: Examen Final de Algoritmos",
             
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              theory: "Comprehensive synthesis of variables, loops, arrays, and standard libraries.",
-              instructions: "Write a program that iterates from 1 to 5. If the number is even, push it into a `std::vector<int>`. After the loop, output the size of the vector.",
-              initialCode: "#include <iostream>\n#include <vector>\n\nint main() {\n  std::vector<int> evens;\n  // Write loop logic here\n  \n  // Output size\n  return 0;\n}",
+              theory: "Síntesis exhaustiva de variables, bucles, arreglos y bibliotecas estándar.",
+              instructions: "Escribe un programa que itere del 1 al 5. Si el número es par, agrégalo a un `std::vector<int>`. Después del bucle, imprime el tamaño del vector.",
+              initialCode: "#include <iostream>\n#include <vector>\n\nint main() {\n  std::vector<int> evens;\n  // Escribe la lógica del bucle aquí\n  \n  // Imprime el tamaño\n  return 0;\n}",
               expectedOutput: "2"
             }
           },
           {
-            title: "Boss: The Ultimate Override",
+            title: "Jefe: La Anulación Definitiva",
             
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              theory: "Final evaluation of C++ compilation, execution, and memory.",
-              instructions: "Which standard library function is commonly used to dynamically allocate an array in modern C++ to avoid raw pointers?",
+              theory: "Evaluación final de compilación, ejecución y memoria en C++.",
+              instructions: "¿Qué función de la biblioteca estándar se usa comúnmente para asignar dinámicamente un arreglo en el C++ moderno para evitar punteros crudos?",
               initialCode: "",
               quizOptions: [
                 "malloc()",

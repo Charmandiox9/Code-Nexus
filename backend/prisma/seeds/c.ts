@@ -10,73 +10,73 @@ export const getCSeed: SeederFunction = async (prisma: PrismaClient): Promise<La
       {
         concept: {
           slug: "c-core-protocol",
-          title: "The Core Protocol",
-          description: "Initialize your cyber-deck. Understand the basic primitives and standard I/O of the C terminal.",
+          title: "El Protocolo Central",
+          description: "Inicializa tu cibermazo. Comprende las primitivas básicas y la E/S estándar de la terminal de C.",
           orderIndex: 1
         },
         lessons: [
           {
-            title: "Boot Sequence: C Compiler",
+            title: "Secuencia de Arranque: Compilador de C",
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: "Welcome to the lowest levels of the mainframe, Operative. C is a compiled language, meaning source code must be transformed into machine code before execution.",
-              instructions: "Initialize the boot sequence. Output 'System Online' to verify standard output streams are functional.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  // Print the activation string\n  \n  return 0;\n}",
+              theory: "Bienvenido a los niveles más bajos del mainframe, Operativo. C es un lenguaje compilado, lo que significa que el código fuente debe transformarse en código máquina antes de la ejecución.",
+              instructions: "Inicializa la secuencia de arranque. Imprime 'System Online' para verificar que los flujos de salida estándar son funcionales.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  // Imprime la cadena de activación\n  \n  return 0;\n}",
               expectedOutput: "System Online"
             }
           },
           {
-            title: "Data Primitives",
+            title: "Primitivas de Datos",
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: "Variables in C are strictly typed. You must declare the exact memory layout required: int, float, char, or double.",
-              instructions: "Review the declaration of primitive types. Run the executable to observe the memory readout.",
+              theory: "Las variables en C están estrictamente tipadas. Debes declarar la disposición exacta de memoria requerida: int, float, char, o double.",
+              instructions: "Revisa la declaración de tipos primitivos. Ejecuta el archivo para observar la lectura de memoria.",
               initialCode: "#include <stdio.h>\n\nint main() {\n  int cycles = 42;\n  float voltage = 3.14;\n  char sector = 'A';\n  printf(\"C: %d, V: %.2f, S: %c\", cycles, voltage, sector);\n  return 0;\n}",
               expectedOutput: "C: 42, V: 3.14, S: A"
             }
           },
           {
-            title: "Memory Initialization",
+            title: "Inicialización de Memoria",
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: "Uninitialized variables contain garbage data from previous memory states. Always initialize your registers.",
-              instructions: "Declare an integer variable named 'authCode' and initialize it to 999. Print it.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  // Declare and initialize authCode\n  \n  return 0;\n}",
+              theory: "Las variables no inicializadas contienen datos basura de estados de memoria anteriores. Siempre inicializa tus registros.",
+              instructions: "Declara una variable entera llamada 'authCode' e inicialízala en 999. Imprímela.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  // Declara e inicializa authCode\n  \n  return 0;\n}",
               expectedOutput: "999"
             }
           },
           {
-            title: "Stream Formatting",
+            title: "Formateo de Flujo",
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: "The standard output stream relies on format specifiers like %d for integers and %s for strings to interpolate data.",
-              instructions: "Format the output exactly as 'Sector: 7, Status: Active'. You are given the integer variable 'sector'.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  int sector = 7;\n  // Write the formatted output\n  \n  return 0;\n}",
+              theory: "El flujo de salida estándar se basa en especificadores de formato como %d para enteros y %s para cadenas para interpolar datos.",
+              instructions: "Formatea la salida exactamente como 'Sector: 7, Status: Active'. Se te da la variable entera 'sector'.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  int sector = 7;\n  // Escribe la salida formateada\n  \n  return 0;\n}",
               expectedOutput: "Sector: 7, Status: Active"
             }
           },
           {
-            title: "Arithmetic ALU",
+            title: "ALU Aritmética",
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: "The Arithmetic Logic Unit (ALU) processes mathematical operations. Standard operators (+, -, *, /) are executed by the CPU.",
-              instructions: "Calculate the total bandwidth by multiplying 'base' by 'multiplier' and adding 'bonus'. Print the result.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  int base = 100, multiplier = 4, bonus = 50;\n  // Calculate and print\n  \n  return 0;\n}",
+              theory: "La Unidad Aritmético Lógica (ALU) procesa operaciones matemáticas. Los operadores estándar (+, -, *, /) son ejecutados por la CPU.",
+              instructions: "Calcula el ancho de banda total multiplicando 'base' por 'multiplier' y sumando 'bonus'. Imprime el resultado.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  int base = 100, multiplier = 4, bonus = 50;\n  // Calcula e imprime\n  \n  return 0;\n}",
               expectedOutput: "450"
             }
           },
           {
-            title: "Core Diagnostic",
+            title: "Diagnóstico Central",
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: "Mission: Core Systems Diagnostic. We must verify your understanding of the C primitives before granting further access.",
-              instructions: "Identify the correct format specifier for a single character in C.",
+              theory: "Misión: Diagnóstico de Sistemas Centrales. Debemos verificar tu comprensión de las primitivas de C antes de otorgar más acceso.",
+              instructions: "Identifica el especificador de formato correcto para un solo carácter en C.",
               initialCode: "",
               quizOptions: ["%c", "%char", "%s", "%d"],
               correctOptionIndex: 0
@@ -87,74 +87,74 @@ export const getCSeed: SeederFunction = async (prisma: PrismaClient): Promise<La
       {
         concept: {
           slug: "c-logic-gates",
-          title: "Logic Gates & Flow",
-          description: "Master conditional branching and iteration loops to control the execution path.",
+          title: "Puertas Lógicas y Flujo",
+          description: "Domina las bifurcaciones condicionales y los bucles de iteración para controlar la ruta de ejecución.",
           orderIndex: 2
         },
         lessons: [
           {
-            title: "Conditional Branching",
+            title: "Bifurcación Condicional",
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: "The CPU executes instructions sequentially unless altered by control flow statements like if/else.",
-              instructions: "Check if the variable 'breach' is 1. If so, print 'Alert', otherwise print 'Secure'.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  int breach = 1;\n  // Write the conditional\n  \n  return 0;\n}",
+              theory: "La CPU ejecuta instrucciones secuencialmente a menos que se alteren mediante declaraciones de flujo de control como if/else.",
+              instructions: "Comprueba si la variable 'breach' es 1. Si es así, imprime 'Alert', de lo contrario imprime 'Secure'.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  int breach = 1;\n  // Escribe el condicional\n  \n  return 0;\n}",
               expectedOutput: "Alert"
             }
           },
           {
-            title: "Switch Matrices",
+            title: "Matrices Switch",
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: "Switch statements provide a highly optimized matrix of execution paths for discrete integer values.",
-              instructions: "Observe how the switch statement routes execution based on the 'opCode'.",
+              theory: "Las declaraciones switch proporcionan una matriz altamente optimizada de rutas de ejecución para valores enteros discretos.",
+              instructions: "Observa cómo la declaración switch enruta la ejecución en función de 'opCode'.",
               initialCode: "#include <stdio.h>\n\nint main() {\n  int opCode = 2;\n  switch(opCode) {\n    case 1: printf(\"Init\"); break;\n    case 2: printf(\"Execute\"); break;\n    default: printf(\"Halt\");\n  }\n  return 0;\n}",
               expectedOutput: "Execute"
             }
           },
           {
-            title: "While Loops",
+            title: "Bucles While",
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: "A 'while' loop continues execution cycles as long as its condition evaluates to true (non-zero).",
-              instructions: "Create a while loop that decrements 'countdown' from 3 down to 1, printing each number.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  int countdown = 3;\n  // Write while loop here\n  \n  return 0;\n}",
+              theory: "Un bucle 'while' continúa los ciclos de ejecución mientras su condición se evalúe como verdadera (diferente de cero).",
+              instructions: "Crea un bucle while que decremente 'countdown' de 3 a 1, imprimiendo cada número.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  int countdown = 3;\n  // Escribe el bucle while aquí\n  \n  return 0;\n}",
               expectedOutput: "321"
             }
           },
           {
-            title: "For Iterators",
+            title: "Iteradores For",
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: "The 'for' loop compacts initialization, condition checking, and iteration into a single execution block.",
-              instructions: "Write a for loop that prints the even numbers between 2 and 6 (inclusive), separated by spaces.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  // Write your for loop\n  \n  return 0;\n}",
+              theory: "El bucle 'for' compacta la inicialización, la comprobación de condición y la iteración en un solo bloque de ejecución.",
+              instructions: "Escribe un bucle for que imprima los números pares entre 2 y 6 (inclusive), separados por espacios.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  // Escribe tu bucle for\n  \n  return 0;\n}",
               expectedOutput: "2 4 6 "
             }
           },
           {
-            title: "Loop Interrupts",
+            title: "Interrupciones de Bucle",
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: "The 'break' command immediately terminates a loop, while 'continue' skips the rest of the current cycle.",
-              instructions: "Loop from 1 to 5. Print the numbers. If the number is 4, use break to abort the loop immediately.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  // Loop and break at 4\n  \n  return 0;\n}",
+              theory: "El comando 'break' termina inmediatamente un bucle, mientras que 'continue' salta el resto del ciclo actual.",
+              instructions: "Haz un bucle del 1 al 5. Imprime los números. Si el número es 4, usa break para abortar el bucle inmediatamente.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  // Haz un bucle y usa break en el 4\n  \n  return 0;\n}",
               expectedOutput: "123"
             }
           },
           {
-            title: "Crack the Passcode",
+            title: "Descifra el Código de Acceso",
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: "Mission: The security gates require a specific numerical sequence to unlock.",
-              instructions: "Use a loop to print the multiples of 3, starting from 3 up to 15, sequentially without spaces.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  // Generate the sequence\n  \n  return 0;\n}",
+              theory: "Misión: Las puertas de seguridad requieren una secuencia numérica específica para desbloquearse.",
+              instructions: "Usa un bucle para imprimir los múltiplos de 3, comenzando desde 3 hasta 15, secuencialmente sin espacios.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  // Genera la secuencia\n  \n  return 0;\n}",
               expectedOutput: "3691215"
             }
           }
@@ -163,75 +163,75 @@ export const getCSeed: SeederFunction = async (prisma: PrismaClient): Promise<La
       {
         concept: {
           slug: "c-memory-pointers",
-          title: "Memory Addresses",
-          description: "Descend into the physical memory layer. Use pointers to manipulate RAM directly.",
+          title: "Direcciones de Memoria",
+          description: "Desciende a la capa de memoria física. Usa punteros para manipular la RAM directamente.",
           orderIndex: 3
         },
         lessons: [
           {
-            title: "The Memory Matrix",
+            title: "La Matriz de Memoria",
             type: LessonType.INTRO,
             xpReward: 15,
             content: {
-              theory: "Every variable resides at a physical hardware address in RAM. Pointers are variables that store these addresses.",
-              instructions: "Use the address-of operator (&) to assign the address of 'target' to a pointer 'ptr'. Print 'Linked'.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  int target = 101;\n  // Declare ptr and assign it the address of target\n  \n  printf(\"Linked\");\n  return 0;\n}",
+              theory: "Cada variable reside en una dirección de hardware física en la RAM. Los punteros son variables que almacenan estas direcciones.",
+              instructions: "Usa el operador de dirección (&) para asignar la dirección de 'target' a un puntero 'ptr'. Imprime 'Linked'.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  int target = 101;\n  // Declara ptr y asígnale la dirección de target\n  \n  printf(\"Linked\");\n  return 0;\n}",
               expectedOutput: "Linked"
             }
           },
           {
-            title: "Dereferencing Protocols",
+            title: "Protocolos de Desreferenciación",
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: "Dereferencing a pointer allows you to read or mutate the data located at the target memory address.",
-              instructions: "Observe how the asterisk (*) operator is used to extract the value from the pointer.",
+              theory: "Desreferenciar un puntero te permite leer o mutar los datos ubicados en la dirección de memoria de destino.",
+              instructions: "Observa cómo se usa el operador asterisco (*) para extraer el valor del puntero.",
               initialCode: "#include <stdio.h>\n\nint main() {\n  int node = 99;\n  int *ptr = &node;\n  printf(\"Value: %d\", *ptr);\n  return 0;\n}",
               expectedOutput: "Value: 99"
             }
           },
           {
-            title: "Pointer Mutation",
+            title: "Mutación de Puntero",
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: "Through dereferencing, a pointer can directly alter the state of its target variable, bypassing its local scope.",
-              instructions: "Use the pointer 'p' to decrease the value of 'shield' by 50. Print 'shield'.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  int shield = 100;\n  int *p = &shield;\n  // Decrease shield via p\n  \n  printf(\"%d\", shield);\n  return 0;\n}",
+              theory: "Mediante la desreferenciación, un puntero puede alterar directamente el estado de su variable objetivo, eludiendo su alcance local.",
+              instructions: "Usa el puntero 'p' para disminuir el valor de 'shield' en 50. Imprime 'shield'.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  int shield = 100;\n  int *p = &shield;\n  // Disminuye shield a través de p\n  \n  printf(\"%d\", shield);\n  return 0;\n}",
               expectedOutput: "50"
             }
           },
           {
-            title: "The Null Vector",
+            title: "El Vector Nulo",
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: "A pointer that points to nothing is a NULL pointer. Accessing a NULL pointer causes a segmentation fault.",
-              instructions: "Initialize an integer pointer 'voidPtr' to NULL. If it is NULL, print 'Void'.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  // Initialize voidPtr\n  \n  return 0;\n}",
+              theory: "Un puntero que no apunta a nada es un puntero NULL. Acceder a un puntero NULL causa un fallo de segmentación.",
+              instructions: "Inicializa un puntero a entero 'voidPtr' a NULL. Si es NULL, imprime 'Void'.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  // Inicializa voidPtr\n  \n  return 0;\n}",
               expectedOutput: "Void"
             }
           },
           {
-            title: "Memory Checksum",
+            title: "Suma de Comprobación de Memoria",
             type: LessonType.BOSS,
             xpReward: 40,
             content: {
-              theory: "Mission: System verification requires deep understanding of pointer mechanics.",
-              instructions: "Which symbol is used to retrieve the value stored at a pointer's memory address?",
+              theory: "Misión: La verificación del sistema requiere una comprensión profunda de la mecánica de punteros.",
+              instructions: "¿Qué símbolo se utiliza para recuperar el valor almacenado en la dirección de memoria de un puntero?",
               initialCode: "",
               quizOptions: ["*", "&", "->", "%"],
               correctOptionIndex: 0
             }
           },
           {
-            title: "Address Swap",
+            title: "Intercambio de Direcciones",
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: "Mission: Two core variables have their values inverted. You must swap them using only their pointers.",
-              instructions: "Given 'a' and 'b', and their pointers 'pa' and 'pb', write the code to swap their values. Print a then b.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  int a = 10, b = 20;\n  int *pa = &a, *pb = &b;\n  int temp;\n  // Swap the values using pointers\n  \n  printf(\"%d %d\", a, b);\n  return 0;\n}",
+              theory: "Misión: Dos variables centrales tienen sus valores invertidos. Debes intercambiarlos usando solo sus punteros.",
+              instructions: "Dadas 'a' y 'b', y sus punteros 'pa' y 'pb', escribe el código para intercambiar sus valores. Imprime a y luego b.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  int a = 10, b = 20;\n  int *pa = &a, *pb = &b;\n  int temp;\n  // Intercambia los valores usando punteros\n  \n  printf(\"%d %d\", a, b);\n  return 0;\n}",
               expectedOutput: "20 10"
             }
           }
@@ -240,75 +240,75 @@ export const getCSeed: SeederFunction = async (prisma: PrismaClient): Promise<La
       {
         concept: {
           slug: "c-data-blocks",
-          title: "Data Blocks & Strings",
-          description: "Manipulate contiguous blocks of memory. Master arrays and null-terminated strings.",
+          title: "Bloques de Datos y Cadenas",
+          description: "Manipula bloques contiguos de memoria. Domina los arrays y las cadenas terminadas en nulo.",
           orderIndex: 4
         },
         lessons: [
           {
-            title: "Contiguous Memory",
+            title: "Memoria Contigua",
             type: LessonType.INTRO,
             xpReward: 15,
             content: {
-              theory: "Arrays are contiguous blocks of memory holding elements of the same type. Array indices start at 0.",
-              instructions: "Create an integer array 'buffer' with values 1, 2, 3. Print the second element.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  // Declare array and print\n  \n  return 0;\n}",
+              theory: "Los arrays son bloques contiguos de memoria que contienen elementos del mismo tipo. Los índices de array comienzan en 0.",
+              instructions: "Crea un array de enteros 'buffer' con los valores 1, 2, 3. Imprime el segundo elemento.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  // Declara el array e imprime\n  \n  return 0;\n}",
               expectedOutput: "2"
             }
           },
           {
-            title: "Null-Terminated Arrays",
+            title: "Arrays Terminados en Nulo",
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: "In C, strings are simply character arrays that end with a special null terminator '\\0'.",
-              instructions: "Observe how a string is just an array of chars. Run the code.",
+              theory: "En C, las cadenas son simplemente arrays de caracteres que terminan con un terminador nulo especial '\\0'.",
+              instructions: "Observa cómo una cadena es solo un array de caracteres. Ejecuta el código.",
               initialCode: "#include <stdio.h>\n\nint main() {\n  char signal[] = {'S', 'O', 'S', '\\0'};\n  printf(\"Signal: %s\", signal);\n  return 0;\n}",
               expectedOutput: "Signal: SOS"
             }
           },
           {
-            title: "Array Traversal",
+            title: "Recorrido de Array",
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: "You can iterate through an array's memory block efficiently using loops.",
-              instructions: "Use a for loop to print all elements in the 'data' array back-to-back without spaces.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  int data[] = {4, 8, 15, 16, 23, 42};\n  // Write loop here\n  \n  return 0;\n}",
+              theory: "Puedes iterar eficientemente a través del bloque de memoria de un array usando bucles.",
+              instructions: "Usa un bucle for para imprimir todos los elementos del array 'data' de forma continua sin espacios.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  int data[] = {4, 8, 15, 16, 23, 42};\n  // Escribe el bucle aquí\n  \n  return 0;\n}",
               expectedOutput: "4815162342"
             }
           },
           {
-            title: "Pointer Arithmetic",
+            title: "Aritmética de Punteros",
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: "An array's name acts as a pointer to its first element. Adding 1 to a pointer moves it to the next element's address.",
-              instructions: "Use pointer arithmetic (e.g., *(arr + 1)) to print the third element of the array 'arr'.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  int arr[] = {100, 200, 300, 400};\n  // Print the 3rd element using pointer arithmetic\n  \n  return 0;\n}",
+              theory: "El nombre de un array actúa como un puntero a su primer elemento. Sumar 1 a un puntero lo mueve a la dirección del siguiente elemento.",
+              instructions: "Usa aritmética de punteros (por ejemplo, *(arr + 1)) para imprimir el tercer elemento del array 'arr'.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  int arr[] = {100, 200, 300, 400};\n  // Imprime el 3er elemento usando aritmética de punteros\n  \n  return 0;\n}",
               expectedOutput: "300"
             }
           },
           {
-            title: "Buffer Overflow",
+            title: "Desbordamiento de Búfer",
             type: LessonType.BOSS,
             xpReward: 40,
             content: {
-              theory: "Mission: Security alert. Writing beyond an array's allocated boundaries causes memory corruption.",
-              instructions: "What is the critical vulnerability called when data exceeds the bounds of a contiguous block?",
+              theory: "Misión: Alerta de seguridad. Escribir más allá de los límites asignados de un array causa corrupción de memoria.",
+              instructions: "¿Cómo se llama la vulnerabilidad crítica cuando los datos exceden los límites de un bloque contiguo?",
               initialCode: "",
-              quizOptions: ["Memory Leak", "Buffer Overflow", "Null Pointer Dereference", "Syntax Error"],
+              quizOptions: ["Fuga de Memoria", "Desbordamiento de Búfer", "Desreferenciación de Puntero Nulo", "Error de Sintaxis"],
               correctOptionIndex: 1
             }
           },
           {
-            title: "Cipher Decryption",
+            title: "Descifrado de Código",
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: "Mission: A corrupted string needs to be patched. Replace the corrupted character at index 2 with 'R'.",
-              instructions: "The cipher array is 'ZEXO'. Patch index 2 so it prints 'ZERO'.",
-              initialCode: "#include <stdio.h>\n\nint main() {\n  char cipher[] = \"ZEXO\";\n  // Patch the cipher\n  \n  printf(\"%s\", cipher);\n  return 0;\n}",
+              theory: "Misión: Una cadena corrupta necesita ser parcheada. Reemplaza el carácter corrupto en el índice 2 con 'R'.",
+              instructions: "El array cifrado es 'ZEXO'. Parchea el índice 2 para que imprima 'ZERO'.",
+              initialCode: "#include <stdio.h>\n\nint main() {\n  char cipher[] = \"ZEXO\";\n  // Parchea el cifrado\n  \n  printf(\"%s\", cipher);\n  return 0;\n}",
               expectedOutput: "ZERO"
             }
           }
@@ -317,75 +317,75 @@ export const getCSeed: SeederFunction = async (prisma: PrismaClient): Promise<La
       {
         concept: {
           slug: "c-modular-functions",
-          title: "Modular Subroutines",
-          description: "Encapsulate logic into reusable functions. Master pass-by-value and pass-by-reference.",
+          title: "Subrutinas Modulares",
+          description: "Encapsula la lógica en funciones reutilizables. Domina el paso por valor y el paso por referencia.",
           orderIndex: 5
         },
         lessons: [
           {
-            title: "Subroutine Definitions",
+            title: "Definiciones de Subrutina",
             type: LessonType.INTRO,
             xpReward: 15,
             content: {
-              theory: "Functions allow us to break monolithic code into modular subroutines. They require a return type, name, and parameters.",
-              instructions: "Call the 'transmit' function from main().",
-              initialCode: "#include <stdio.h>\n\nvoid transmit() {\n  printf(\"Beep\");\n}\n\nint main() {\n  // Call transmit\n  \n  return 0;\n}",
+              theory: "Las funciones nos permiten dividir código monolítico en subrutinas modulares. Requieren un tipo de retorno, un nombre y parámetros.",
+              instructions: "Llama a la función 'transmit' desde main().",
+              initialCode: "#include <stdio.h>\n\nvoid transmit() {\n  printf(\"Beep\");\n}\n\nint main() {\n  // Llama a transmit\n  \n  return 0;\n}",
               expectedOutput: "Beep"
             }
           },
           {
-            title: "Return Payloads",
+            title: "Cargas Útiles de Retorno",
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: "Functions can compute data and return a payload back to the calling function using the 'return' keyword.",
-              instructions: "Examine how 'calculateCoreTemp' returns an integer payload to main.",
+              theory: "Las funciones pueden calcular datos y devolver una carga útil a la función llamadora utilizando la palabra clave 'return'.",
+              instructions: "Examina cómo 'calculateCoreTemp' devuelve una carga útil entera a main.",
               initialCode: "#include <stdio.h>\n\nint calculateCoreTemp(int base) {\n  return base * 2 + 15;\n}\n\nint main() {\n  int temp = calculateCoreTemp(40);\n  printf(\"Temp: %d\", temp);\n  return 0;\n}",
               expectedOutput: "Temp: 95"
             }
           },
           {
-            title: "Pass by Value",
+            title: "Paso por Valor",
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: "By default, C passes arguments by value. The function receives a copy of the data, so changes inside don't affect the original.",
-              instructions: "Create a function 'addTen(int x)' that returns x + 10. Call it with 5 and print the result.",
-              initialCode: "#include <stdio.h>\n\n// Define addTen here\n\nint main() {\n  // Call and print\n  \n  return 0;\n}",
+              theory: "Por defecto, C pasa los argumentos por valor. La función recibe una copia de los datos, por lo que los cambios internos no afectan al original.",
+              instructions: "Crea una función 'addTen(int x)' que devuelva x + 10. Llámala con 5 e imprime el resultado.",
+              initialCode: "#include <stdio.h>\n\n// Define addTen aquí\n\nint main() {\n  // Llama e imprime\n  \n  return 0;\n}",
               expectedOutput: "15"
             }
           },
           {
-            title: "Pass by Reference",
+            title: "Paso por Referencia",
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: "To modify variables from another scope, pass their memory addresses (pointers) to the function.",
-              instructions: "Complete 'upgradeLevel' to add 1 to the integer pointer's target. Pass the address of 'level' to it.",
-              initialCode: "#include <stdio.h>\n\nvoid upgradeLevel(int *lvlPtr) {\n  // Increment the target value\n  \n}\n\nint main() {\n  int level = 5;\n  // Call upgradeLevel\n  \n  printf(\"%d\", level);\n  return 0;\n}",
+              theory: "Para modificar variables de otro ámbito, pasa sus direcciones de memoria (punteros) a la función.",
+              instructions: "Completa 'upgradeLevel' para sumar 1 al objetivo del puntero a entero. Pásale la dirección de 'level'.",
+              initialCode: "#include <stdio.h>\n\nvoid upgradeLevel(int *lvlPtr) {\n  // Incrementa el valor objetivo\n  \n}\n\nint main() {\n  int level = 5;\n  // Llama a upgradeLevel\n  \n  printf(\"%d\", level);\n  return 0;\n}",
               expectedOutput: "6"
             }
           },
           {
-            title: "Call Stack Analysis",
+            title: "Análisis de la Pila de Llamadas",
             type: LessonType.BOSS,
             xpReward: 40,
             content: {
-              theory: "Mission: System trace. When a subroutine is called, where is its local execution context stored?",
-              instructions: "Identify the memory region used for function calls and local variables.",
+              theory: "Misión: Rastreo del sistema. Cuando se llama a una subrutina, ¿dónde se almacena su contexto de ejecución local?",
+              instructions: "Identifica la región de memoria utilizada para las llamadas a funciones y las variables locales.",
               initialCode: "",
-              quizOptions: ["The Heap", "The Stack", "The BSS Segment", "The Code Segment"],
+              quizOptions: ["El Montículo (Heap)", "La Pila (Stack)", "El Segmento BSS", "El Segmento de Código"],
               correctOptionIndex: 1
             }
           },
           {
-            title: "Checksum Subroutine",
+            title: "Subrutina de Suma de Comprobación",
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: "Mission: We need a reusable module to calculate factorial checksums.",
-              instructions: "Write a recursive or iterative function 'factorial(int n)' that returns n!. Call it with 5 and print.",
-              initialCode: "#include <stdio.h>\n\n// Write factorial function\n\nint main() {\n  // Call factorial(5) and print\n  \n  return 0;\n}",
+              theory: "Misión: Necesitamos un módulo reutilizable para calcular sumas de comprobación factoriales.",
+              instructions: "Escribe una función recursiva o iterativa 'factorial(int n)' que devuelva n!. Llámala con 5 e imprime el resultado.",
+              initialCode: "#include <stdio.h>\n\n// Escribe la función factorial\n\nint main() {\n  // Llama a factorial(5) e imprime\n  \n  return 0;\n}",
               expectedOutput: "120"
             }
           }
@@ -394,63 +394,63 @@ export const getCSeed: SeederFunction = async (prisma: PrismaClient): Promise<La
       {
         concept: {
           slug: "c-complex-constructs",
-          title: "Complex Data Schemas",
-          description: "Aggregate multiple data types into single logical entities using structs.",
+          title: "Esquemas de Datos Complejos",
+          description: "Agrupa múltiples tipos de datos en entidades lógicas únicas usando structs.",
           orderIndex: 6
         },
         lessons: [
           {
-            title: "Custom Schemas (Structs)",
+            title: "Esquemas Personalizados (Structs)",
             type: LessonType.INTRO,
             xpReward: 15,
             content: {
-              theory: "Structs allow you to create custom data types by aggregating multiple basic primitives into one block of memory.",
-              instructions: "Define a struct 'Drone' with an int 'id' and float 'battery'. Create one, set id=1, battery=99.5. Print both.",
-              initialCode: "#include <stdio.h>\n\nstruct Drone {\n  int id;\n  float battery;\n};\n\nint main() {\n  // Create a Drone and print\n  \n  return 0;\n}",
+              theory: "Los structs te permiten crear tipos de datos personalizados agrupando múltiples primitivas básicas en un solo bloque de memoria.",
+              instructions: "Define un struct 'Drone' con un int 'id' y un float 'battery'. Crea uno, establece id=1, battery=99.5. Imprime ambos.",
+              initialCode: "#include <stdio.h>\n\nstruct Drone {\n  int id;\n  float battery;\n};\n\nint main() {\n  // Crea un Drone e imprime\n  \n  return 0;\n}",
               expectedOutput: "1 99.50"
             }
           },
           {
-            title: "Type Aliasing",
+            title: "Alias de Tipos",
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: "The 'typedef' keyword creates an alias for a type, eliminating the need to repeatedly type the 'struct' keyword.",
-              instructions: "Observe how 'typedef' simplifies struct usage.",
+              theory: "La palabra clave 'typedef' crea un alias para un tipo, eliminando la necesidad de escribir repetidamente la palabra clave 'struct'.",
+              instructions: "Observa cómo 'typedef' simplifica el uso de structs.",
               initialCode: "#include <stdio.h>\n\ntypedef struct {\n  int x;\n  int y;\n} Vector2D;\n\nint main() {\n  Vector2D v1 = {10, 20};\n  printf(\"X:%d Y:%d\", v1.x, v1.y);\n  return 0;\n}",
               expectedOutput: "X:10 Y:20"
             }
           },
           {
-            title: "Pointers to Structs",
+            title: "Punteros a Structs",
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: "When accessing a struct via a pointer, use the arrow operator (->) instead of the dot (.) operator.",
-              instructions: "Given a pointer 'p' to a User struct, use '->' to set its 'accessLevel' to 5. Print it.",
-              initialCode: "#include <stdio.h>\n\ntypedef struct {\n  int accessLevel;\n} User;\n\nint main() {\n  User u;\n  User *p = &u;\n  // Set accessLevel to 5 using p\n  \n  printf(\"%d\", u.accessLevel);\n  return 0;\n}",
+              theory: "Al acceder a un struct a través de un puntero, usa el operador de flecha (->) en lugar del operador de punto (.).",
+              instructions: "Dado un puntero 'p' a un struct User, usa '->' para establecer su 'accessLevel' a 5. Imprímelo.",
+              initialCode: "#include <stdio.h>\n\ntypedef struct {\n  int accessLevel;\n} User;\n\nint main() {\n  User u;\n  User *p = &u;\n  // Establece accessLevel a 5 usando p\n  \n  printf(\"%d\", u.accessLevel);\n  return 0;\n}",
               expectedOutput: "5"
             }
           },
           {
-            title: "Array of Schemas",
+            title: "Array de Esquemas",
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: "Structs can be stored in arrays to handle massive databases of structured information.",
-              instructions: "Create an array of two 'Node' structs. Set the first node's 'active' to 1 and the second's to 0. Print them.",
-              initialCode: "#include <stdio.h>\n\ntypedef struct {\n  int active;\n} Node;\n\nint main() {\n  // Create array and print\n  \n  return 0;\n}",
+              theory: "Los structs se pueden almacenar en arrays para manejar bases de datos masivas de información estructurada.",
+              instructions: "Crea un array de dos structs 'Node'. Establece el 'active' del primer nodo a 1 y el del segundo a 0. Imprímelos.",
+              initialCode: "#include <stdio.h>\n\ntypedef struct {\n  int active;\n} Node;\n\nint main() {\n  // Crea un array e imprime\n  \n  return 0;\n}",
               expectedOutput: "1 0"
             }
           },
           {
-            title: "Database Update",
+            title: "Actualización de Base de Datos",
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: "Mission: The mainframe database entry for sector 7 requires a manual override via pointer manipulation.",
-              instructions: "Write a function 'updateStatus(Sector *s)' that sets the Sector's 'status' to 9. Call it from main.",
-              initialCode: "#include <stdio.h>\n\ntypedef struct {\n  int id;\n  int status;\n} Sector;\n\n// Write updateStatus\n\nint main() {\n  Sector sec = {7, 0};\n  // Call function and print status\n  \n  return 0;\n}",
+              theory: "Misión: La entrada de la base de datos del mainframe para el sector 7 requiere una anulación manual a través de la manipulación de punteros.",
+              instructions: "Escribe una función 'updateStatus(Sector *s)' que establezca el 'status' del Sector en 9. Llámala desde main.",
+              initialCode: "#include <stdio.h>\n\ntypedef struct {\n  int id;\n  int status;\n} Sector;\n\n// Escribe updateStatus\n\nint main() {\n  Sector sec = {7, 0};\n  // Llama a la función e imprime el status\n  \n  return 0;\n}",
               expectedOutput: "9"
             }
           }
@@ -459,64 +459,64 @@ export const getCSeed: SeederFunction = async (prisma: PrismaClient): Promise<La
       {
         concept: {
           slug: "c-dynamic-memory",
-          title: "The Void (Dynamic Memory)",
-          description: "Break the limits of the stack. Manage raw heap memory using malloc, calloc, and free.",
+          title: "El Vacío (Memoria Dinámica)",
+          description: "Rompe los límites de la pila. Gestiona la memoria raw del montículo (heap) utilizando malloc, calloc y free.",
           orderIndex: 7
         },
         lessons: [
           {
-            title: "Heap Allocation",
+            title: "Asignación del Montículo (Heap)",
             type: LessonType.INTRO,
             xpReward: 15,
             content: {
-              theory: "Dynamic memory resides in the Heap. Use 'malloc(size)' to request a block of raw bytes during runtime.",
-              instructions: "Allocate an integer on the heap using malloc. Set its value to 77, print it, and return.",
-              initialCode: "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n  // Allocate int using malloc\n  \n  return 0;\n}",
+              theory: "La memoria dinámica reside en el Montículo (Heap). Usa 'malloc(size)' para solicitar un bloque de bytes crudos durante el tiempo de ejecución.",
+              instructions: "Asigna un entero en el montículo usando malloc. Establece su valor a 77, imprímelo y retorna.",
+              initialCode: "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n  // Asigna un int usando malloc\n  \n  return 0;\n}",
               expectedOutput: "77"
             }
           },
           {
-            title: "Zeroed Allocation",
+            title: "Asignación Puesta a Cero",
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: "Unlike malloc, 'calloc(num, size)' allocates memory for an array and initializes all bytes to zero.",
-              instructions: "Run the code to see how calloc prevents garbage data from corrupting your structures.",
+              theory: "A diferencia de malloc, 'calloc(num, size)' asigna memoria para un array e inicializa todos los bytes a cero.",
+              instructions: "Ejecuta el código para ver cómo calloc evita que datos basura corrompan tus estructuras.",
               initialCode: "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n  int *arr = calloc(3, sizeof(int));\n  printf(\"%d %d %d\", arr[0], arr[1], arr[2]);\n  free(arr);\n  return 0;\n}",
               expectedOutput: "0 0 0"
             }
           },
           {
-            title: "Memory Deallocation",
+            title: "Desasignación de Memoria",
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: "Every block allocated via malloc/calloc must be manually returned to the system using 'free(pointer)'.",
-              instructions: "Allocate a char pointer 'secret' with malloc(1). Free it afterwards. Print 'Freed'.",
-              initialCode: "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n  char *secret = malloc(1);\n  // Free it\n  \n  printf(\"Freed\");\n  return 0;\n}",
+              theory: "Cada bloque asignado vía malloc/calloc debe devolverse manualmente al sistema usando 'free(pointer)'.",
+              instructions: "Asigna un puntero a carácter 'secret' con malloc(1). Libéralo después. Imprime 'Freed'.",
+              initialCode: "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n  char *secret = malloc(1);\n  // Libéralo\n  \n  printf(\"Freed\");\n  return 0;\n}",
               expectedOutput: "Freed"
             }
           },
           {
-            title: "Dynamic Resizing",
+            title: "Redimensionamiento Dinámico",
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: "The 'realloc(ptr, new_size)' function expands or shrinks an existing heap block, preserving the original data.",
-              instructions: "Reallocate 'block' to hold 2 integers instead of 1. Set the second integer to 88 and print it.",
-              initialCode: "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n  int *block = malloc(sizeof(int));\n  block[0] = 44;\n  // Reallocate block\n  \n  printf(\"%d\", block[1]);\n  return 0;\n}",
+              theory: "La función 'realloc(ptr, new_size)' expande o reduce un bloque de montículo existente, preservando los datos originales.",
+              instructions: "Redimensiona 'block' para contener 2 enteros en lugar de 1. Establece el segundo entero a 88 e imprímelo.",
+              initialCode: "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n  int *block = malloc(sizeof(int));\n  block[0] = 44;\n  // Redimensiona el bloque\n  \n  printf(\"%d\", block[1]);\n  return 0;\n}",
               expectedOutput: "88"
             }
           },
           {
-            title: "Memory Leak",
+            title: "Fuga de Memoria",
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: "Mission: System stability is dropping. Unfreed heap memory accumulates, causing Memory Leaks.",
-              instructions: "What happens if a program continuously uses malloc without ever using free?",
+              theory: "Misión: La estabilidad del sistema está cayendo. La memoria del montículo no liberada se acumula, causando Fugas de Memoria.",
+              instructions: "¿Qué sucede si un programa usa continuamente malloc sin usar nunca free?",
               initialCode: "",
-              quizOptions: ["CPU Overheating", "Syntax Error", "Memory Leak / OOM", "Stack Overflow"],
+              quizOptions: ["Sobrecalentamiento de la CPU", "Error de Sintaxis", "Fuga de Memoria / OOM", "Desbordamiento de Pila"],
               correctOptionIndex: 2
             }
           }

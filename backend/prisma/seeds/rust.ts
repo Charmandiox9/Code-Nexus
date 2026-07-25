@@ -10,74 +10,74 @@ export const getRustSeed: SeederFunction = async (prisma) => {
     {
       "concept": {
         "slug": "basics",
-        "title": "Protocol Zero: Initialization",
-        "description": "Awaken your systems. Learn the syntax that binds the Rust universe.",
+        "title": "Protocolo Cero: Inicialización",
+        "description": "Despierta tus sistemas. Aprende la sintaxis que une el universo de Rust.",
         "orderIndex": 1
       },
       "lessons": [
         {
-          "title": "Node BASICS-1: Assimilation",
+          "title": "Nodo BASICS-1: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 10,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Protocol Zero: Initialization, you must understand the underlying algorithms. Node 1 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar el Protocolo Cero: Inicialización, debes comprender los algoritmos subyacentes. El Nodo 1 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node BASICS-2: Assimilation",
+          "title": "Nodo BASICS-2: Asimilación",
           "type": LessonType.DEMO,
           "xpReward": 15,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Protocol Zero: Initialization, you must understand the underlying algorithms. Node 2 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar el Protocolo Cero: Inicialización, debes comprender los algoritmos subyacentes. El Nodo 2 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node BASICS-3: Assimilation",
+          "title": "Nodo BASICS-3: Asimilación",
           "type": LessonType.EXERCISE_GUIDED,
           "xpReward": 20,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Protocol Zero: Initialization, you must understand the underlying algorithms. Node 3 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar el Protocolo Cero: Inicialización, debes comprender los algoritmos subyacentes. El Nodo 3 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node BASICS-4: Assimilation",
+          "title": "Nodo BASICS-4: Asimilación",
           "type": LessonType.EXERCISE_FREE,
           "xpReward": 25,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Protocol Zero: Initialization, you must understand the underlying algorithms. Node 4 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar el Protocolo Cero: Inicialización, debes comprender los algoritmos subyacentes. El Nodo 4 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node BASICS-5: Assimilation",
+          "title": "Nodo BASICS-5: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 30,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Protocol Zero: Initialization, you must understand the underlying algorithms. Node 5 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar el Protocolo Cero: Inicialización, debes comprender los algoritmos subyacentes. El Nodo 5 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "MISSION 1: Sentinel Breach",
+          "title": "MISIÓN 1: Brecha del Centinela",
           "type": LessonType.BOSS,
           "xpReward": 50,
           "content": {
-            "theory": "[BOSS ENCOUNTER] The Mainframe's sentinel is blocking the port. You must exploit the vulnerability using your knowledge of Protocol Zero: Initialization.",
-            "instructions": "> DESTROY THE SENTINEL. Write a complete subroutine that outputs the destruction sequence code exactly as 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Your exploit code\n}",
+            "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento del Protocolo Cero: Inicialización.",
+            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         }
@@ -86,89 +86,89 @@ export const getRustSeed: SeederFunction = async (prisma) => {
     {
       "concept": {
         "slug": "ownership",
-        "title": "The Memory Matrix: Ownership",
-        "description": "Hack the heap. Master the strict rules of memory management without garbage collection.",
+        "title": "La Matriz de Memoria: Propiedad",
+        "description": "Hackea el heap. Domina las estrictas reglas de gestión de memoria sin recolección de basura.",
         "orderIndex": 2
       },
       "lessons": [
         {
-          "title": "Node OWNERSHIP-6: Assimilation",
+          "title": "Nodo OWNERSHIP-6: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 10,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master The Memory Matrix: Ownership, you must understand the underlying algorithms. Node 6 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar La Matriz de Memoria: Propiedad, debes comprender los algoritmos subyacentes. El Nodo 6 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node OWNERSHIP-7: Assimilation",
+          "title": "Nodo OWNERSHIP-7: Asimilación",
           "type": LessonType.DEMO,
           "xpReward": 15,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master The Memory Matrix: Ownership, you must understand the underlying algorithms. Node 7 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar La Matriz de Memoria: Propiedad, debes comprender los algoritmos subyacentes. El Nodo 7 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node OWNERSHIP-8: Assimilation",
+          "title": "Nodo OWNERSHIP-8: Asimilación",
           "type": LessonType.EXERCISE_GUIDED,
           "xpReward": 20,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master The Memory Matrix: Ownership, you must understand the underlying algorithms. Node 8 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar La Matriz de Memoria: Propiedad, debes comprender los algoritmos subyacentes. El Nodo 8 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node OWNERSHIP-9: Assimilation",
+          "title": "Nodo OWNERSHIP-9: Asimilación",
           "type": LessonType.EXERCISE_FREE,
           "xpReward": 25,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master The Memory Matrix: Ownership, you must understand the underlying algorithms. Node 9 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar La Matriz de Memoria: Propiedad, debes comprender los algoritmos subyacentes. El Nodo 9 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node OWNERSHIP-10: Assimilation",
+          "title": "Nodo OWNERSHIP-10: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 30,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master The Memory Matrix: Ownership, you must understand the underlying algorithms. Node 10 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar La Matriz de Memoria: Propiedad, debes comprender los algoritmos subyacentes. El Nodo 10 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "MISSION 2: Sentinel Breach",
+          "title": "MISIÓN 2: Brecha del Centinela",
           "type": LessonType.BOSS,
           "xpReward": 50,
           "content": {
-            "theory": "[BOSS ENCOUNTER] The Mainframe's sentinel is blocking the port. You must exploit the vulnerability using your knowledge of The Memory Matrix: Ownership.",
-            "instructions": "> DESTROY THE SENTINEL. Write a complete subroutine that outputs the destruction sequence code exactly as 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Your exploit code\n}",
+            "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento de La Matriz de Memoria: Propiedad.",
+            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         },
         {
-          "title": "MISSION 3: Security Clearance",
+          "title": "MISIÓN 3: Autorización de Seguridad",
           "type": LessonType.BOSS,
           "xpReward": 50,
           "content": {
-            "theory": "[WARNING] Intrusion detected. Firewall requires security clearance verification.",
-            "instructions": "> ANSWER THE SECURITY QUESTION TO PROCEED. What is the primary directive of this sector?",
-            "initialCode": "// Awaiting clearance code...",
+            "theory": "[ADVERTENCIA] Intrusión detectada. El firewall requiere verificación de autorización de seguridad.",
+            "instructions": "> RESPONDE LA PREGUNTA DE SEGURIDAD PARA CONTINUAR. ¿Cuál es la directiva principal de este sector?",
+            "initialCode": "// Esperando código de autorización...",
             "quizOptions": [
-              "Memory leak exploitation",
-              "Strict ownership and borrowing",
-              "Garbage collected runtime"
+              "Explotación de fugas de memoria",
+              "Propiedad y préstamo estrictos",
+              "Tiempo de ejecución con recolector de basura"
             ],
             "correctOptionIndex": 1
           }
@@ -178,85 +178,85 @@ export const getRustSeed: SeederFunction = async (prisma) => {
     {
       "concept": {
         "slug": "structs",
-        "title": "Cybernetic Organisms: Structs & Traits",
-        "description": "Build advanced data structures to model your digital avatars.",
+        "title": "Organismos Cibernéticos: Structs y Traits",
+        "description": "Construye estructuras de datos avanzadas para modelar tus avatares digitales.",
         "orderIndex": 3
       },
       "lessons": [
         {
-          "title": "Node STRUCTS-11: Assimilation",
+          "title": "Nodo STRUCTS-11: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 10,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Cybernetic Organisms: Structs & Traits, you must understand the underlying algorithms. Node 11 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Organismos Cibernéticos: Structs y Traits, debes comprender los algoritmos subyacentes. El Nodo 11 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node STRUCTS-12: Assimilation",
+          "title": "Nodo STRUCTS-12: Asimilación",
           "type": LessonType.DEMO,
           "xpReward": 15,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Cybernetic Organisms: Structs & Traits, you must understand the underlying algorithms. Node 12 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Organismos Cibernéticos: Structs y Traits, debes comprender los algoritmos subyacentes. El Nodo 12 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node STRUCTS-13: Assimilation",
+          "title": "Nodo STRUCTS-13: Asimilación",
           "type": LessonType.EXERCISE_GUIDED,
           "xpReward": 20,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Cybernetic Organisms: Structs & Traits, you must understand the underlying algorithms. Node 13 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Organismos Cibernéticos: Structs y Traits, debes comprender los algoritmos subyacentes. El Nodo 13 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node STRUCTS-14: Assimilation",
+          "title": "Nodo STRUCTS-14: Asimilación",
           "type": LessonType.EXERCISE_FREE,
           "xpReward": 25,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Cybernetic Organisms: Structs & Traits, you must understand the underlying algorithms. Node 14 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Organismos Cibernéticos: Structs y Traits, debes comprender los algoritmos subyacentes. El Nodo 14 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node STRUCTS-15: Assimilation",
+          "title": "Nodo STRUCTS-15: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 30,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Cybernetic Organisms: Structs & Traits, you must understand the underlying algorithms. Node 15 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Organismos Cibernéticos: Structs y Traits, debes comprender los algoritmos subyacentes. El Nodo 15 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "MISSION 4: Sentinel Breach",
+          "title": "MISIÓN 4: Brecha del Centinela",
           "type": LessonType.BOSS,
           "xpReward": 50,
           "content": {
-            "theory": "[BOSS ENCOUNTER] The Mainframe's sentinel is blocking the port. You must exploit the vulnerability using your knowledge of Cybernetic Organisms: Structs & Traits.",
-            "instructions": "> DESTROY THE SENTINEL. Write a complete subroutine that outputs the destruction sequence code exactly as 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Your exploit code\n}",
+            "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento de Organismos Cibernéticos: Structs y Traits.",
+            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         },
         {
-          "title": "MISSION 5: Sentinel Breach",
+          "title": "MISIÓN 5: Brecha del Centinela",
           "type": LessonType.BOSS,
           "xpReward": 50,
           "content": {
-            "theory": "[BOSS ENCOUNTER] The Mainframe's sentinel is blocking the port. You must exploit the vulnerability using your knowledge of Cybernetic Organisms: Structs & Traits.",
-            "instructions": "> DESTROY THE SENTINEL. Write a complete subroutine that outputs the destruction sequence code exactly as 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Your exploit code\n}",
+            "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento de Organismos Cibernéticos: Structs y Traits.",
+            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         }
@@ -265,90 +265,90 @@ export const getRustSeed: SeederFunction = async (prisma) => {
     {
       "concept": {
         "slug": "enums",
-        "title": "Quantum Branching: Enums & Pattern Matching",
-        "description": "Navigate parallel realities using powerful algebraic data types.",
+        "title": "Ramificación Cuántica: Enums y Coincidencia de Patrones",
+        "description": "Navega por realidades paralelas usando potentes tipos de datos algebraicos.",
         "orderIndex": 4
       },
       "lessons": [
         {
-          "title": "Node ENUMS-16: Assimilation",
+          "title": "Nodo ENUMS-16: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 10,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Quantum Branching: Enums & Pattern Matching, you must understand the underlying algorithms. Node 16 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Ramificación Cuántica: Enums y Coincidencia de Patrones, debes comprender los algoritmos subyacentes. El Nodo 16 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node ENUMS-17: Assimilation",
+          "title": "Nodo ENUMS-17: Asimilación",
           "type": LessonType.DEMO,
           "xpReward": 15,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Quantum Branching: Enums & Pattern Matching, you must understand the underlying algorithms. Node 17 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Ramificación Cuántica: Enums y Coincidencia de Patrones, debes comprender los algoritmos subyacentes. El Nodo 17 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node ENUMS-18: Assimilation",
+          "title": "Nodo ENUMS-18: Asimilación",
           "type": LessonType.EXERCISE_GUIDED,
           "xpReward": 20,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Quantum Branching: Enums & Pattern Matching, you must understand the underlying algorithms. Node 18 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Ramificación Cuántica: Enums y Coincidencia de Patrones, debes comprender los algoritmos subyacentes. El Nodo 18 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node ENUMS-19: Assimilation",
+          "title": "Nodo ENUMS-19: Asimilación",
           "type": LessonType.EXERCISE_FREE,
           "xpReward": 25,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Quantum Branching: Enums & Pattern Matching, you must understand the underlying algorithms. Node 19 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Ramificación Cuántica: Enums y Coincidencia de Patrones, debes comprender los algoritmos subyacentes. El Nodo 19 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node ENUMS-20: Assimilation",
+          "title": "Nodo ENUMS-20: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 30,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Quantum Branching: Enums & Pattern Matching, you must understand the underlying algorithms. Node 20 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Ramificación Cuántica: Enums y Coincidencia de Patrones, debes comprender los algoritmos subyacentes. El Nodo 20 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "MISSION 6: Security Clearance",
+          "title": "MISIÓN 6: Autorización de Seguridad",
           "type": LessonType.BOSS,
           "xpReward": 50,
           "content": {
-            "theory": "[WARNING] Intrusion detected. Firewall requires security clearance verification.",
-            "instructions": "> ANSWER THE SECURITY QUESTION TO PROCEED. What is the primary directive of this sector?",
-            "initialCode": "// Awaiting clearance code...",
+            "theory": "[ADVERTENCIA] Intrusión detectada. El firewall requiere verificación de autorización de seguridad.",
+            "instructions": "> RESPONDE LA PREGUNTA DE SEGURIDAD PARA CONTINUAR. ¿Cuál es la directiva principal de este sector?",
+            "initialCode": "// Esperando código de autorización...",
             "quizOptions": [
-              "Memory leak exploitation",
-              "Strict ownership and borrowing",
-              "Garbage collected runtime"
+              "Explotación de fugas de memoria",
+              "Propiedad y préstamo estrictos",
+              "Tiempo de ejecución con recolector de basura"
             ],
             "correctOptionIndex": 1
           }
         },
         {
-          "title": "MISSION 7: Sentinel Breach",
+          "title": "MISIÓN 7: Brecha del Centinela",
           "type": LessonType.BOSS,
           "xpReward": 50,
           "content": {
-            "theory": "[BOSS ENCOUNTER] The Mainframe's sentinel is blocking the port. You must exploit the vulnerability using your knowledge of Quantum Branching: Enums & Pattern Matching.",
-            "instructions": "> DESTROY THE SENTINEL. Write a complete subroutine that outputs the destruction sequence code exactly as 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Your exploit code\n}",
+            "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento de Ramificación Cuántica: Enums y Coincidencia de Patrones.",
+            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         }
@@ -357,74 +357,74 @@ export const getRustSeed: SeederFunction = async (prisma) => {
     {
       "concept": {
         "slug": "errors",
-        "title": "System Failsafes: Error Handling",
-        "description": "Prevent catastrophic kernel panics with graceful error recovery.",
+        "title": "Mecanismos de Seguridad del Sistema: Manejo de Errores",
+        "description": "Evita kernel panics catastróficos con una recuperación de errores elegante.",
         "orderIndex": 5
       },
       "lessons": [
         {
-          "title": "Node ERRORS-21: Assimilation",
+          "title": "Nodo ERRORS-21: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 10,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master System Failsafes: Error Handling, you must understand the underlying algorithms. Node 21 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Mecanismos de Seguridad del Sistema: Manejo de Errores, debes comprender los algoritmos subyacentes. El Nodo 21 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node ERRORS-22: Assimilation",
+          "title": "Nodo ERRORS-22: Asimilación",
           "type": LessonType.DEMO,
           "xpReward": 15,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master System Failsafes: Error Handling, you must understand the underlying algorithms. Node 22 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Mecanismos de Seguridad del Sistema: Manejo de Errores, debes comprender los algoritmos subyacentes. El Nodo 22 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node ERRORS-23: Assimilation",
+          "title": "Nodo ERRORS-23: Asimilación",
           "type": LessonType.EXERCISE_GUIDED,
           "xpReward": 20,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master System Failsafes: Error Handling, you must understand the underlying algorithms. Node 23 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Mecanismos de Seguridad del Sistema: Manejo de Errores, debes comprender los algoritmos subyacentes. El Nodo 23 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node ERRORS-24: Assimilation",
+          "title": "Nodo ERRORS-24: Asimilación",
           "type": LessonType.EXERCISE_FREE,
           "xpReward": 25,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master System Failsafes: Error Handling, you must understand the underlying algorithms. Node 24 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Mecanismos de Seguridad del Sistema: Manejo de Errores, debes comprender los algoritmos subyacentes. El Nodo 24 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node ERRORS-25: Assimilation",
+          "title": "Nodo ERRORS-25: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 30,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master System Failsafes: Error Handling, you must understand the underlying algorithms. Node 25 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Mecanismos de Seguridad del Sistema: Manejo de Errores, debes comprender los algoritmos subyacentes. El Nodo 25 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "MISSION 8: Sentinel Breach",
+          "title": "MISIÓN 8: Brecha del Centinela",
           "type": LessonType.BOSS,
           "xpReward": 50,
           "content": {
-            "theory": "[BOSS ENCOUNTER] The Mainframe's sentinel is blocking the port. You must exploit the vulnerability using your knowledge of System Failsafes: Error Handling.",
-            "instructions": "> DESTROY THE SENTINEL. Write a complete subroutine that outputs the destruction sequence code exactly as 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Your exploit code\n}",
+            "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento de Mecanismos de Seguridad del Sistema: Manejo de Errores.",
+            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         }
@@ -433,90 +433,90 @@ export const getRustSeed: SeederFunction = async (prisma) => {
     {
       "concept": {
         "slug": "concurrency",
-        "title": "Neural Threads: Concurrency",
-        "description": "Execute code simultaneously across multi-core cyber-processors.",
+        "title": "Hilos Neuronales: Concurrencia",
+        "description": "Ejecuta código simultáneamente a través de ciber-procesadores de múltiples núcleos.",
         "orderIndex": 6
       },
       "lessons": [
         {
-          "title": "Node CONCURRENCY-26: Assimilation",
+          "title": "Nodo CONCURRENCY-26: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 10,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Neural Threads: Concurrency, you must understand the underlying algorithms. Node 26 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Hilos Neuronales: Concurrencia, debes comprender los algoritmos subyacentes. El Nodo 26 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node CONCURRENCY-27: Assimilation",
+          "title": "Nodo CONCURRENCY-27: Asimilación",
           "type": LessonType.DEMO,
           "xpReward": 15,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Neural Threads: Concurrency, you must understand the underlying algorithms. Node 27 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Hilos Neuronales: Concurrencia, debes comprender los algoritmos subyacentes. El Nodo 27 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node CONCURRENCY-28: Assimilation",
+          "title": "Nodo CONCURRENCY-28: Asimilación",
           "type": LessonType.EXERCISE_GUIDED,
           "xpReward": 20,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Neural Threads: Concurrency, you must understand the underlying algorithms. Node 28 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Hilos Neuronales: Concurrencia, debes comprender los algoritmos subyacentes. El Nodo 28 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node CONCURRENCY-29: Assimilation",
+          "title": "Nodo CONCURRENCY-29: Asimilación",
           "type": LessonType.EXERCISE_FREE,
           "xpReward": 25,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Neural Threads: Concurrency, you must understand the underlying algorithms. Node 29 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Hilos Neuronales: Concurrencia, debes comprender los algoritmos subyacentes. El Nodo 29 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "Node CONCURRENCY-30: Assimilation",
+          "title": "Nodo CONCURRENCY-30: Asimilación",
           "type": LessonType.INTRO,
           "xpReward": 30,
           "content": {
-            "theory": "[ENCRYPTED TRANSMISSION] To master Neural Threads: Concurrency, you must understand the underlying algorithms. Node 30 introduces core syntax and rules to interface with the subsystem.",
-            "instructions": "> INCOMING SIGNAL... Execute the initialization sequence. Modify the payload to output the exact biometric signature required by the firewall.",
-            "initialCode": "fn main() {\n    // Initialize payload here\n    println!(\"Status: READY\");\n}",
+            "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Hilos Neuronales: Concurrencia, debes comprender los algoritmos subyacentes. El Nodo 30 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
             "expectedOutput": "Status: READY"
           }
         },
         {
-          "title": "MISSION 9: Security Clearance",
+          "title": "MISIÓN 9: Autorización de Seguridad",
           "type": LessonType.BOSS,
           "xpReward": 50,
           "content": {
-            "theory": "[WARNING] Intrusion detected. Firewall requires security clearance verification.",
-            "instructions": "> ANSWER THE SECURITY QUESTION TO PROCEED. What is the primary directive of this sector?",
-            "initialCode": "// Awaiting clearance code...",
+            "theory": "[ADVERTENCIA] Intrusión detectada. El firewall requiere verificación de autorización de seguridad.",
+            "instructions": "> RESPONDE LA PREGUNTA DE SEGURIDAD PARA CONTINUAR. ¿Cuál es la directiva principal de este sector?",
+            "initialCode": "// Esperando código de autorización...",
             "quizOptions": [
-              "Memory leak exploitation",
-              "Strict ownership and borrowing",
-              "Garbage collected runtime"
+              "Explotación de fugas de memoria",
+              "Propiedad y préstamo estrictos",
+              "Tiempo de ejecución con recolector de basura"
             ],
             "correctOptionIndex": 1
           }
         },
         {
-          "title": "MISSION 10: Sentinel Breach",
+          "title": "MISIÓN 10: Brecha del Centinela",
           "type": LessonType.BOSS,
           "xpReward": 50,
           "content": {
-            "theory": "[BOSS ENCOUNTER] The Mainframe's sentinel is blocking the port. You must exploit the vulnerability using your knowledge of Neural Threads: Concurrency.",
-            "instructions": "> DESTROY THE SENTINEL. Write a complete subroutine that outputs the destruction sequence code exactly as 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Your exploit code\n}",
+            "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento de Hilos Neuronales: Concurrencia.",
+            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         }

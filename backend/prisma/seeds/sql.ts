@@ -10,72 +10,72 @@ export const getSqlSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'sql-basics',
-          title: 'SQL Basics',
-          description: 'Learn the fundamentals of querying databases with SQL.',
+          title: 'Conceptos Básicos de SQL',
+          description: 'Aprende los fundamentos para consultar bases de datos con SQL.',
           orderIndex: 1,
         },
         lessons: [
           {
-            title: 'Introduction to Databases',
+            title: 'Introducción a las Bases de Datos',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'SQL (Structured Query Language) is the standard language for querying relational databases. In this course, we will use a sample database called **Pagila**, which represents a movie rental store.',
-              instructions: 'Run the query below to test your database connection.',
+              theory: 'SQL (Structured Query Language) es el lenguaje estándar para consultar bases de datos relacionales. En este curso, usaremos una base de datos de muestra llamada **Pagila**, que representa un videoclub.',
+              instructions: 'Ejecuta la consulta a continuación para probar tu conexión a la base de datos.',
               initialCode: 'SELECT 1 AS result;',
               expectedOutput: 'result\n1'
             }
           },
           {
-            title: 'Your First Query',
+            title: 'Tu Primera Consulta',
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: 'The `SELECT` statement is used to retrieve data from a database. The `FROM` clause specifies the table. For example: `SELECT * FROM actor;` retrieves all columns.',
-              instructions: 'Run the query to retrieve the first and last names of the first two actors in the database.',
+              theory: 'La sentencia `SELECT` se usa para obtener datos de una base de datos. La cláusula `FROM` especifica la tabla. Por ejemplo: `SELECT * FROM actor;` obtiene todas las columnas.',
+              instructions: 'Ejecuta la consulta para obtener los nombres y apellidos de los dos primeros actores en la base de datos.',
               initialCode: 'SELECT first_name, last_name FROM actor ORDER BY actor_id ASC LIMIT 2;',
               expectedOutput: 'first_name,last_name\nPENELOPE,GUINESS\nNICK,WAHLBERG'
             }
           },
           {
-            title: 'Selecting Specific Columns',
+            title: 'Seleccionando Columnas Específicas',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: 'Instead of using `*` to select all columns, it is best practice to specify exactly which columns you want.',
-              instructions: 'Write a query to select the `title` and `release_year` from the `film` table. Order by `film_id` ascending and limit to 2 results.',
-              initialCode: '-- Select title and release_year from the film table\n',
+              theory: 'En lugar de usar `*` para seleccionar todas las columnas, es una buena práctica especificar exactamente qué columnas quieres.',
+              instructions: 'Escribe una consulta para seleccionar el `title` y `release_year` de la tabla `film`. Ordena por `film_id` de forma ascendente y limita a 2 resultados.',
+              initialCode: '-- Selecciona title y release_year de la tabla film\n',
               expectedOutput: 'title,release_year\nACADEMY DINOSAUR,2006\nACE GOLDFINGER,2006'
             }
           },
           {
-            title: 'Filtering with WHERE',
+            title: 'Filtrando con WHERE',
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: 'The `WHERE` clause is used to filter records. It extracts only those records that fulfill a specified condition.',
-              instructions: 'Select the `first_name` of the actor with `actor_id = 5`.',
-              initialCode: '-- Write your query here\n',
+              theory: 'La cláusula `WHERE` se usa para filtrar registros. Extrae solo aquellos registros que cumplen una condición especificada.',
+              instructions: 'Selecciona el `first_name` del actor con `actor_id = 5`.',
+              initialCode: '-- Escribe tu consulta aquí\n',
               expectedOutput: 'first_name\nJOHNNY'
             }
           },
           {
-            title: 'Mission: Retrieve Actor Information',
+            title: 'Misión: Obtener Información de un Actor',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'Your first mission as a database analyst!',
-              instructions: 'Find the `first_name` and `last_name` of the actor whose `actor_id` is 10.',
-              initialCode: '-- Find actor 10\n',
+              theory: '¡Tu primera misión como analista de bases de datos!',
+              instructions: 'Encuentra el `first_name` y `last_name` del actor cuyo `actor_id` es 10.',
+              initialCode: '-- Encuentra al actor 10\n',
               expectedOutput: 'first_name,last_name\nCHRISTIAN,GABLE'
             }
           },
           {
-            title: 'Knowledge Check: SQL Basics',
+            title: 'Prueba de Conocimiento: Conceptos Básicos de SQL',
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              instructions: 'Which SQL clause is used to filter records based on a specific condition?',
+              instructions: '¿Qué cláusula SQL se utiliza para filtrar registros basados en una condición específica?',
               initialCode: '',
               quizOptions: ['SELECT', 'WHERE', 'FROM', 'FILTER'],
               correctOptionIndex: 1
@@ -86,74 +86,74 @@ export const getSqlSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'sorting-pagination',
-          title: 'Sorting & Pagination',
-          description: 'Control the order and volume of the data returned by your queries.',
+          title: 'Ordenamiento y Paginación',
+          description: 'Controla el orden y la cantidad de datos devueltos por tus consultas.',
           orderIndex: 2,
         },
         lessons: [
           {
-            title: 'Order of Operations',
+            title: 'Orden de Operaciones',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'In SQL, queries return data in an unpredictable order unless explicitly sorted. Furthermore, pagination allows you to handle large datasets effectively.',
-              instructions: 'Run the query to continue.',
+              theory: 'En SQL, las consultas devuelven los datos en un orden impredecible a menos que se ordenen explícitamente. Además, la paginación te permite manejar grandes conjuntos de datos de manera efectiva.',
+              instructions: 'Ejecuta la consulta para continuar.',
               initialCode: "SELECT 'Sorting' AS topic;",
               expectedOutput: 'topic\nSorting'
             }
           },
           {
-            title: 'Sorting with ORDER BY',
+            title: 'Ordenando con ORDER BY',
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: 'The `ORDER BY` keyword is used to sort the result-set in ascending (`ASC`) or descending (`DESC`) order.',
-              instructions: 'Run this query to see how the database sorts names in descending order.',
+              theory: 'La palabra clave `ORDER BY` se utiliza para ordenar el conjunto de resultados en orden ascendente (`ASC`) o descendente (`DESC`).',
+              instructions: 'Ejecuta esta consulta para ver cómo la base de datos ordena los nombres de forma descendente.',
               initialCode: 'SELECT actor_id, first_name FROM actor ORDER BY actor_id DESC LIMIT 2;',
               expectedOutput: 'actor_id,first_name\n200,THORA\n199,JULIA'
             }
           },
           {
-            title: 'Removing Duplicates with DISTINCT',
+            title: 'Eliminando Duplicados con DISTINCT',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: 'The `SELECT DISTINCT` statement is used to return only distinct (different) values.',
-              instructions: 'Write a query to select all distinct `release_year` values from the `film` table.',
-              initialCode: '-- Select distinct release years\n',
+              theory: 'La sentencia `SELECT DISTINCT` se usa para devolver solo valores distintos (diferentes).',
+              instructions: 'Escribe una consulta para seleccionar todos los valores distintos de `release_year` de la tabla `film`.',
+              initialCode: '-- Selecciona años de lanzamiento distintos\n',
               expectedOutput: 'release_year\n2006'
             }
           },
           {
-            title: 'Sorting by Multiple Columns',
+            title: 'Ordenando por Múltiples Columnas',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: 'You can sort by multiple columns. The database sorts by the first column, and if there is a tie, it sorts by the second.',
-              instructions: 'Select `first_name` and `last_name` from `actor`. Order by `first_name` descending, and `last_name` descending. Limit to 2 results.',
-              initialCode: '-- Write your query here\n',
+              theory: 'Puedes ordenar por múltiples columnas. La base de datos ordena por la primera columna, y si hay un empate, ordena por la segunda.',
+              instructions: 'Selecciona `first_name` y `last_name` de `actor`. Ordena por `first_name` de forma descendente, y `last_name` de forma descendente. Limita a 2 resultados.',
+              initialCode: '-- Escribe tu consulta aquí\n',
               expectedOutput: 'first_name,last_name\nZERO,SUVARI\nZERO,CAGE'
             }
           },
           {
-            title: 'Pagination with LIMIT and OFFSET',
+            title: 'Paginación con LIMIT y OFFSET',
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: '`LIMIT` restricts the number of rows returned. `OFFSET` skips a specified number of rows before beginning to return rows.',
-              instructions: 'Select `actor_id` from `actor` ordered by `actor_id` ascending. Limit to 2 rows, and skip the first 2 rows (Offset 2).',
-              initialCode: '-- Use LIMIT and OFFSET\n',
+              theory: '`LIMIT` restringe el número de filas devueltas. `OFFSET` omite un número especificado de filas antes de comenzar a devolver filas.',
+              instructions: 'Selecciona `actor_id` de `actor` ordenado por `actor_id` de forma ascendente. Limita a 2 filas, y omite las primeras 2 filas (Offset 2).',
+              initialCode: '-- Usa LIMIT y OFFSET\n',
               expectedOutput: 'actor_id\n3\n4'
             }
           },
           {
-            title: 'Mission: Top Movies',
+            title: 'Misión: Mejores Películas',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'The store manager needs to know which movies are the most expensive to rent.',
-              instructions: 'Select the `title` and `rental_rate` from the `film` table. Order them by `rental_rate` descending, then by `title` ascending. Limit to 3 results.',
-              initialCode: '-- Find the top rentals\n',
+              theory: 'El gerente de la tienda necesita saber qué películas son las más caras de alquilar.',
+              instructions: 'Selecciona el `title` y `rental_rate` de la tabla `film`. Ordénalos por `rental_rate` de forma descendente, luego por `title` de forma ascendente. Limita a 3 resultados.',
+              initialCode: '-- Encuentra los alquileres más altos\n',
               expectedOutput: 'title,rental_rate\nACE GOLDFINGER,4.99\nAFFAIR PREJUDICE,4.99\nAFRICAN EGG,4.99'
             }
           }
@@ -162,74 +162,74 @@ export const getSqlSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'pattern-matching',
-          title: 'Pattern Matching & Nulls',
-          description: 'Learn to filter text flexibly and handle missing data.',
+          title: 'Coincidencia de Patrones y Valores Nulos',
+          description: 'Aprende a filtrar texto de manera flexible y a manejar datos faltantes.',
           orderIndex: 3,
         },
         lessons: [
           {
-            title: 'Working with Text',
+            title: 'Trabajando con Texto',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'SQL provides powerful tools for filtering and manipulating text data, such as wildcards and string functions.',
-              instructions: 'Execute the placeholder query.',
+              theory: 'SQL proporciona herramientas poderosas para filtrar y manipular datos de texto, como comodines y funciones de cadena.',
+              instructions: 'Ejecuta la consulta de marcador de posición.',
               initialCode: "SELECT 'Text processing' AS category;",
               expectedOutput: 'category\nText processing'
             }
           },
           {
-            title: 'Pattern Matching with LIKE',
+            title: 'Coincidencia de Patrones con LIKE',
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: 'The `LIKE` operator is used in a `WHERE` clause to search for a specified pattern in a column. `%` represents zero, one, or multiple characters.',
-              instructions: 'Run the query to find films starting with "AL".',
+              theory: 'El operador `LIKE` se usa en una cláusula `WHERE` para buscar un patrón específico en una columna. El símbolo `%` representa cero, uno o múltiples caracteres.',
+              instructions: 'Ejecuta la consulta para encontrar películas que comiencen con "AL".',
               initialCode: "SELECT title FROM film WHERE title LIKE 'AL%' ORDER BY title ASC LIMIT 2;",
               expectedOutput: 'title\nALABAMA DEVIL\nALADDIN CALENDAR'
             }
           },
           {
-            title: 'String Functions',
+            title: 'Funciones de Cadena',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: 'Functions like `UPPER()`, `LOWER()`, and `LENGTH()` can manipulate string data directly in your query.',
-              instructions: 'Select the `first_name` in lowercase using the `LOWER()` function from the `actor` table where `actor_id` is 1.',
-              initialCode: '-- Select lowercased first_name\n',
+              theory: 'Funciones como `UPPER()`, `LOWER()` y `LENGTH()` pueden manipular datos de cadena directamente en tu consulta.',
+              instructions: 'Selecciona el `first_name` en minúsculas utilizando la función `LOWER()` de la tabla `actor` donde el `actor_id` es 1.',
+              initialCode: '-- Selecciona first_name en minúsculas\n',
               expectedOutput: 'lower\npenelope'
             }
           },
           {
-            title: 'Handling Missing Data with IS NULL',
+            title: 'Manejando Datos Faltantes con IS NULL',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: 'A field with a NULL value is a field with no value. Use `IS NULL` or `IS NOT NULL` to check for it.',
-              instructions: 'Write a query that selects `1 AS result` where `NULL IS NULL`.',
+              theory: 'Un campo con un valor NULL es un campo sin valor. Usa `IS NULL` o `IS NOT NULL` para comprobarlo.',
+              instructions: 'Escribe una consulta que seleccione `1 AS result` donde `NULL IS NULL`.',
               initialCode: 'SELECT 1 AS result WHERE NULL IS NULL;',
               expectedOutput: 'result\n1'
             }
           },
           {
-            title: 'Multiple Values with IN and BETWEEN',
+            title: 'Múltiples Valores con IN y BETWEEN',
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: 'The `IN` operator allows you to specify multiple values in a `WHERE` clause. `BETWEEN` selects values within a given range.',
-              instructions: 'Select `actor_id` from `actor` where the `actor_id` is between 10 and 11. Order by `actor_id` ascending.',
-              initialCode: '-- Use BETWEEN\n',
+              theory: 'El operador `IN` te permite especificar múltiples valores en una cláusula `WHERE`. `BETWEEN` selecciona valores dentro de un rango dado.',
+              instructions: 'Selecciona `actor_id` de `actor` donde el `actor_id` esté entre 10 y 11. Ordena por `actor_id` de forma ascendente.',
+              initialCode: '-- Usa BETWEEN\n',
               expectedOutput: 'actor_id\n10\n11'
             }
           },
           {
-            title: 'Mission: Find the Missing Data',
+            title: 'Misión: Encuentra los Datos Faltantes',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'You have been tasked with auditing the database for specific ranges.',
-              instructions: 'Select `film_id` from `film` where `film_id` is IN (1, 3). Order by `film_id` ascending.',
-              initialCode: '-- Find films 1 and 3\n',
+              theory: 'Se te ha encomendado auditar la base de datos para rangos específicos.',
+              instructions: 'Selecciona `film_id` de `film` donde `film_id` esté IN (1, 3). Ordena por `film_id` de forma ascendente.',
+              initialCode: '-- Encuentra las películas 1 y 3\n',
               expectedOutput: 'film_id\n1\n3'
             }
           }
@@ -238,72 +238,72 @@ export const getSqlSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'joins',
-          title: 'Joins',
-          description: 'Combine data from multiple tables using relationships.',
+          title: 'Uniones (Joins)',
+          description: 'Combina datos de múltiples tablas usando relaciones.',
           orderIndex: 4,
         },
         lessons: [
           {
-            title: 'Introduction to Relational Data',
+            title: 'Introducción a Datos Relacionales',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'A relational database stores data in multiple tables. Joins allow us to combine rows from two or more tables based on a related column between them.',
-              instructions: 'Run the query.',
+              theory: 'Una base de datos relacional almacena datos en múltiples tablas. Las uniones (Joins) nos permiten combinar filas de dos o más tablas basándose en una columna relacionada entre ellas.',
+              instructions: 'Ejecuta la consulta.',
               initialCode: "SELECT 'Joins' AS topic;",
               expectedOutput: 'topic\nJoins'
             }
           },
           {
-            title: 'Combining Data with INNER JOIN',
+            title: 'Combinando Datos con INNER JOIN',
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: 'The `INNER JOIN` keyword selects records that have matching values in both tables.',
-              instructions: 'Run the query to see how actors and their film IDs are linked.',
+              theory: 'La palabra clave `INNER JOIN` selecciona registros que tienen valores coincidentes en ambas tablas.',
+              instructions: 'Ejecuta la consulta para ver cómo los actores y sus IDs de películas están vinculados.',
               initialCode: 'SELECT a.actor_id, a.first_name, fa.film_id FROM actor a INNER JOIN film_actor fa ON a.actor_id = fa.actor_id ORDER BY a.actor_id ASC, fa.film_id ASC LIMIT 2;',
               expectedOutput: 'actor_id,first_name,film_id\n1,PENELOPE,1\n1,PENELOPE,23'
             }
           },
           {
-            title: 'Including Unmatched Records with LEFT JOIN',
+            title: 'Incluyendo Registros No Coincidentes con LEFT JOIN',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: 'The `LEFT JOIN` keyword returns all records from the left table, and the matched records from the right table. Unmatched right side records will be NULL.',
-              instructions: 'Select `c.customer_id` and `r.rental_id` using a LEFT JOIN from `customer c` to `rental r`. Order by `c.customer_id` ASC and `r.rental_id` ASC. Limit to 1 result.',
-              initialCode: '-- Write your LEFT JOIN query\n',
+              theory: 'La palabra clave `LEFT JOIN` devuelve todos los registros de la tabla izquierda, y los registros coincidentes de la tabla derecha. Los registros del lado derecho sin coincidencia serán NULL.',
+              instructions: 'Selecciona `c.customer_id` y `r.rental_id` usando un LEFT JOIN de `customer c` a `rental r`. Ordena por `c.customer_id` ASC y `r.rental_id` ASC. Limita a 1 resultado.',
+              initialCode: '-- Escribe tu consulta con LEFT JOIN\n',
               expectedOutput: 'customer_id,rental_id\n1,76'
             }
           },
           {
-            title: 'Joining Multiple Tables',
+            title: 'Uniendo Múltiples Tablas',
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: 'You can chain multiple joins in a single query to connect data across many tables.',
-              instructions: 'Join `actor`, `film_actor`, and `film` to find the `title` of films featuring `actor_id` = 1. Select `a.first_name` and `f.title`. Order by `f.title` ASC and limit to 2.',
-              initialCode: '-- Chain multiple joins\n',
+              theory: 'Puedes encadenar múltiples uniones en una sola consulta para conectar datos a través de muchas tablas.',
+              instructions: 'Une `actor`, `film_actor` y `film` para encontrar el `title` de las películas donde actúa el `actor_id` = 1. Selecciona `a.first_name` y `f.title`. Ordena por `f.title` ASC y limita a 2.',
+              initialCode: '-- Encadena múltiples uniones\n',
               expectedOutput: 'first_name,title\nPENELOPE,ACADEMY DINOSAUR\nPENELOPE,ANACONDA CONFESSIONS'
             }
           },
           {
-            title: 'Mission: Actor and Film Catalog',
+            title: 'Misión: Catálogo de Actores y Películas',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'The manager wants to know what category the film "ACADEMY DINOSAUR" (film_id = 1) belongs to.',
-              instructions: 'Join the `category` and `film_category` tables to find the `name` of the category for `film_id` 1.',
-              initialCode: '-- Find the category name for film_id 1\n',
+              theory: 'El gerente quiere saber a qué categoría pertenece la película "ACADEMY DINOSAUR" (film_id = 1).',
+              instructions: 'Une las tablas `category` y `film_category` para encontrar el nombre (`name`) de la categoría para el `film_id` 1.',
+              initialCode: '-- Encuentra el nombre de la categoría para film_id 1\n',
               expectedOutput: 'name\nDocumentary'
             }
           },
           {
-            title: 'Knowledge Check: Joins',
+            title: 'Prueba de Conocimiento: Uniones',
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              instructions: 'Which join returns all rows from the left table, even if there are no matches in the right table?',
+              instructions: '¿Qué unión devuelve todas las filas de la tabla izquierda, incluso si no hay coincidencias en la tabla derecha?',
               initialCode: '',
               quizOptions: ['INNER JOIN', 'LEFT JOIN', 'RIGHT JOIN', 'FULL JOIN'],
               correctOptionIndex: 1
@@ -314,72 +314,72 @@ export const getSqlSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'aggregate-functions',
-          title: 'Aggregate Functions',
-          description: 'Perform calculations on groups of rows to find totals, averages, and extremes.',
+          title: 'Funciones de Agregación',
+          description: 'Realiza cálculos sobre grupos de filas para encontrar totales, promedios y extremos.',
           orderIndex: 5,
         },
         lessons: [
           {
-            title: 'Math in SQL',
+            title: 'Matemáticas en SQL',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'Aggregate functions perform a calculation on a set of values and return a single value. They are incredibly useful for reporting and data analysis.',
-              instructions: 'Execute the math query.',
+              theory: 'Las funciones de agregación realizan un cálculo sobre un conjunto de valores y devuelven un solo valor. Son increíblemente útiles para crear reportes y analizar datos.',
+              instructions: 'Ejecuta la consulta matemática.',
               initialCode: 'SELECT 2 + 2 AS result;',
               expectedOutput: 'result\n4'
             }
           },
           {
-            title: 'Counting Rows with COUNT',
+            title: 'Contando Filas con COUNT',
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: 'The `COUNT()` function returns the number of rows that match a specified criterion.',
-              instructions: 'Run this query to count the total number of actors in the database.',
+              theory: 'La función `COUNT()` devuelve el número de filas que coinciden con un criterio especificado.',
+              instructions: 'Ejecuta esta consulta para contar el número total de actores en la base de datos.',
               initialCode: 'SELECT COUNT(*) FROM actor;',
               expectedOutput: 'count\n200'
             }
           },
           {
-            title: 'Calculating Totals with SUM and AVG',
+            title: 'Calculando Totales con SUM y AVG',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: '`SUM()` calculates the total sum of a numeric column. `AVG()` calculates the average value.',
-              instructions: 'Calculate the sum of `film_id` for films where `film_id` is less than or equal to 3. Alias the result as `sum`.',
-              initialCode: '-- Calculate the sum\n',
+              theory: '`SUM()` calcula la suma total de una columna numérica. `AVG()` calcula el valor promedio.',
+              instructions: 'Calcula la suma de `film_id` para películas donde `film_id` es menor o igual a 3. Da un alias al resultado como `sum`.',
+              initialCode: '-- Calcula la suma\n',
               expectedOutput: 'sum\n6'
             }
           },
           {
-            title: 'Extremes with MIN and MAX',
+            title: 'Extremos con MIN y MAX',
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: '`MIN()` and `MAX()` return the smallest and largest values of the selected column, respectively.',
-              instructions: 'Select the minimum `film_id` (alias as `min_id`) and maximum `film_id` (alias as `max_id`) from the `film` table.',
-              initialCode: '-- Find the min and max film_ids\n',
+              theory: '`MIN()` y `MAX()` devuelven el valor más pequeño y más grande de la columna seleccionada, respectivamente.',
+              instructions: 'Selecciona el `film_id` mínimo (alias como `min_id`) y el `film_id` máximo (alias como `max_id`) de la tabla `film`.',
+              initialCode: '-- Encuentra el min y max film_ids\n',
               expectedOutput: 'min_id,max_id\n1,1000'
             }
           },
           {
-            title: 'Mission: Inventory Stats',
+            title: 'Misión: Estadísticas de Inventario',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'Inventory levels need checking.',
-              instructions: 'Use `COUNT(*)` to find the total number of inventory items available for `film_id` 1.',
-              initialCode: '-- Count inventory for film 1\n',
+              theory: 'Es necesario revisar los niveles de inventario.',
+              instructions: 'Usa `COUNT(*)` para encontrar el número total de artículos de inventario disponibles para el `film_id` 1.',
+              initialCode: '-- Cuenta el inventario para la película 1\n',
               expectedOutput: 'count\n8'
             }
           },
           {
-            title: 'Knowledge Check: Aggregations',
+            title: 'Prueba de Conocimiento: Agregaciones',
             type: LessonType.BOSS,
             xpReward: 10,
             content: {
-              instructions: 'Which function calculates the average value of a numeric column?',
+              instructions: '¿Qué función calcula el valor promedio de una columna numérica?',
               initialCode: '',
               quizOptions: ['SUM', 'COUNT', 'AVG', 'MEDIAN'],
               correctOptionIndex: 2
@@ -390,63 +390,63 @@ export const getSqlSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'grouping',
-          title: 'Grouping',
-          description: 'Organize data into summary rows using GROUP BY and HAVING clauses.',
+          title: 'Agrupación',
+          description: 'Organiza datos en filas de resumen usando las cláusulas GROUP BY y HAVING.',
           orderIndex: 6,
         },
         lessons: [
           {
-            title: 'Data Summarization',
+            title: 'Resumen de Datos',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'Grouping allows you to apply aggregate functions to subsets of data, grouping rows that have the same values into summary rows.',
-              instructions: 'Run the query to start grouping.',
+              theory: 'La agrupación te permite aplicar funciones de agregación a subconjuntos de datos, agrupando filas que tienen los mismos valores en filas de resumen.',
+              instructions: 'Ejecuta la consulta para comenzar a agrupar.',
               initialCode: "SELECT 'Grouping' AS concept;",
               expectedOutput: 'concept\nGrouping'
             }
           },
           {
-            title: 'Organizing Data with GROUP BY',
+            title: 'Organizando Datos con GROUP BY',
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: 'The `GROUP BY` statement groups rows that have the same values into summary rows, like "find the number of customers in each store".',
-              instructions: 'Run this query to see how many rentals each customer has made (showing the first 2).',
+              theory: 'La declaración `GROUP BY` agrupa las filas que tienen los mismos valores en filas de resumen, como "encontrar el número de clientes en cada tienda".',
+              instructions: 'Ejecuta esta consulta para ver cuántos alquileres ha realizado cada cliente (mostrando los 2 primeros).',
               initialCode: 'SELECT customer_id, COUNT(*) FROM rental GROUP BY customer_id ORDER BY customer_id ASC LIMIT 2;',
               expectedOutput: 'customer_id,count\n1,32\n2,27'
             }
           },
           {
-            title: 'Grouping by Multiple Columns',
+            title: 'Agrupando por Múltiples Columnas',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: 'You can group by multiple columns to create more granular summaries.',
-              instructions: 'Select `store_id`, `active`, and `COUNT(*)` from `customer`. Group by `store_id` and `active`. Order by `store_id` ASC and `active` ASC. Limit to 2 results.',
-              initialCode: '-- Group by store and active status\n',
+              theory: 'Puedes agrupar por múltiples columnas para crear resúmenes más detallados.',
+              instructions: 'Selecciona `store_id`, `active` y `COUNT(*)` de `customer`. Agrupa por `store_id` y `active`. Ordena por `store_id` ASC y `active` ASC. Limita a 2 resultados.',
+              initialCode: '-- Agrupa por tienda y estado activo\n',
               expectedOutput: 'store_id,active,count\n1,0,8\n1,1,318'
             }
           },
           {
-            title: 'Filtering Groups with HAVING',
+            title: 'Filtrando Grupos con HAVING',
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: 'The `HAVING` clause was added to SQL because the `WHERE` keyword cannot be used with aggregate functions.',
-              instructions: 'Select `rating` from `film`. Group by `rating` and filter for groups `HAVING COUNT(*) > 200`. Order by `rating` ASC. Limit to 1.',
-              initialCode: '-- Use HAVING to filter groups\n',
+              theory: 'La cláusula `HAVING` se añadió a SQL porque la palabra clave `WHERE` no se puede utilizar con funciones de agregación.',
+              instructions: 'Selecciona la clasificación (`rating`) de la tabla `film`. Agrupa por `rating` y filtra los grupos `HAVING COUNT(*) > 200`. Ordena por `rating` ASC. Limita a 1.',
+              initialCode: '-- Usa HAVING para filtrar grupos\n',
               expectedOutput: 'rating\nPG-13'
             }
           },
           {
-            title: 'Mission: Store Performance',
+            title: 'Misión: Rendimiento de la Tienda',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'We need to analyze film categories based on exact counts.',
-              instructions: 'Select the `rating` from `film` grouped by `rating` that has exactly 178 films.',
-              initialCode: '-- Find the rating with exactly 178 films\n',
+              theory: 'Necesitamos analizar las categorías de películas basándonos en recuentos exactos.',
+              instructions: 'Selecciona la clasificación (`rating`) de `film` agrupada por `rating` que tenga exactamente 178 películas.',
+              initialCode: '-- Encuentra la clasificación con exactamente 178 películas\n',
               expectedOutput: 'rating\nG'
             }
           }
@@ -455,63 +455,63 @@ export const getSqlSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'subqueries-advanced',
-          title: 'Subqueries & Advanced Concepts',
-          description: 'Leverage nested queries and conditional logic to answer complex questions.',
+          title: 'Subconsultas y Conceptos Avanzados',
+          description: 'Aprovecha consultas anidadas y lógica condicional para responder preguntas complejas.',
           orderIndex: 7,
         },
         lessons: [
           {
-            title: 'Combining Queries',
+            title: 'Combinando Consultas',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'A subquery is a query nested inside another query. They can be used in SELECT, INSERT, UPDATE, or DELETE statements.',
-              instructions: 'Execute the query to continue.',
+              theory: 'Una subconsulta es una consulta anidada dentro de otra consulta. Pueden usarse en las sentencias SELECT, INSERT, UPDATE o DELETE.',
+              instructions: 'Ejecuta la consulta para continuar.',
               initialCode: "SELECT 'Subqueries' AS topic;",
               expectedOutput: 'topic\nSubqueries'
             }
           },
           {
-            title: 'Subqueries in WHERE Clause',
+            title: 'Subconsultas en la Cláusula WHERE',
             type: LessonType.DEMO,
             xpReward: 15,
             content: {
-              theory: 'You can use a subquery in a `WHERE` clause to filter dynamically based on the results of another query.',
-              instructions: 'Run this query to find the title of the film with the minimum `film_id`.',
+              theory: 'Puedes usar una subconsulta en una cláusula `WHERE` para filtrar dinámicamente según los resultados de otra consulta.',
+              instructions: 'Ejecuta esta consulta para encontrar el título de la película con el mínimo `film_id`.',
               initialCode: 'SELECT title FROM film WHERE film_id = (SELECT MIN(film_id) FROM film);',
               expectedOutput: 'title\nACADEMY DINOSAUR'
             }
           },
           {
-            title: 'Subqueries in SELECT Clause',
+            title: 'Subconsultas en la Cláusula SELECT',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 20,
             content: {
-              theory: 'Subqueries can also be used directly in the `SELECT` clause to fetch a scalar (single) value for every row.',
-              instructions: 'Select `title` and a subquery `(SELECT MAX(rental_duration) FROM film)` aliased as `max_dur` from `film`. Order by `film_id` ASC and limit to 1.',
-              initialCode: '-- Add a subquery to the SELECT clause\n',
+              theory: 'Las subconsultas también pueden usarse directamente en la cláusula `SELECT` para obtener un valor escalar (único) por cada fila.',
+              instructions: 'Selecciona `title` y una subconsulta `(SELECT MAX(rental_duration) FROM film)` con el alias `max_dur` de `film`. Ordena por `film_id` ASC y limita a 1.',
+              initialCode: '-- Agrega una subconsulta a la cláusula SELECT\n',
               expectedOutput: 'title,max_dur\nACADEMY DINOSAUR,7'
             }
           },
           {
-            title: 'Conditional Logic with CASE',
+            title: 'Lógica Condicional con CASE',
             type: LessonType.EXERCISE_FREE,
             xpReward: 25,
             content: {
-              theory: 'The `CASE` statement goes through conditions and returns a value when the first condition is met, like an if-then-else statement.',
-              instructions: 'Select `film_id` and a CASE statement that returns "Short" if `length < 50` else "Long", aliased as `length_cat`, from `film` ordered by `film_id` ASC limit 2.',
-              initialCode: '-- Write a CASE statement\n',
+              theory: 'La declaración `CASE` evalúa condiciones y devuelve un valor cuando se cumple la primera condición, como una declaración if-then-else.',
+              instructions: 'Selecciona `film_id` y una sentencia CASE que devuelva "Short" si `length < 50` y "Long" en caso contrario, con el alias `length_cat`, de la tabla `film` ordenado por `film_id` ASC límite 2.',
+              initialCode: '-- Escribe una declaración CASE\n',
               expectedOutput: 'film_id,length_cat\n1,Long\n2,Short'
             }
           },
           {
-            title: 'Mission: Complex Reporting',
+            title: 'Misión: Reportes Complejos',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'A complex report requires nested logic.',
-              instructions: 'Select the `title` from `film` where the `film_id` equals the `actor_id` of the actor with `first_name` "PENELOPE" and `last_name` "GUINESS".',
-              initialCode: '-- Find the film title based on actor data\n',
+              theory: 'Un reporte complejo requiere lógica anidada.',
+              instructions: 'Selecciona el `title` de `film` donde el `film_id` sea igual al `actor_id` del actor con el `first_name` "PENELOPE" y el `last_name` "GUINESS".',
+              initialCode: '-- Encuentra el título de la película basándote en los datos del actor\n',
               expectedOutput: 'title\nACADEMY DINOSAUR'
             }
           }

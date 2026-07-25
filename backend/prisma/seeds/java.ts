@@ -10,79 +10,79 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'java-cyber-core',
-          title: 'The Cyber-Core (Basics)',
-          description: 'Initialize the mainframe and master the fundamental constructs of Java 21 execution environments.',
+          title: 'El Cyber-Núcleo (Conceptos básicos)',
+          description: 'Inicializa el mainframe y domina los constructos fundamentales de los entornos de ejecución de Java 21.',
           orderIndex: 1,
         },
         lessons: [
           {
-            title: 'Boot Sequence',
+            title: 'Secuencia de Arranque',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'Welcome to the Nexus Console. Java is a strongly typed, object-oriented programming language. All execution begins within the `main` method of a primary class. The Cyber-Core requires strict syntax: every statement must terminate with a semicolon, and code blocks are encapsulated in braces `{}`.',
-              instructions: 'Initialize the primary execution sequence. Output the exact phrase "System Booting..." to the terminal using `System.out.println`.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        // Initiate boot sequence\n    }\n}',
+              theory: 'Bienvenido a la Consola Nexus. Java es un lenguaje de programación orientado a objetos y fuertemente tipado. Toda ejecución comienza dentro del método `main` de una clase principal. El Cyber-Núcleo requiere una sintaxis estricta: cada declaración debe terminar con un punto y coma, y los bloques de código están encapsulados en llaves `{}`.',
+              instructions: 'Inicializa la secuencia de ejecución principal. Muestra la frase exacta "System Booting..." en la terminal usando `System.out.println`.',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        // Iniciar secuencia de arranque\n    }\n}',
               expectedOutput: 'System Booting...\n'
             }
           },
           {
-            title: 'Syntax Overview',
+            title: 'Resumen de Sintaxis',
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: 'The underlying architecture of our cyber environment relies on object definitions. A file typically contains one public class matching the filename. The entry point, `public static void main(String[] args)`, is the singular node where our execution thread begins.',
-              instructions: 'Observe the structure of the Main class. Execute the provided script to verify the console output.',
+              theory: 'La arquitectura subyacente de nuestro entorno cibernético se basa en definiciones de objetos. Normalmente, un archivo contiene una clase pública que coincide con el nombre del archivo. El punto de entrada, `public static void main(String[] args)`, es el nodo singular donde comienza nuestro hilo de ejecución.',
+              instructions: 'Observa la estructura de la clase Main. Ejecuta el script proporcionado para verificar la salida de la consola.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Node Connected");\n    }\n}',
               expectedOutput: 'Node Connected\n'
             }
           },
           {
-            title: 'Terminal Echo',
+            title: 'Eco de Terminal',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 15,
             content: {
-              theory: 'Transmission protocols offer two primary methods for terminal echoing: `print()` and `println()`. While `println()` appends a newline character post-transmission, `print()` leaves the cursor on the current line, allowing for continuous stream injection.',
-              instructions: 'Output "Access" and "Granted" on the same line using two `System.out.print` statements, separated by a space.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.print("Access");\n        // Complete the transmission\n    }\n}',
+              theory: 'Los protocolos de transmisión ofrecen dos métodos principales para el eco de terminal: `print()` y `println()`. Mientras que `println()` añade un carácter de nueva línea tras la transmisión, `print()` deja el cursor en la línea actual, permitiendo la inyección continua en el flujo.',
+              instructions: 'Imprime "Access" y "Granted" en la misma línea usando dos declaraciones `System.out.print`, separadas por un espacio.',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.print("Access");\n        // Completar la transmisión\n    }\n}',
               expectedOutput: 'Access Granted'
             }
           },
           {
-            title: 'Multi-line Transmissions',
+            title: 'Transmisiones Multilínea',
             type: LessonType.EXERCISE_FREE,
             xpReward: 20,
             content: {
-              theory: 'Complex payloads often require multi-line formatting to properly structure the command interface. Utilizing multiple `println()` calls ensures clear separation of data packets.',
-              instructions: 'Output exactly three lines:\nLine 1: "Uplink Established"\nLine 2: "Decrypting..."\nLine 3: "Payload Delivered"',
+              theory: 'Las cargas complejas a menudo requieren formato multilínea para estructurar adecuadamente la interfaz de comandos. Utilizar múltiples llamadas a `println()` asegura una separación clara de los paquetes de datos.',
+              instructions: 'Muestra exactamente tres líneas:\nLínea 1: "Uplink Established"\nLínea 2: "Decrypting..."\nLínea 3: "Payload Delivered"',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: 'Uplink Established\nDecrypting...\nPayload Delivered\n'
             }
           },
           {
-            title: 'Stealth Comments',
+            title: 'Comentarios Sigilosos',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'When injecting code into hostile systems, leaving notes for allied operatives is crucial. Java provides single-line comments using `//` and multi-line comments encapsulated between `/*` and `*/`. These blocks are completely ignored by the JVM compiler.',
-              instructions: 'The code currently executes a self-destruct sequence! Comment out the line printing "Initiating self-destruct" and print "System Safe" instead.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Initiating self-destruct");\n        // Print "System Safe" below\n    }\n}',
+              theory: 'Al inyectar código en sistemas hostiles, dejar notas para los operativos aliados es crucial. Java proporciona comentarios de una sola línea usando `//` y comentarios multilínea encapsulados entre `/*` y `*/`. El compilador JVM ignora completamente estos bloques.',
+              instructions: '¡El código actual ejecuta una secuencia de autodestrucción! Comenta la línea que imprime "Initiating self-destruct" e imprime "System Safe" en su lugar.',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Initiating self-destruct");\n        // Imprimir "System Safe" abajo\n    }\n}',
               expectedOutput: 'System Safe\n'
             }
           },
           {
-            title: 'Mainframe Initialization Quiz',
+            title: 'Quiz de Inicialización del Mainframe',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'The security AI is testing your fundamental knowledge of the Java Cyber-Core. Answer correctly to bypass the firewall.',
-              instructions: 'Select the correct statement regarding Java execution.',
+              theory: 'La IA de seguridad está evaluando tus conocimientos fundamentales del Cyber-Núcleo de Java. Responde correctamente para eludir el cortafuegos.',
+              instructions: 'Selecciona la afirmación correcta respecto a la ejecución de Java.',
               initialCode: '',
               quizOptions: [
-                'Execution begins at the first line of the file',
-                'Execution requires a public static void main method',
-                'Comments are compiled into bytecode for security',
-                'System.out.print always adds a newline'
+                'La ejecución comienza en la primera línea del archivo',
+                'La ejecución requiere un método public static void main',
+                'Los comentarios se compilan en bytecode por seguridad',
+                'System.out.print siempre añade una nueva línea'
               ],
               correctOptionIndex: 1
             }
@@ -92,79 +92,79 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'java-data-matrices',
-          title: 'Data Matrices (Variables & Data Types)',
-          description: 'Allocate memory sectors and define data constructs to store critical information.',
+          title: 'Matrices de Datos (Variables y Tipos de Datos)',
+          description: 'Asigna sectores de memoria y define constructos de datos para almacenar información crítica.',
           orderIndex: 2,
         },
         lessons: [
           {
-            title: 'Memory Allocations',
+            title: 'Asignaciones de Memoria',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'Variables act as volatile memory cells holding data payloads. Primitive types are the fastest units: `int` for integers, `double` for high-precision decimals, and `boolean` for true/false logic gates.',
-              instructions: 'Declare an `int` named `securityLevel` and assign it the value `5`. Print its value.',
+              theory: 'Las variables actúan como celdas de memoria volátil que contienen cargas de datos. Los tipos primitivos son las unidades más rápidas: `int` para enteros, `double` para decimales de alta precisión y `boolean` para puertas lógicas de verdadero/falso.',
+              instructions: 'Declara un `int` llamado `securityLevel` y asígnale el valor `5`. Imprime su valor.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: '5\n'
             }
           },
           {
-            title: 'Character Encoding',
+            title: 'Codificación de Caracteres',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 15,
             content: {
-              theory: 'Text streams are encoded using `char` (a single 16-bit Unicode character, single quotes) and `String` (a sequence of characters, double quotes). Strings are full-fledged objects, vital for command phrasing.',
-              instructions: 'Create a String variable `agentName` with the value "Neo" and a char variable `rank` with value \'A\'. Print them on separate lines.',
+              theory: 'Los flujos de texto se codifican utilizando `char` (un solo carácter Unicode de 16 bits, comillas simples) y `String` (una secuencia de caracteres, comillas dobles). Los Strings son objetos de pleno derecho, vitales para el fraseo de comandos.',
+              instructions: 'Crea una variable String `agentName` con el valor "Neo" y una variable char `rank` con el valor \'A\'. Imprímelos en líneas separadas.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: 'Neo\nA\n'
             }
           },
           {
-            title: 'Immutable Constants',
+            title: 'Constantes Inmutables',
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: 'To prevent data corruption from hostile entities, variables can be locked using the `final` keyword. Once a final variable is initialized, its data payload becomes immutable.',
-              instructions: 'Run the program to see the immutable constant being accessed.',
+              theory: 'Para evitar la corrupción de datos por parte de entidades hostiles, las variables pueden bloquearse mediante la palabra clave `final`. Una vez que se inicializa una variable final, su carga de datos se vuelve inmutable.',
+              instructions: 'Ejecuta el programa para ver cómo se accede a la constante inmutable.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        final double PI = 3.14159;\n        System.out.println("Constant PI: " + PI);\n    }\n}',
               expectedOutput: 'Constant PI: 3.14159\n'
             }
           },
           {
-            title: 'Signal Manipulation',
+            title: 'Manipulación de Señales',
             type: LessonType.EXERCISE_FREE,
             xpReward: 20,
             content: {
-              theory: 'Mathematical operators (+, -, *, /, %) allow for manipulation of numeric payloads. String concatenation uses the + operator to merge text nodes with data.',
-              instructions: 'Declare two integers, `x` initialized to 10 and `y` to 20. Output their sum by concatenating it to the String "Sum: ".',
+              theory: 'Los operadores matemáticos (+, -, *, /, %) permiten manipular cargas numéricas. La concatenación de Strings utiliza el operador + para fusionar nodos de texto con datos.',
+              instructions: 'Declara dos enteros, `x` inicializado en 10 e `y` en 20. Imprime su suma concatenándola al String "Sum: ".',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: 'Sum: 30\n'
             }
           },
           {
-            title: 'Resource Calculation',
+            title: 'Cálculo de Recursos',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'The mainframe requires a precise calculation of available bandwidth to continue operations.',
-              instructions: 'Write a program that declares `int bandwidth = 500` and `int consumption = 120`. Calculate the remaining bandwidth and print "Remaining: " followed by the calculated value.',
+              theory: 'El mainframe requiere un cálculo preciso del ancho de banda disponible para continuar las operaciones.',
+              instructions: 'Escribe un programa que declare `int bandwidth = 500` e `int consumption = 120`. Calcula el ancho de banda restante e imprime "Remaining: " seguido del valor calculado.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: 'Remaining: 380\n'
             }
           },
           {
-            title: 'Datatype Anomalies Quiz',
+            title: 'Quiz de Anomalías de Tipos de Datos',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'A sector scan has revealed datatype anomalies. Secure the matrix by answering correctly.',
-              instructions: 'Identify the correct memory allocation behavior in the Java ecosystem.',
+              theory: '¡Un escaneo del sector ha revelado anomalías en los tipos de datos! Asegura la matriz respondiendo correctamente.',
+              instructions: 'Identifica el comportamiento correcto de asignación de memoria en el ecosistema Java.',
               initialCode: '',
               quizOptions: [
-                'String is a primitive type',
-                'boolean can hold 0 or 1',
-                'char uses single quotes and holds one character',
-                'double is less precise than float'
+                'String es un tipo primitivo',
+                'boolean puede contener 0 o 1',
+                'char usa comillas simples y contiene un solo carácter',
+                'double es menos preciso que float'
               ],
               correctOptionIndex: 2
             }
@@ -174,74 +174,74 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'java-logic-gates',
-          title: 'Logic Gates (Control Flow)',
-          description: 'Implement decision-making protocols to route execution paths based on threat levels.',
+          title: 'Puertas Lógicas (Control de Flujo)',
+          description: 'Implementa protocolos de toma de decisiones para enrutar rutas de ejecución según los niveles de amenaza.',
           orderIndex: 3,
         },
         lessons: [
           {
-            title: 'Conditional Routing',
+            title: 'Enrutamiento Condicional',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'Execution paths must often diverge based on real-time threat assessments. `if-else` statements create branching logic paths, evaluating a boolean expression to determine which code block to execute.',
-              instructions: 'Check if `clearance` is greater than 3. If true, print "Access Granted". Else, print "Denied". Variable `clearance` is set to 5.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int clearance = 5;\n        // Write your logic here\n    }\n}',
+              theory: 'A menudo, las rutas de ejecución deben divergir en función de evaluaciones de amenazas en tiempo real. Las declaraciones `if-else` crean rutas lógicas ramificadas, evaluando una expresión booleana para determinar qué bloque de código ejecutar.',
+              instructions: 'Comprueba si `clearance` es mayor que 3. Si es verdadero, imprime "Access Granted". De lo contrario, imprime "Denied". La variable `clearance` está establecida en 5.',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int clearance = 5;\n        // Escribe tu lógica aquí\n    }\n}',
               expectedOutput: 'Access Granted\n'
             }
           },
           {
-            title: 'Deep Nesting',
+            title: 'Anidamiento Profundo',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 15,
             content: {
-              theory: 'Sub-routines may require multiple layers of validation. Nesting `if` statements inside other `if` blocks allows complex multi-tier security checks.',
-              instructions: 'Check if `isActive` is true. If it is, check if `level` is 10. If both are true, print "Max Power".',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        boolean isActive = true;\n        int level = 10;\n        // Add nested conditions\n    }\n}',
+              theory: 'Las subrutinas pueden requerir múltiples capas de validación. Anidar declaraciones `if` dentro de otros bloques `if` permite realizar comprobaciones de seguridad multinivel complejas.',
+              instructions: 'Comprueba si `isActive` es verdadero. Si lo es, comprueba si `level` es 10. Si ambas son verdaderas, imprime "Max Power".',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        boolean isActive = true;\n        int level = 10;\n        // Agregar condiciones anidadas\n    }\n}',
               expectedOutput: 'Max Power\n'
             }
           },
           {
-            title: 'Switch Protocols',
+            title: 'Protocolos Switch',
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: 'Java 21 introduces enhanced switch expressions with lambda-style syntax (`->`). This provides a cleaner, safer way to route execution based on a single variable\'s state, eliminating fall-through bugs.',
-              instructions: 'Execute this modern switch expression to see how it routes protocol commands.',
+              theory: 'Java 21 introduce expresiones switch mejoradas con sintaxis de estilo lambda (`->`). Esto proporciona una forma más limpia y segura de enrutar la ejecución basándose en el estado de una sola variable, eliminando errores de caída libre (fall-through).',
+              instructions: 'Ejecuta esta expresión switch moderna para ver cómo enruta los comandos del protocolo.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int protocol = 2;\n        switch (protocol) {\n            case 1 -> System.out.println("Alpha");\n            case 2 -> System.out.println("Beta");\n            default -> System.out.println("Unknown");\n        }\n    }\n}',
               expectedOutput: 'Beta\n'
             }
           },
           {
-            title: 'Ternary Overrides',
+            title: 'Anulaciones Ternarias',
             type: LessonType.EXERCISE_FREE,
             xpReward: 20,
             content: {
-              theory: 'The ternary operator `? :` acts as a micro-conditional, condensing simple if-else blocks into a single expression for rapid variable assignment.',
-              instructions: 'Use a ternary operator to assign "High" to `status` if `energy > 50`, else "Low". The `energy` is 80. Print `status`.',
+              theory: 'El operador ternario `? :` actúa como un microcondicional, condensando bloques if-else simples en una sola expresión para una rápida asignación de variables.',
+              instructions: 'Usa un operador ternario para asignar "High" a `status` si `energy > 50`, si no "Low". La energía (`energy`) es 80. Imprime `status`.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int energy = 80;\n        // String status = ...\n    }\n}',
               expectedOutput: 'High\n'
             }
           },
           {
-            title: 'Boolean Logic Matrices',
+            title: 'Matrices Lógicas Booleanas',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'Combine multiple threat metrics simultaneously using Logical AND (`&&`), Logical OR (`||`), and Logical NOT (`!`).',
-              instructions: 'Print "Valid" if `x` is greater than 0 AND `x` is less than 10. `x` is 5.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int x = 5;\n        if (/* logic */) {\n            System.out.println("Valid");\n        }\n    }\n}',
+              theory: 'Combina múltiples métricas de amenaza simultáneamente usando AND Lógico (`&&`), OR Lógico (`||`) y NOT Lógico (`!`).',
+              instructions: 'Imprime "Valid" si `x` es mayor que 0 Y `x` es menor que 10. `x` es 5.',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int x = 5;\n        if (/* lógica */) {\n            System.out.println("Valid");\n        }\n    }\n}',
               expectedOutput: 'Valid\n'
             }
           },
           {
-            title: 'Firewall Bypass',
+            title: 'Derivación del Cortafuegos',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'A secure firewall is blocking the main node. You must craft a precise logical override.',
-              instructions: 'You are intercepting a login sequence. If `user` is "admin" or "root", AND `pass` is "1234", print "Bypass Successful". Else, print "Lockout".',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        String user = "root";\n        String pass = "1234";\n        // Write logic\n    }\n}',
+              theory: 'Un cortafuegos seguro está bloqueando el nodo principal. Debes diseñar una anulación lógica precisa.',
+              instructions: 'Estás interceptando una secuencia de inicio de sesión. Si `user` es "admin" o "root", Y `pass` es "1234", imprime "Bypass Successful". De lo contrario, imprime "Lockout".',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        String user = "root";\n        String pass = "1234";\n        // Escribe la lógica\n    }\n}',
               expectedOutput: 'Bypass Successful\n'
             }
           }
@@ -250,79 +250,79 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'java-recursive-constructs',
-          title: 'Recursive Constructs (Loops)',
-          description: 'Automate data processing across massive sets using cyclical loop architectures.',
+          title: 'Constructos Recursivos (Bucles)',
+          description: 'Automatiza el procesamiento de datos a través de conjuntos masivos usando arquitecturas de bucles cíclicos.',
           orderIndex: 4,
         },
         lessons: [
           {
-            title: 'Iterator Cycles',
+            title: 'Ciclos de Iterador',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'To deploy repetitive data streams, `for` loops define initialization, condition, and iteration expressions within a single construct. Perfect for known loop counts.',
-              instructions: 'Use a for loop to print the numbers 1, 2, and 3 on separate lines.',
+              theory: 'Para desplegar flujos de datos repetitivos, los bucles `for` definen expresiones de inicialización, condición e iteración dentro de un solo constructo. Perfecto para conteos de bucle conocidos.',
+              instructions: 'Usa un bucle for para imprimir los números 1, 2 y 3 en líneas separadas.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: '1\n2\n3\n'
             }
           },
           {
-            title: 'Condition Loops',
+            title: 'Bucles Condicionales',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 15,
             content: {
-              theory: 'When the payload volume is unknown, `while` loops run continuously as long as a boolean condition remains true. Failure to alter the condition will cause an infinite loop.',
-              instructions: 'Use a while loop to print "Ping " 3 times on the same line. Remember to increment your counter.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int count = 0;\n        // while loop here\n    }\n}',
+              theory: 'Cuando se desconoce el volumen de carga, los bucles `while` se ejecutan continuamente mientras una condición booleana siga siendo verdadera. No alterar la condición causará un bucle infinito.',
+              instructions: 'Usa un bucle while para imprimir "Ping " 3 veces en la misma línea. Recuerda incrementar tu contador.',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int count = 0;\n        // Bucle while aquí\n    }\n}',
               expectedOutput: 'Ping Ping Ping '
             }
           },
           {
-            title: 'Execution Assured Cycles',
+            title: 'Ciclos de Ejecución Asegurada',
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: 'A `do-while` loop guarantees execution of the code block at least once before evaluating the condition. Useful for initial connections.',
-              instructions: 'Run this loop to see guaranteed execution even when the condition starts false.',
+              theory: 'Un bucle `do-while` garantiza la ejecución del bloque de código al menos una vez antes de evaluar la condición. Útil para conexiones iniciales.',
+              instructions: 'Ejecuta este bucle para ver la ejecución garantizada incluso cuando la condición comienza como falsa.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        boolean active = false;\n        do {\n            System.out.println("Initial Ping");\n        } while(active);\n    }\n}',
               expectedOutput: 'Initial Ping\n'
             }
           },
           {
-            title: 'Loop Interruption',
+            title: 'Interrupción de Bucle',
             type: LessonType.EXERCISE_FREE,
             xpReward: 20,
             content: {
-              theory: '`break` immediately shatters the current loop structure, while `continue` aborts the current iteration and jumps to the next cycle condition.',
-              instructions: 'Write a for loop from 1 to 5. If the loop variable equals 3, use `continue`. Print the other numbers on separate lines.',
+              theory: '`break` rompe inmediatamente la estructura del bucle actual, mientras que `continue` aborta la iteración actual y salta a la condición del siguiente ciclo.',
+              instructions: 'Escribe un bucle for de 1 a 5. Si la variable del bucle es igual a 3, usa `continue`. Imprime los otros números en líneas separadas.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: '1\n2\n4\n5\n'
             }
           },
           {
-            title: 'Brute-Force Decryption',
+            title: 'Descifrado por Fuerza Bruta',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'The enemy data stream must be decrypted using sequential scanning.',
-              instructions: 'Loop from 1 to 10 (inclusive). If a number is even, print it on a new line. You must use the modulus operator `%`.',
+              theory: 'El flujo de datos del enemigo debe descifrarse mediante un escaneo secuencial.',
+              instructions: 'Haz un bucle del 1 al 10 (inclusive). Si un número es par, imprímelo en una nueva línea. Debes usar el operador módulo `%`.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: '2\n4\n6\n8\n10\n'
             }
           },
           {
-            title: 'Cycle Termination Quiz',
+            title: 'Quiz de Terminación de Ciclos',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'The system has detected an infinite loop threat! Trace the vulnerability.',
-              instructions: 'Identify the primary cause of unintended infinite `while` loops.',
+              theory: '¡El sistema ha detectado una amenaza de bucle infinito! Rastrea la vulnerabilidad.',
+              instructions: 'Identifica la causa principal de los bucles `while` infinitos no deseados.',
               initialCode: '',
               quizOptions: [
-                'Using the break keyword inside the loop',
-                'The loop condition variables are never updated inside the loop block',
-                'The loop variable starts at 0 instead of 1',
-                'Using a do-while loop instead of while'
+                'Usar la palabra clave break dentro del bucle',
+                'Las variables de la condición del bucle nunca se actualizan dentro del bloque del bucle',
+                'La variable del bucle comienza en 0 en lugar de 1',
+                'Usar un bucle do-while en lugar de while'
               ],
               correctOptionIndex: 1
             }
@@ -332,62 +332,62 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'java-synthetic-arrays',
-          title: 'Synthetic Arrays (Arrays)',
-          description: 'Construct linear memory banks to manage batched collections of variables.',
+          title: 'Arrays Sintéticos (Arrays)',
+          description: 'Construye bancos de memoria lineales para administrar colecciones por lotes de variables.',
           orderIndex: 5,
         },
         lessons: [
           {
-            title: 'Linear Memory Banks',
+            title: 'Bancos de Memoria Lineales',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'Arrays are immutable-length structures holding multiple payloads of the same datatype. They use zero-based indexing, meaning the first sector is at index 0.',
-              instructions: 'Declare an int array `codes` with values 10, 20, 30. Print the first element (index 0).',
+              theory: 'Los arrays (arreglos) son estructuras de longitud inmutable que contienen múltiples cargas del mismo tipo de datos. Usan indexación basada en cero, lo que significa que el primer sector está en el índice 0.',
+              instructions: 'Declara un array int `codes` con los valores 10, 20, 30. Imprime el primer elemento (índice 0).',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: '10\n'
             }
           },
           {
-            title: 'Index Traversal',
+            title: 'Recorrido de Índice',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 15,
             content: {
-              theory: 'Data nodes within an array can be overridden by accessing their specific index.',
-              instructions: 'Change the value of the second element (index 1) to 99. Print the modified value.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] nodes = {5, 10, 15};\n        // Modify and print\n    }\n}',
+              theory: 'Los nodos de datos dentro de un array pueden anularse accediendo a su índice específico.',
+              instructions: 'Cambia el valor del segundo elemento (índice 1) a 99. Imprime el valor modificado.',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] nodes = {5, 10, 15};\n        // Modificar e imprimir\n    }\n}',
               expectedOutput: '99\n'
             }
           },
           {
-            title: 'Grid Coordinates',
+            title: 'Coordenadas de Cuadrícula',
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: 'Arrays of arrays create multi-dimensional matrices, used for mapping 2D cyber-spaces.',
-              instructions: 'Execute to see a coordinate extracted from a 2D matrix.',
+              theory: 'Los arrays de arrays crean matrices multidimensionales, utilizadas para mapear ciberespacios 2D.',
+              instructions: 'Ejecuta para ver cómo se extrae una coordenada de una matriz 2D.',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[][] grid = {{1, 2}, {3, 4}};\n        System.out.println("Target: " + grid[1][0]);\n    }\n}',
               expectedOutput: 'Target: 3\n'
             }
           },
           {
-            title: 'Batch Processing',
+            title: 'Procesamiento por Lotes',
             type: LessonType.EXERCISE_FREE,
             xpReward: 20,
             content: {
-              theory: 'The enhanced `for` loop (for-each) iterates through every element in an array systematically without manual index management.',
-              instructions: 'Use a for-each loop to iterate through the `signals` array and print each value on a new line.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] signals = {100, 200, 300};\n        // for-each loop\n    }\n}',
+              theory: 'El bucle `for` mejorado (for-each) itera a través de cada elemento en un array de manera sistemática sin manejo manual de índices.',
+              instructions: 'Usa un bucle for-each para iterar a través del array `signals` e imprimir cada valor en una nueva línea.',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] signals = {100, 200, 300};\n        // bucle for-each\n    }\n}',
               expectedOutput: '100\n200\n300\n'
             }
           },
           {
-            title: 'The Highest Anomaly',
+            title: 'La Anomalía Más Alta',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'Scanners detected varying energy spikes in the sector. You must locate the highest amplitude.',
-              instructions: 'Given the array `int[] data = {12, 45, 7, 89, 23};`, write logic to find and print the maximum value in the format "Max: [value]".',
+              theory: 'Los escáneres detectaron picos de energía variables en el sector. Debes localizar la amplitud más alta.',
+              instructions: 'Dado el array `int[] data = {12, 45, 7, 89, 23};`, escribe la lógica para encontrar e imprimir el valor máximo en el formato "Max: [valor]".',
               initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] data = {12, 45, 7, 89, 23};\n        \n    }\n}',
               expectedOutput: 'Max: 89\n'
             }
@@ -397,79 +397,79 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'java-object-blueprints',
-          title: 'Object Blueprints (Classes & Objects)',
-          description: 'Design and deploy modular objects using Classes to encapsulate state and behavior.',
+          title: 'Planos de Objetos (Clases y Objetos)',
+          description: 'Diseña y despliega objetos modulares usando Clases para encapsular estado y comportamiento.',
           orderIndex: 6,
         },
         lessons: [
           {
-            title: 'Class Schematics',
+            title: 'Esquemas de Clases',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'A Class is the fundamental architecture blueprint in Java. It defines the state (fields) and behaviors (methods) that objects spawned from it will possess.',
-              instructions: 'Examine the `Agent` class. Inside main, create an `Agent` reference variable named `a1` (do not initialize it with new yet). Leave it empty. The code will compile silently.',
-              initialCode: 'class Agent {\n    String name;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // Declare an Agent variable\n    }\n}',
+              theory: 'Una Clase es el plano de arquitectura fundamental en Java. Define el estado (campos) y comportamientos (métodos) que poseerán los objetos generados a partir de ella.',
+              instructions: 'Examina la clase `Agent`. Dentro del main, crea una variable de referencia `Agent` llamada `a1` (no la inicialices con new todavía). Déjala vacía. El código compilará silenciosamente.',
+              initialCode: 'class Agent {\n    String name;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // Declarar una variable Agent\n    }\n}',
               expectedOutput: ''
             }
           },
           {
-            title: 'Object Instantiation',
+            title: 'Instanciación de Objetos',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 15,
             content: {
-              theory: 'The `new` keyword allocates memory in the heap, instantiating a physical object from a Class blueprint. This returns a memory reference.',
-              instructions: 'Instantiate an `Agent` object into `a1` using `new Agent()`. Set its `name` field to "Smith" and print it.',
-              initialCode: 'class Agent {\n    String name;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Agent a1 = new Agent();\n        // Set name and print\n    }\n}',
+              theory: 'La palabra clave `new` asigna memoria en el heap, instanciando un objeto físico a partir del plano de una Clase. Esto devuelve una referencia de memoria.',
+              instructions: 'Instancia un objeto `Agent` en `a1` usando `new Agent()`. Establece su campo `name` a "Smith" e imprímelo.',
+              initialCode: 'class Agent {\n    String name;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Agent a1 = new Agent();\n        // Establecer name e imprimir\n    }\n}',
               expectedOutput: 'Smith\n'
             }
           },
           {
-            title: 'Constructor Protocols',
+            title: 'Protocolos de Constructores',
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: 'Constructors are specialized blocks invoked during instantiation, primarily used to initialize an object\'s fields. They have no return type and match the Class name.',
-              instructions: 'Run to witness constructor injection.',
+              theory: 'Los constructores son bloques especializados invocados durante la instanciación, utilizados principalmente para inicializar los campos de un objeto. No tienen tipo de retorno y coinciden con el nombre de la Clase.',
+              instructions: 'Ejecuta para presenciar la inyección del constructor.',
               initialCode: 'class Module {\n    int id;\n    Module(int newId) {\n        id = newId;\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Module m = new Module(77);\n        System.out.println("Module ID: " + m.id);\n    }\n}',
               expectedOutput: 'Module ID: 77\n'
             }
           },
           {
-            title: 'State Mutation',
+            title: 'Mutación de Estado',
             type: LessonType.EXERCISE_FREE,
             xpReward: 20,
             content: {
-              theory: 'Multiple objects instantiated from the same class act as independent instances. Mutating the state of one does not affect the others.',
-              instructions: 'Create two instances of `Node`. Set `id` to 1 for the first, and 2 for the second. Print both `id`s on separate lines.',
+              theory: 'Múltiples objetos instanciados de la misma clase actúan como instancias independientes. Mudar el estado de uno no afecta a los demás.',
+              instructions: 'Crea dos instancias de `Node`. Establece `id` a 1 para la primera, y 2 para la segunda. Imprime ambos `id` en líneas separadas.',
               initialCode: 'class Node {\n    int id;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: '1\n2\n'
             }
           },
           {
-            title: 'Drone Assembler',
+            title: 'Ensamblador de Drones',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'The command center needs a new recon unit deployed immediately.',
-              instructions: 'Create a class `Drone` with an `int` field `serial`. In main, instantiate a `Drone`, set `serial` to 999, and print "Drone Deployed: 999".',
-              initialCode: '// Write Drone class here\n\npublic class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
+              theory: 'El centro de mando necesita una nueva unidad de reconocimiento desplegada inmediatamente.',
+              instructions: 'Crea una clase `Drone` con un campo `int` llamado `serial`. En main, instancia un `Drone`, establece `serial` en 999, e imprime "Drone Deployed: 999".',
+              initialCode: '// Escribe la clase Drone aquí\n\npublic class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: 'Drone Deployed: 999\n'
             }
           },
           {
-            title: 'Reference Matrix Quiz',
+            title: 'Quiz de Matriz de Referencia',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'System architecture check. Validate your understanding of Java memory allocation.',
-              instructions: 'Determine the nature of object references in the JVM.',
+              theory: 'Verificación de la arquitectura del sistema. Valida tu comprensión sobre la asignación de memoria en Java.',
+              instructions: 'Determina la naturaleza de las referencias de objetos en la JVM.',
               initialCode: '',
               quizOptions: [
-                'Objects are stored directly on the stack',
-                'The new keyword allocates memory on the heap',
-                'Primitive types hold references to memory',
-                'Two objects can never have the same state'
+                'Los objetos se almacenan directamente en el stack',
+                'La palabra clave new asigna memoria en el heap',
+                'Los tipos primitivos contienen referencias a memoria',
+                'Dos objetos nunca pueden tener el mismo estado'
               ],
               correctOptionIndex: 1
             }
@@ -479,62 +479,62 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
       {
         concept: {
           slug: 'java-encrypted-modules',
-          title: 'Encrypted Modules (Methods)',
-          description: 'Build isolated subroutines to secure logic and enable modular programming.',
+          title: 'Módulos Encriptados (Métodos)',
+          description: 'Construye subrutinas aisladas para asegurar la lógica y habilitar la programación modular.',
           orderIndex: 7,
         },
         lessons: [
           {
-            title: 'Subroutine Definition',
+            title: 'Definición de Subrutina',
             type: LessonType.INTRO,
             xpReward: 10,
             content: {
-              theory: 'Methods encapsulate logic into reusable blocks, reducing code duplication and isolating execution threads. `void` methods execute actions but return no data.',
-              instructions: 'Create a static void method `triggerAlert()` inside Main that prints "Alert!". Call it from `main()`.',
-              initialCode: 'public class Main {\n    // Create triggerAlert method here\n\n    public static void main(String[] args) {\n        \n    }\n}',
+              theory: 'Los métodos encapsulan la lógica en bloques reutilizables, reduciendo la duplicación de código y aislando los hilos de ejecución. Los métodos `void` ejecutan acciones pero no devuelven datos.',
+              instructions: 'Crea un método static void `triggerAlert()` dentro de Main que imprima "Alert!". Llámalo desde `main()`.',
+              initialCode: 'public class Main {\n    // Crea el método triggerAlert aquí\n\n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: 'Alert!\n'
             }
           },
           {
-            title: 'Data Return Streams',
+            title: 'Flujos de Retorno de Datos',
             type: LessonType.EXERCISE_GUIDED,
             xpReward: 15,
             content: {
-              theory: 'Methods can return computed payloads back to the caller by defining a return type (e.g., `int`) and utilizing the `return` keyword.',
-              instructions: 'Complete the `getSecretCode` method to return the integer `42`. Print the result in `main`.',
-              initialCode: 'public class Main {\n    static int getSecretCode() {\n        // Return 42\n    }\n\n    public static void main(String[] args) {\n        System.out.println(getSecretCode());\n    }\n}',
+              theory: 'Los métodos pueden devolver cargas útiles calculadas al invocador al definir un tipo de retorno (p. ej., `int`) y utilizar la palabra clave `return`.',
+              instructions: 'Completa el método `getSecretCode` para devolver el entero `42`. Imprime el resultado en `main`.',
+              initialCode: 'public class Main {\n    static int getSecretCode() {\n        // Devolver 42\n    }\n\n    public static void main(String[] args) {\n        System.out.println(getSecretCode());\n    }\n}',
               expectedOutput: '42\n'
             }
           },
           {
-            title: 'Argument Injection',
+            title: 'Inyección de Argumentos',
             type: LessonType.DEMO,
             xpReward: 10,
             content: {
-              theory: 'Methods can accept external data via parameters. These variables act as local inputs for the method\'s execution block.',
-              instructions: 'Examine how parameters pass data into a method.',
+              theory: 'Los métodos pueden aceptar datos externos a través de parámetros. Estas variables actúan como entradas locales para el bloque de ejecución del método.',
+              instructions: 'Examina cómo los parámetros pasan datos a un método.',
               initialCode: 'public class Main {\n    static void printDouble(int value) {\n        System.out.println(value * 2);\n    }\n\n    public static void main(String[] args) {\n        printDouble(10);\n    }\n}',
               expectedOutput: '20\n'
             }
           },
           {
-            title: 'Signature Overloading',
+            title: 'Sobrecarga de Firmas',
             type: LessonType.EXERCISE_FREE,
             xpReward: 20,
             content: {
-              theory: 'Method overloading allows multiple methods to share the same name within a class, provided their parameter lists (signatures) differ.',
-              instructions: 'Overload the `send` method. One should accept a `String` and print it. The other should accept an `int` and print it. Call both from main: send("Data") and send(5).',
-              initialCode: 'public class Main {\n    static void send(String msg) {\n        System.out.println(msg);\n    }\n    // Write the overloaded send method here\n\n    public static void main(String[] args) {\n        send("Data");\n        send(5);\n    }\n}',
+              theory: 'La sobrecarga de métodos permite que varios métodos compartan el mismo nombre dentro de una clase, siempre que sus listas de parámetros (firmas) difieran.',
+              instructions: 'Sobrecarga el método `send`. Uno debe aceptar un `String` e imprimirlo. El otro debe aceptar un `int` e imprimirlo. Llama a ambos desde main: send("Data") y send(5).',
+              initialCode: 'public class Main {\n    static void send(String msg) {\n        System.out.println(msg);\n    }\n    // Escribe el método send sobrecargado aquí\n\n    public static void main(String[] args) {\n        send("Data");\n        send(5);\n    }\n}',
               expectedOutput: 'Data\n5\n'
             }
           },
           {
-            title: 'Final Payload Delivery',
+            title: 'Entrega Final de la Carga',
             type: LessonType.BOSS,
             xpReward: 50,
             content: {
-              theory: 'The final firewall requires a mathematically signed payload packet.',
-              instructions: 'Write a static method `calculateHash` that takes two integers, multiplies them, and returns the result. In main, call it with 7 and 6, and print "Hash: [result]".',
+              theory: 'El último cortafuegos requiere un paquete de carga útil firmado matemáticamente.',
+              instructions: 'Escribe un método estático `calculateHash` que tome dos enteros, los multiplique y devuelva el resultado. En el main, llámalo con 7 y 6, e imprime "Hash: [resultado]".',
               initialCode: 'public class Main {\n    \n    public static void main(String[] args) {\n        \n    }\n}',
               expectedOutput: 'Hash: 42\n'
             }
