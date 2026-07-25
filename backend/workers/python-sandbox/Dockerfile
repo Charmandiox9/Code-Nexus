@@ -14,13 +14,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     postgresql-client \
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
-    && npm install -g typescript ts-node \
+    && npm install -g typescript tsx \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Crear un tsconfig global para que ts-node lo encuentre sin buscarlo
+# tsconfig global para tsx (opcional pero recomendado)
 RUN echo '{"compilerOptions":{"module":"commonjs","target":"es2020","esModuleInterop":true,"skipLibCheck":true,"strict":false}}' > /tsconfig.json
-ENV TS_NODE_SKIP_PROJECT=true
 
 # Instalar Rust via rustup (versión estable, evita el rustc desactualizado de apt)
 ENV RUSTUP_HOME=/usr/local/rustup \
