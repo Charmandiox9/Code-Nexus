@@ -38,8 +38,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 20,
             content: {
               theory: 'El tipado implícito deja el sistema vulnerable a mutaciones en tiempo de ejecución. Las anotaciones explícitas vinculan una variable a un tipo estricto, sellándola contra la coerción de datos no autorizada.',
-              instructions: 'Agrega una anotación `string` a la variable contraseña para fortificarla.',
-              initialCode: 'let pass: string = "hunter2";\nconsole.log(pass);',
+              instructions: 'Agrega una anotación `string` a la variable `pass` para fortificarla. Luego, imprímela en consola.',
+              initialCode: '// TODO: Declara la variable pass con el tipo string y asígnale el valor "hunter2"\n\nconsole.log(pass);',
               expectedOutput: 'hunter2'
             }
           },
@@ -49,8 +49,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 25,
             content: {
               theory: 'Las colecciones de datos deben ser homogéneas para prevenir la corrupción. Los arreglos en TypeScript restringen sus elementos a un único tipo unificado, asegurando una iteración predecible.',
-              instructions: 'Construye un arreglo de números representando los puertos activos del sistema. Registra el primer puerto en la secuencia.',
-              initialCode: 'let ports: number[] = [80, 443, 8080];\nconsole.log(ports[0]);',
+              instructions: 'Construye un arreglo de números llamado `ports` representando los puertos activos del sistema (80, 443, 8080). Registra el primer puerto en la secuencia.',
+              initialCode: '// TODO: Declara un arreglo de números llamado ports con los valores 80, 443, 8080\n\nconsole.log(ports[0]);',
               expectedOutput: '80'
             }
           },
@@ -77,8 +77,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 100,
             content: {
               theory: 'El tráfico malicioso entrante está sobrecargando el sistema central (mainframe). Necesitamos una defensa algorítmica tipada para analizar los vectores de amenaza entrantes y neutralizarlos según sus niveles de salud.',
-              instructions: 'Escribe una función estrictamente tipada `calcHealth` que calcule la salud total del nodo dado un arreglo de valores de salud. Devuelve la suma total.',
-              initialCode: 'function calcHealth(nodes: number[]): number {\n  return nodes.reduce((a, b) => a + b, 0);\n}\nconsole.log(calcHealth([50, 50, 50]));',
+              instructions: 'Escribe una función estrictamente tipada `calcHealth` que calcule la salud total del nodo dado un arreglo de valores numéricos de salud. Devuelve la suma total.',
+              initialCode: 'function calcHealth(nodes: number[]): number {\n  // TODO: Retorna la suma total de los valores del arreglo\n}\nconsole.log(calcHealth([50, 50, 50]));',
               expectedOutput: '150'
             }
           }
@@ -115,8 +115,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 20,
             content: {
               theory: 'Las funciones flecha proporcionan un mecanismo elegante de alcance léxico (lexical scoping). Tiparlas requiere definir la firma del parámetro y el tipo de retorno eficientemente en una sola línea de defensa.',
-              instructions: 'Define una función flecha que acepte una clave numérica y devuelva un hash de cadena encriptado.',
-              initialCode: 'const encrypt = (key: number): string => "hash_" + key;\nconsole.log(encrypt(42));',
+              instructions: 'Define una función flecha `encrypt` que acepte una clave numérica (`key`) y devuelva un hash de cadena encriptado ("hash_" concatenado con la clave).',
+              initialCode: '// TODO: Crea la función flecha encrypt que acepte un número y devuelva un string\n\nconsole.log(encrypt(42));',
               expectedOutput: 'hash_42'
             }
           },
@@ -126,8 +126,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 25,
             content: {
               theory: 'A veces una variable debe albergar múltiples estados potenciales. Los tipos de unión utilizando el operador `|` permiten que una variable sea de forma segura uno de varios tipos designados, creando módulos híbridos flexibles.',
-              instructions: 'Inicializa una variable híbrida que pueda aceptar tanto una cadena como un número. Asígnale un número entero e imprime su valor.',
-              initialCode: 'let hybrid: string | number = 99;\nconsole.log(hybrid);',
+              instructions: 'Inicializa una variable `hybrid` que pueda aceptar tanto un `string` como un `number`. Asígnale un número entero (99) e imprime su valor.',
+              initialCode: '// TODO: Declara la variable hybrid usando tipos de unión (string o number) e igual a 99\n\nconsole.log(hybrid);',
               expectedOutput: '99'
             }
           },
@@ -154,8 +154,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 100,
             content: {
               theory: 'El hiper-motor requiere datos de calibración numéricos precisos, pero los sensores podrían transmitirlos como una cadena (string) o un número debido a la degradación de la señal.',
-              instructions: 'Construye una función que reciba un tipo de unión y devuelva de manera confiable un valor numérico calibrado.',
-              initialCode: 'function calibrate(input: string | number): number {\n  return typeof input === "string" ? parseInt(input) : input;\n}\nconsole.log(calibrate("100"));',
+              instructions: 'Construye una función `calibrate` que reciba un tipo de unión (string | number) y devuelva de manera confiable un valor numérico. Si es cadena, conviértela usando `parseInt`.',
+              initialCode: 'function calibrate(input: string | number): number {\n  // TODO: Implementa la lógica para devolver siempre un número\n}\nconsole.log(calibrate("100"));',
               expectedOutput: '100'
             }
           }
@@ -192,8 +192,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 20,
             content: {
               theory: 'Las clases encapsulan tanto el estado como el comportamiento. Los modificadores de acceso (`public`, `private`, `protected`) actúan como generadores de escudos criptográficos, restringiendo el acceso no autorizado a los bancos de memoria interna.',
-              instructions: 'Instancia una clase y accede de manera segura a su temperatura interna privada a través de un método público.',
-              initialCode: 'class Core {\n  private temp = 90;\n  public getTemp() { return this.temp; }\n}\nconst c = new Core();\nconsole.log(c.getTemp());',
+              instructions: 'Instancia la clase `Core` en una constante `c` y accede de manera segura a su temperatura interna privada a través de su método público `getTemp()`.',
+              initialCode: 'class Core {\n  private temp = 90;\n  public getTemp() { return this.temp; }\n}\n// TODO: Crea una instancia de Core e imprime su temperatura usando getTemp()\n',
               expectedOutput: '90'
             }
           },
@@ -203,8 +203,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 25,
             content: {
               theory: 'Mientras que las interfaces definen formas de objetos, los Alias de Tipos ofrecen un patrón de diseño diferente. Pueden representar primitivas, tuplas y uniones, proporcionando extrema versatilidad en las definiciones de esquemas.',
-              instructions: 'Define un tipo de tupla para coordenadas neuronales y extrae el primer valor dimensional.',
-              initialCode: 'type Coordinate = [number, number];\nconst loc: Coordinate = [45, 90];\nconsole.log(loc[0]);',
+              instructions: 'Define un alias de tipo de tupla llamado `Coordinate` para dos números. Luego, declara `loc` con ese tipo y asígnale `[45, 90]`. Imprime el primer valor.',
+              initialCode: '// TODO: Define el alias de tipo Coordinate para [number, number]\n\n// TODO: Declara loc con el tipo Coordinate y los valores [45, 90]\n\nconsole.log(loc[0]);',
               expectedOutput: '45'
             }
           },
@@ -225,8 +225,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 100,
             content: {
               theory: 'Debemos infiltrarnos en el sistema central (mainframe) corporativo, pero nuestros drones están siendo interceptados porque su lógica interna está débilmente tipada. Necesitamos una arquitectura de clases robusta.',
-              instructions: 'Implementa la clase Drone equipada con un identificador privado y un método público de escaneo que lo revele.',
-              initialCode: 'class Drone {\n  private id: string;\n  constructor(id: string) { this.id = id; }\n  public scan() { return this.id; }\n}\nconst d = new Drone("Alpha");\nconsole.log(d.scan());',
+              instructions: 'Implementa la clase `Drone` equipada con una propiedad privada `id` (string), un constructor que la inicialice y un método público `scan()` que devuelva dicho ID.',
+              initialCode: 'class Drone {\n  // TODO: Define la propiedad privada id de tipo string\n\n  constructor(id: string) {\n    // TODO: Inicializa el id\n  }\n\n  public scan() {\n    // TODO: Devuelve el id\n  }\n}\nconst d = new Drone("Alpha");\nconsole.log(d.scan());',
               expectedOutput: 'Alpha'
             }
           }
@@ -263,8 +263,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 20,
             content: {
               theory: 'Los genéricos sin restricciones son peligrosamente impredecibles. Las restricciones usando la palabra clave `extends` imponen límites seguros, asegurando que el tipo genérico posea las propiedades requeridas.',
-              instructions: 'Impón una restricción que garantice que el argumento pasado tenga una propiedad `length`.',
-              initialCode: 'function logLength<T extends { length: number }>(arg: T) {\n  console.log(arg.length);\n}\nlogLength("password");',
+              instructions: 'Impón una restricción genérica a la función `logLength` para garantizar que el argumento pasado tenga una propiedad `length` de tipo `number`.',
+              initialCode: 'function logLength<T /* TODO: Agrega restricción genérica usando extends para que T tenga { length: number } */ >(arg: T) {\n  console.log(arg.length);\n}\nlogLength("password");',
               expectedOutput: '8'
             }
           },
@@ -274,8 +274,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 25,
             content: {
               theory: 'Las clases pueden aprovechar el poder de los genéricos para servir como contenedores universales de datos, manejando flujos de datos de cualquier tipo sin comprometer la seguridad de tipos durante la extracción.',
-              instructions: 'Instancia una unidad de almacenamiento genérica formateada para datos de tipo string y recupera su valor.',
-              initialCode: 'class Storage<T> {\n  value: T;\n  constructor(val: T) { this.value = val; }\n}\nconst s = new Storage<string>("Encrypted");\nconsole.log(s.value);',
+              instructions: 'Instancia una unidad de almacenamiento `Storage` genérica formateada para datos de tipo `string` y el valor "Encrypted", en una variable `s`. Recupera y registra su valor.',
+              initialCode: 'class Storage<T> {\n  value: T;\n  constructor(val: T) { this.value = val; }\n}\n// TODO: Instancia Storage con tipo string y asígnale "Encrypted" a la variable s\n\nconsole.log(s.value);',
               expectedOutput: 'Encrypted'
             }
           },
@@ -296,8 +296,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 100,
             content: {
               theory: 'La información del objetivo está enterrada a gran profundidad bajo capas de arreglos genéricos. Una función estándar no puede perforar la variedad de tipos de arreglos encontrados en la red.',
-              instructions: 'Escribe una función de extracción genérica que recupere de manera segura el primer elemento de cualquier arreglo proporcionado.',
-              initialCode: 'function getFirst<T>(arr: T[]): T {\n  return arr[0];\n}\nconsole.log(getFirst<number>([7, 8, 9]));',
+              instructions: 'Escribe una función de extracción genérica `getFirst` que recupere de manera segura el primer elemento de cualquier arreglo `arr` de tipo genérico `T[]`.',
+              initialCode: 'function getFirst<T>(arr: T[]): T {\n  // TODO: Devuelve el primer elemento del arreglo\n}\nconsole.log(getFirst<number>([7, 8, 9]));',
               expectedOutput: '7'
             }
           }
@@ -334,8 +334,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 20,
             content: {
               theory: 'Cuando se procesan datos inestables y heterogéneos, los protectores de tipos (type guards) escanean dinámicamente la variable en tiempo de ejecución. Esto garantiza al compilador estático cuál es la verdadera estructura de la variable antes de ser manipulada.',
-              instructions: 'Utiliza un type guard para procesar inteligentemente el flujo de entrada.',
-              initialCode: 'function process(data: string | number) {\n  if (typeof data === "string") { console.log("String"); }\n  else { console.log("Number"); }\n}\nprocess("Test");',
+              instructions: 'Utiliza un type guard (`typeof`) en la función `process` para imprimir "String" si la data es cadena, o "Number" si es número.',
+              initialCode: 'function process(data: string | number) {\n  // TODO: Usa typeof para verificar si data es "string" e imprime "String". Si no, imprime "Number"\n}\nprocess("Test");',
               expectedOutput: 'String'
             }
           },
@@ -345,8 +345,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 25,
             content: {
               theory: 'Las funciones rebeldes que nunca terminan devuelven `never`. Al absorber datos alienígenas, `unknown` fuerza comprobaciones de tipo obligatorias, actuando como una alternativa mucho más segura al anárquico tipo `any`.',
-              instructions: 'Convierte un fragmento de datos alienígenos de tipo desconocido a una cadena legible y envíalo a consola.',
-              initialCode: 'let alien: unknown = "Data";\nconsole.log(alien as string);',
+              instructions: 'Convierte un fragmento de datos alienígenos de tipo `unknown` a una cadena explícitamente y envíalo a consola.',
+              initialCode: 'let alien: unknown = "Data";\n// TODO: Imprime la variable alien asumiendo (casteando) que es un string usando el operador "as"\n',
               expectedOutput: 'Data'
             }
           },
@@ -400,8 +400,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 20,
             content: {
               theory: 'Al extraer datos de redes externas, es obligatorio un tipado estricto de la carga JSON esperada. No tipar la extracción puede resultar en un choque fatal del sistema en tiempo de ejecución.',
-              instructions: 'Impón una interfaz rígida sobre el resultado de extracción esperado.',
-              initialCode: 'async function fetchUser(): Promise<{name: string}> {\n  return { name: "Neo" };\n}\nfetchUser().then(u => console.log(u.name));',
+              instructions: 'Impón una interfaz rígida sobre el resultado de extracción esperado. Tipa el valor de retorno de `fetchUser` como una Promesa que resuelve a un objeto con `{name: string}`.',
+              initialCode: '// TODO: Especifica el tipo de retorno de la Promesa para que resuelva con un objeto {name: string}\nasync function fetchUser() {\n  return { name: "Neo" };\n}\nfetchUser().then(u => console.log(u.name));',
               expectedOutput: 'Neo'
             }
           },
@@ -411,8 +411,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 25,
             content: {
               theory: '`Promise.all` permite la ejecución simultánea de múltiples brechas de red asíncronas. TypeScript infiere automáticamente la estructura de tupla exacta del arreglo con todas las combinaciones resueltas.',
-              instructions: 'Lanza operaciones asíncronas en paralelo e imprime el conteo total de los nodos resueltos.',
-              initialCode: 'Promise.all([Promise.resolve(1), Promise.resolve("two")])\n  .then(res => console.log(res.length));',
+              instructions: 'Lanza operaciones asíncronas en paralelo usando `Promise.all` pasándole un arreglo con `Promise.resolve(1)` y `Promise.resolve("two")`. Imprime la cantidad (length) de promesas resueltas.',
+              initialCode: '// TODO: Usa Promise.all con [Promise.resolve(1), Promise.resolve("two")] e imprime el tamaño (length) del arreglo de resultados\n',
               expectedOutput: '2'
             }
           },
@@ -433,8 +433,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 100,
             content: {
               theory: 'El sistema central (mainframe) requiere de una secuencia de conexión asíncrona altamente segura y tipada correctamente. Cualquier operación bloqueante o síncrona disparará los sistemas de alarma al instante.',
-              instructions: 'Escribe una función asíncrona que simule un retraso en la red y, finalmente, resuelva devolviendo la cadena "Access Granted".',
-              initialCode: 'async function hack(): Promise<string> {\n  return Promise.resolve("Access Granted");\n}\nhack().then(console.log);',
+              instructions: 'Escribe una función asíncrona `hack` que simule un retraso en la red y resuelva devolviendo la cadena "Access Granted".',
+              initialCode: 'async function hack(): Promise<string> {\n  // TODO: Retorna la promesa resuelta con "Access Granted" usando Promise.resolve()\n}\nhack().then(console.log);',
               expectedOutput: 'Access Granted'
             }
           }
@@ -471,8 +471,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 25,
             content: {
               theory: 'Los tipos mapeados otorgan el poder de iterar programáticamente sobre las estructuras de objetos existentes y de forjar esquemas de tipos completamente nuevos sobre la marcha. Esto posibilita la transformación automatizada y masiva de datos sin requerir re-tipado manual.',
-              instructions: 'Emplea un tipo mapeado personalizado para convertir un objeto en una configuración de solo lectura (ReadOnly) y mostrar en el registro su identificador principal.',
-              initialCode: 'type ReadOnlyMap<T> = { readonly [P in keyof T]: T[P] };\nconst m: ReadOnlyMap<{id: number}> = { id: 1 };\nconsole.log(m.id);',
+              instructions: 'Emplea el tipo mapeado `ReadOnlyMap` para convertir un objeto `{id: number}` en una configuración de solo lectura `m` con id 1. Muestra en el registro su identificador.',
+              initialCode: 'type ReadOnlyMap<T> = { readonly [P in keyof T]: T[P] };\n// TODO: Declara m de tipo ReadOnlyMap<{id: number}> y asígnale { id: 1 }\n\nconsole.log(m.id);',
               expectedOutput: '1'
             }
           },
@@ -499,8 +499,8 @@ export const getTypescriptSeed: SeederFunction = async (prisma) => {
             xpReward: 100,
             content: {
               theory: 'Ha llegado el momento de inicializar el Omni-Sistema. Debes entrelazar sin fisuras Genéricos, Interfaces y operaciones Asíncronas dentro de una única y magistral secuencia de arranque tipada.',
-              instructions: 'Redacta una función de inicialización asíncrona genérica, altamente flexible, que reciba cualquier interfaz de configuración y la retorne de manera asíncrona y segura.',
-              initialCode: 'async function initSystem<T>(config: T): Promise<T> {\n  return config;\n}\ninitSystem({ status: "Omni-Active" }).then(c => console.log(c.status));',
+              instructions: 'Redacta una función de inicialización asíncrona genérica `initSystem`, que reciba una configuración de tipo `T` y la retorne de manera asíncrona y segura.',
+              initialCode: '// TODO: Define la función asíncrona genérica initSystem\n\ninitSystem({ status: "Omni-Active" }).then(c => console.log(c.status));',
               expectedOutput: 'Omni-Active'
             }
           }
