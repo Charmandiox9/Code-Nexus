@@ -18,6 +18,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Crear un tsconfig global para que ts-node lo encuentre sin buscarlo
+RUN echo '{"compilerOptions":{"module":"commonjs","target":"es2020","esModuleInterop":true,"skipLibCheck":true,"strict":false}}' > /tsconfig.json
+ENV TS_NODE_SKIP_PROJECT=true
+
 # Instalar Rust via rustup (versión estable, evita el rustc desactualizado de apt)
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \

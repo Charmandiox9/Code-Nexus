@@ -132,7 +132,12 @@ def execute_typescript(code_str, timeout_seconds=10):
 
     result = {"stdout": "", "stderr": "", "status": "SUCCESS", "executionTimeMs": 0, "memory_trace": []}
     try:
-        process = subprocess.run(['ts-node', '--skipLibCheck', script_path], capture_output=True, text=True, timeout=timeout_seconds)
+        # TS_NODE_SKIP_PROJECT=true está seteado en el ENV del contenedor (Dockerfile)
+        # así ts-node no busca tsconfig.json y funciona en el filesystem read-only
+        process = subprocess.run(
+            ['ts-node', '--transpile-only', script_path],
+            capture_output=True, text=True, timeout=timeout_seconds
+        )
         result["stdout"] = process.stdout
         result["stderr"] = process.stderr
         if process.returncode != 0: result["status"] = "ERROR"
