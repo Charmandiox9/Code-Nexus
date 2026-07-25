@@ -41,8 +41,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Las variables son asignaciones de memoria tipadas. C++ requiere una declaración de tipo explícita: `int` para enteros, `double` para punto flotante, `char` para caracteres individuales, y `bool` para booleanos.",
-              instructions: "Necesitamos almacenar el código de acceso del servidor objetivo. Declara un `int` llamado `accessCode` y asígnale el valor `404`.",
-              initialCode: "#include <iostream>\n\nint main() {\n  // Declara e inicializa accessCode aquí\n  \n  std::cout << accessCode;\n  return 0;\n}",
+              instructions: "Tu tarea es completar la inicialización. Declara un `int` llamado `accessCode` y asígnale el valor `404` donde se indica.",
+              initialCode: "#include <iostream>\n\nint main() {\n  // TODO: Declara e inicializa accessCode aquí\n  \n  std::cout << accessCode;\n  return 0;\n}",
               expectedOutput: "404"
             }
           },
@@ -53,8 +53,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "A diferencia de los arreglos básicos de `char` (C-strings), el C++ moderno utiliza la clase `std::string` de la biblioteca `<string>` para una manipulación de texto robusta, proporcionando métodos incorporados para concatenar, comparar y medir el tamaño.",
-              instructions: "Construye una variable `std::string` llamada `payload` que contenga 'Trojan_v1'. Imprímela en la terminal.",
-              initialCode: "#include <iostream>\n#include <string>\n\nint main() {\n  \n  return 0;\n}",
+              instructions: "Tu tarea es construir el payload. Crea una variable `std::string` llamada `payload` que contenga \'Trojan_v1\' y luego imprímela.",
+              initialCode: "#include <iostream>\n#include <string>\n\nint main() {\n  // TODO: Declara string payload y asigna \'Trojan_v1\'\n  // TODO: Imprime payload en la terminal\n  return 0;\n}",
               expectedOutput: "Trojan_v1"
             }
           },
@@ -65,8 +65,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "C++ soporta operaciones aritméticas estándar: `+`, `-`, `*`, `/`, y `%`. Ten en cuenta que la división de enteros trunca los decimales. Para obtener un resultado de punto flotante, al menos un operando debe ser float o double.",
-              instructions: "Calcula el multiplicador de la clave de encriptación. Multiplica 7 por 8 y guárdalo en una variable `int` llamada `key`. Imprime el resultado.",
-              initialCode: "#include <iostream>\n\nint main() {\n  \n  return 0;\n}",
+              instructions: "Tu tarea es calcular la clave de encriptación. Multiplica 7 por 8, guarda el resultado en una variable `int` llamada `key`, y luego imprímela.",
+              initialCode: "#include <iostream>\n\nint main() {\n  // TODO: Calcula 7 * 8 en int key e imprímelo\n  \n  return 0;\n}",
               expectedOutput: "56"
             }
           },
@@ -112,8 +112,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Múltiples condiciones se pueden combinar usando operadores lógicos: `&&` (Y), `||` (O), y `!` (NO). Aplica la evaluación de cortocircuito.",
-              instructions: "Solo podemos inyectar la carga útil si `isAdmin` es verdadero Y `firewallDown` es verdadero. Crea una sentencia if para comprobar esto, imprimiendo 'Injecting...' si tiene éxito.",
-              initialCode: "#include <iostream>\n\nint main() {\n  bool isAdmin = true;\n  bool firewallDown = true;\n  // Comprueba las condiciones aquí\n  \n  return 0;\n}",
+              instructions: "Tu tarea es comprobar las condiciones para inyectar. Crea una sentencia `if` que verifique si `isAdmin` y `firewallDown` son verdaderos. Si es así, imprime \'Injecting...\'.",
+              initialCode: "#include <iostream>\n\nint main() {\n  bool isAdmin = true;\n  bool firewallDown = true;\n  // TODO: Escribe la sentencia if verificando ambas condiciones y pinta \'Injecting...\'\n  \n  return 0;\n}",
               expectedOutput: "Injecting..."
             }
           },
@@ -136,8 +136,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Un bucle `while` ejecuta continuamente su bloque siempre que la condición se evalúe como verdadera. Un bucle `do-while` se ejecuta al menos una vez antes de verificar su condición.",
-              instructions: "Crea un bucle `while` que cuente hacia atrás del 3 al 1, imprimiendo cada número, y luego imprima 'Ignition'.",
-              initialCode: "#include <iostream>\n\nint main() {\n  int count = 3;\n  \n  return 0;\n}",
+              instructions: "Tu tarea es iniciar la cuenta regresiva. Crea un bucle `while` que cuente hacia atrás desde `count` (3) hasta 1, imprimiendo cada número. Finalmente imprime \'Ignition\'.",
+              initialCode: "#include <iostream>\n\nint main() {\n  int count = 3;\n  // TODO: Escribe un bucle while que imprima 3, 2, 1\n  \n  // TODO: Imprime \'Ignition\'\n  return 0;\n}",
               expectedOutput: "321Ignition"
             }
           },
@@ -148,8 +148,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "El bucle `for` condensa la inicialización, la verificación de condición y la iteración en una sola sentencia: `for (inicio; condición; incremento)`.",
-              instructions: "Usa un bucle `for` para iterar exactamente 5 veces, imprimiendo 'Ping' cada vez.",
-              initialCode: "#include <iostream>\n\nint main() {\n  // Escribe tu bucle for aquí\n  \n  return 0;\n}",
+              instructions: "Tu tarea es iterar exactamente 5 veces. Usa un bucle `for` para imprimir \'Ping\' en cada iteración.",
+              initialCode: "#include <iostream>\n\nint main() {\n  // TODO: Escribe un bucle for que itere 5 veces e imprima \'Ping\'\n  \n  return 0;\n}",
               expectedOutput: "PingPingPingPingPing"
             }
           },
@@ -160,8 +160,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Sintetizando condicionales y bucles para recorrer y manipular conjuntos de datos.",
-              instructions: "Escribe un programa que use un bucle para imprimir todos los números pares entre 1 y 10, secuencialmente sin espacios.",
-              initialCode: "#include <iostream>\n\nint main() {\n  \n  return 0;\n}",
+              instructions: "Tu tarea final del sector es usar un bucle para iterar del 1 al 10, pero solo imprimir los números pares (2, 4, 6, 8, 10) secuencialmente sin espacios.",
+              initialCode: "#include <iostream>\n\nint main() {\n  // TODO: Escribe la lógica para imprimir los números pares del 1 al 10\n  \n  return 0;\n}",
               expectedOutput: "246810"
             }
           }
@@ -189,8 +189,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Los bucles se usan comúnmente para recorrer arreglos. La longitud de un arreglo estándar de C no es inherentemente conocida por el propio arreglo, por lo que a menudo se calcula con `sizeof(arreglo) / sizeof(arreglo[0])`.",
-              instructions: "Usa un bucle `for` para imprimir cada elemento en el arreglo `ports`.",
-              initialCode: "#include <iostream>\n\nint main() {\n  int ports[] = {21, 22, 80, 443};\n  int size = sizeof(ports) / sizeof(ports[0]);\n  \n  return 0;\n}",
+              instructions: "Tu tarea es usar un bucle `for` para iterar sobre el arreglo `ports` e imprimir cada uno de sus elementos.",
+              initialCode: "#include <iostream>\n\nint main() {\n  int ports[] = {21, 22, 80, 443};\n  int size = sizeof(ports) / sizeof(ports[0]);\n  // TODO: Escribe un bucle for que use \'size\' para iterar e imprimir cada puerto\n  \n  return 0;\n}",
               expectedOutput: "212280443"
             }
           },
@@ -213,8 +213,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "`std::vector` en `<vector>` es un arreglo dinámico. Se redimensiona automáticamente cuando se agregan elementos mediante `.push_back()`. Es el contenedor de secuencias por defecto en C++.",
-              instructions: "Incluye `<vector>`. Crea un `std::vector<int>` llamado `logs`. Agrega (push) los valores `404` y `500`. Imprime el primer elemento.",
-              initialCode: "#include <iostream>\n\nint main() {\n  \n  return 0;\n}",
+              instructions: "Tu tarea es inicializar un arreglo dinámico. Incluye `<vector>`, crea un `std::vector<int>` llamado `logs`, agrégale los valores `404` y `500` con `push_back`, e imprime el primer elemento.",
+              initialCode: "#include <iostream>\n// TODO: Incluye vector\n\nint main() {\n  // TODO: Crea el vector logs y agrega 404 y 500\n  // TODO: Imprime el primer elemento\n  return 0;\n}",
               expectedOutput: "404"
             }
           },
@@ -225,8 +225,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "C++11 introdujo los bucles for basados en rangos, que proporcionan una sintaxis más limpia para iterar sobre contenedores como arreglos y vectores: `for (tipo var : contenedor) { ... }`.",
-              instructions: "Usa un bucle for basado en rangos para iterar a través del vector `signatures` e imprimir cada uno.",
-              initialCode: "#include <iostream>\n#include <vector>\n#include <string>\n\nint main() {\n  std::vector<std::string> signatures = {\"Worm\", \"Trojan\"};\n  \n  return 0;\n}",
+              instructions: "Tu tarea es usar un bucle for basado en rangos (range-based for loop) para recorrer el vector `signatures` e imprimir cada firma.",
+              initialCode: "#include <iostream>\n#include <vector>\n#include <string>\n\nint main() {\n  std::vector<std::string> signatures = {\"Worm\", \"Trojan\"};\n  // TODO: Escribe un bucle for basado en rangos e imprime cada firma\n  \n  return 0;\n}",
               expectedOutput: "WormTrojan"
             }
           },
@@ -272,8 +272,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Las funciones aceptan entradas a través de parámetros. Cuando llamas a la función, pasas argumentos. Por defecto, los argumentos se pasan por valor (se hace una copia).",
-              instructions: "Completa la función `decrypt` para que tome un parámetro `int` `cipher`, le sume 10, y devuelva el resultado. Imprime el resultado para `cipher = 5`.",
-              initialCode: "#include <iostream>\n\nint decrypt(int cipher) {\n  // Devuelve cipher + 10\n}\n\nint main() {\n  std::cout << decrypt(5);\n  return 0;\n}",
+              instructions: "Tu tarea es completar la función `decrypt`. Haz que sume 10 al parámetro `cipher` y devuelva el resultado.",
+              initialCode: "#include <iostream>\n\nint decrypt(int cipher) {\n  // TODO: Devuelve cipher + 10\n}\n\nint main() {\n  std::cout << decrypt(5);\n  return 0;\n}",
               expectedOutput: "15"
             }
           },
@@ -296,8 +296,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "C++ permite la sobrecarga de funciones: definir múltiples funciones con el mismo nombre pero diferentes listas de parámetros (firmas). El compilador determina cuál llamar basándose en los argumentos.",
-              instructions: "Crea dos funciones `printData`. Una toma un `int` e imprime 'Int', la otra toma un `std::string` e imprime 'Str'. Llama a ambas desde main.",
-              initialCode: "#include <iostream>\n#include <string>\n\n// Crea sobrecargas aquí\n\nint main() {\n  \n  return 0;\n}",
+              instructions: "Tu tarea es crear dos funciones `printData` sobrecargadas. Una debe recibir un `int` e imprimir \'Int\', y la otra un `std::string` e imprimir \'Str\'. Luego llámalas desde main.",
+              initialCode: "#include <iostream>\n#include <string>\n\n// TODO: Define printData(int)\n\n// TODO: Define printData(std::string)\n\nint main() {\n  // TODO: Llama a ambas funciones para que la salida sea \'IntStr\'\n  return 0;\n}",
               expectedOutput: "IntStr"
             }
           },
@@ -308,8 +308,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Los parámetros pueden tener valores por defecto. Si el llamador omite el argumento, se usa el valor por defecto. Los argumentos por defecto deben ser los parámetros más a la derecha en la lista.",
-              instructions: "Modifica la función `connect` para que el parámetro `port` tenga por defecto `80`. Llama a `connect(\"192\")` sin el segundo argumento.",
-              initialCode: "#include <iostream>\n#include <string>\n\n// Agrega un argumento por defecto a port\nvoid connect(std::string ip, int port) {\n  std::cout << ip << \":\" << port;\n}\n\nint main() {\n  connect(\"192\");\n  return 0;\n}",
+              instructions: "Tu tarea es agregar un valor por defecto al parámetro `port` de la función `connect` para que sea `80`. Luego llama a `connect(\"192\")` sin el segundo argumento.",
+              initialCode: "#include <iostream>\n#include <string>\n\n// TODO: Agrega un argumento por defecto a port (= 80)\nvoid connect(std::string ip, int port) {\n  std::cout << ip << \":\" << port;\n}\n\nint main() {\n  // TODO: Llama a connect(\"192\")\n  return 0;\n}",
               expectedOutput: "192:80"
             }
           },
@@ -355,8 +355,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Un puntero es una variable que almacena una dirección de memoria. Se declara con `*`, como `int* ptr`. Los punteros son el corazón de C++, permitiendo la manipulación directa del hardware y la memoria.",
-              instructions: "Declara un puntero `int* ptr` y asígnale la dirección de `secretKey`. Luego imprime '0xabcd' para representarlo.",
-              initialCode: "#include <iostream>\n\nint main() {\n  int secretKey = 9934;\n  // Declara el puntero aquí\n  \n  std::cout << \"0xabcd\";\n  return 0;\n}",
+              instructions: "Tu tarea es declarar un puntero `int* ptr` y asignarle la dirección de `secretKey`. Luego imprime \'0xabcd\' para simular la dirección.",
+              initialCode: "#include <iostream>\n\nint main() {\n  int secretKey = 9934;\n  // TODO: Declara el puntero int* ptr e inicialízalo con la dirección de secretKey\n  \n  std::cout << \"0xabcd\";\n  return 0;\n}",
               expectedOutput: "0xabcd"
             }
           },
@@ -367,8 +367,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Para acceder o modificar el valor en la dirección de memoria que contiene un puntero, usas el operador de desreferencia `*`. Ej., `*ptr = 10;` cambia la variable original.",
-              instructions: "Hemos interceptado un puntero al interruptor principal del cortafuegos de seguridad. Desreferencia `ptr` y cambia su valor a `0` para desactivarlo. Imprime `fireStatus`.",
-              initialCode: "#include <iostream>\n\nint main() {\n  int fireStatus = 1;\n  int* ptr = &fireStatus;\n  \n  // Desreferencia y cambia a 0\n  \n  std::cout << fireStatus;\n  return 0;\n}",
+              instructions: "Tu tarea es desreferenciar el puntero `ptr` y asignarle el valor `0` para desactivar el cortafuegos, luego imprimir `fireStatus`.",
+              initialCode: "#include <iostream>\n\nint main() {\n  int fireStatus = 1;\n  int* ptr = &fireStatus;\n  \n  // TODO: Desreferencia ptr y asigna 0\n  \n  std::cout << fireStatus;\n  return 0;\n}",
               expectedOutput: "0"
             }
           },
@@ -391,8 +391,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Los punteros y los arreglos están profundamente conectados. Los arreglos decaen en punteros a su primer elemento. Puedes sumar a un puntero para recorrer un arreglo.",
-              instructions: "Tenemos un arreglo `int data[] = {10, 20, 30}`. Usando un puntero inicializado con `data`, desreferencia `ptr + 1` para imprimir el segundo elemento.",
-              initialCode: "#include <iostream>\n\nint main() {\n  int data[] = {10, 20, 30};\n  int* ptr = data;\n  // Imprime el segundo elemento usando aritmética de punteros\n  \n  return 0;\n}",
+              instructions: "Tu tarea es usar aritmética de punteros en `ptr` para desreferenciar e imprimir el segundo elemento de `data`.",
+              initialCode: "#include <iostream>\n\nint main() {\n  int data[] = {10, 20, 30};\n  int* ptr = data;\n  // TODO: Imprime el segundo elemento usando *(ptr + 1)\n  \n  return 0;\n}",
               expectedOutput: "20"
             }
           },
@@ -438,8 +438,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Un constructor es un método especial de la clase que se invoca automáticamente cuando se instancia un objeto. Comparte el mismo nombre que la clase y no tiene tipo de retorno.",
-              instructions: "Agrega un constructor a la clase `Server` que tome un `int` e inicialice el atributo `uptime`. Instancia un Server con uptime de 99 e imprímelo.",
-              initialCode: "#include <iostream>\n\nclass Server {\npublic:\n  int uptime;\n  // Escribe el constructor aquí\n};\n\nint main() {\n  Server s1(99);\n  std::cout << s1.uptime;\n  return 0;\n}",
+              instructions: "Tu tarea es añadir un constructor a la clase `Server` que acepte un `int` y lo asigne a `uptime`. Luego en main, crea una instancia `s1` pasando 99 e imprime `s1.uptime`.",
+              initialCode: "#include <iostream>\n\nclass Server {\npublic:\n  int uptime;\n  // TODO: Escribe el constructor que tome un int y lo asigne a uptime\n};\n\nint main() {\n  // TODO: Crea s1 con 99 e imprime s1.uptime\n  return 0;\n}",
               expectedOutput: "99"
             }
           },
@@ -462,8 +462,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "La herencia permite a una nueva clase (derivada) heredar atributos y métodos de una clase existente (base). Sintaxis: `class Derived : public Base {}`.",
-              instructions: "Crea una clase base `Entity` con un método público `void scan() { std::cout << \"Scan\"; }`. Crea una clase `Virus` que herede de `Entity`. En `main`, llama a `scan()` sobre un objeto `Virus`.",
-              initialCode: "#include <iostream>\n\n// Define Entity\n\n// Define Virus que hereda de Entity\n\nint main() {\n  \n  return 0;\n}",
+              instructions: "Tu tarea es completar las clases y la herencia. Define `Entity` con el método `scan()`. Luego define `Virus` que herede públicamente de `Entity`. Finalmente, llama a `scan()` desde una instancia de `Virus` en main.",
+              initialCode: "#include <iostream>\n\n// TODO: Define la clase base Entity con void scan() { std::cout << \"Scan\"; }\n\n// TODO: Define la clase Virus que herede de Entity\n\nint main() {\n  // TODO: Instancia Virus y llama a scan()\n  \n  return 0;\n}",
               expectedOutput: "Scan"
             }
           },
@@ -497,8 +497,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Las plantillas (templates) permiten que las funciones y clases operen con tipos genéricos, evitando la duplicación de código. La sintaxis comienza con `template <typename T>`.",
-              instructions: "Crea una función de plantilla `getMax` que tome dos parámetros de tipo `T` y devuelva el mayor usando el operador ternario `(a > b) ? a : b`. Llámala con 5 y 10.",
-              initialCode: "#include <iostream>\n\n// Define la plantilla getMax aquí\n\nint main() {\n  std::cout << getMax(5, 10);\n  return 0;\n}",
+              instructions: "Tu tarea es crear una función de plantilla (template) `getMax` que tome dos parámetros del mismo tipo genérico y devuelva el mayor. Luego pruébala en main imprimiendo `getMax(5, 10)`.",
+              initialCode: "#include <iostream>\n\n// TODO: Define template <typename T> T getMax(T a, T b)\n\nint main() {\n  // TODO: Imprime el resultado de getMax(5, 10)\n  return 0;\n}",
               expectedOutput: "10"
             }
           },
@@ -509,8 +509,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "`std::map` (en `<map>`) almacena pares clave-valor, ordenándolos por clave automáticamente. `std::unordered_map` hace lo mismo pero con un acceso más rápido O(1) a través de hash.",
-              instructions: "Incluye `<map>`. Crea un `std::map<std::string, int>` llamado `credentials`. Inserta `\"admin\"` con el valor `1234`. Imprime el valor para `\"admin\"`.",
-              initialCode: "#include <iostream>\n#include <map>\n#include <string>\n\nint main() {\n  // Crea el mapa e inserta el par\n  \n  return 0;\n}",
+              instructions: "Tu tarea es usar un mapa. Incluye `<map>`, crea un `std::map<std::string, int>` llamado `credentials`, inserta la clave `\"admin\"` con valor `1234`, e imprime ese valor.",
+              initialCode: "#include <iostream>\n// TODO: Incluye map\n#include <string>\n\nint main() {\n  // TODO: Crea el mapa credentials e inserta \"admin\" -> 1234\n  // TODO: Imprime credentials[\"admin\"]\n  return 0;\n}",
               expectedOutput: "1234"
             }
           },
@@ -533,8 +533,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
             xpReward: 10,
             content: {
               theory: "Síntesis exhaustiva de variables, bucles, arreglos y bibliotecas estándar.",
-              instructions: "Escribe un programa que itere del 1 al 5. Si el número es par, agrégalo a un `std::vector<int>`. Después del bucle, imprime el tamaño del vector.",
-              initialCode: "#include <iostream>\n#include <vector>\n\nint main() {\n  std::vector<int> evens;\n  // Escribe la lógica del bucle aquí\n  \n  // Imprime el tamaño\n  return 0;\n}",
+              instructions: "Tu tarea es completar la lógica final: itera del 1 al 5 y, si el número es par, agrégalo a `evens`. Finalmente, imprime el tamaño del vector.",
+              initialCode: "#include <iostream>\n#include <vector>\n\nint main() {\n  std::vector<int> evens;\n  // TODO: Itera del 1 al 5 y usa push_back si es par\n  \n  // TODO: Imprime evens.size()\n  return 0;\n}",
               expectedOutput: "2"
             }
           },

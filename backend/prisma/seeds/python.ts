@@ -44,7 +44,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Python está tipado dinámicamente. Esto significa que el tipo de una variable se determina en tiempo de ejecución, permitiendo una manipulación fluida de datos durante operaciones en vivo.',
               instructions: 'Reasigna la variable `payload` de un entero a una cadena "Bypass" para evadir el comprobador de tipos, y luego imprímela.',
-              initialCode: 'payload = 404\n# Reasigna payload a "Bypass" a continuación\npayload = "Bypass"\nprint(payload)\n',
+              initialCode: 'payload = 404\n# Reasigna payload a "Bypass" a continuación\npayload = # TODO: Asigna "Bypass"\n# TODO: Imprime payload\n',
               expectedOutput: 'Bypass\n'
             }
           },
@@ -55,7 +55,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Los operadores aritméticos estándar existen en Python: +, -, *, /. El operador // realiza una división entera, crucial para cálculos de coordenadas basados en enteros.',
               instructions: 'Calcula el ancho de banda total del sector. Multiplica 128 por 4 e imprime el resultado.',
-              initialCode: '# Realiza el cálculo e imprime el resultado\nprint(128 * 4)\n',
+              initialCode: '# Realiza el cálculo e imprime el resultado\n# TODO: Imprime el resultado de 128 * 4\n',
               expectedOutput: '512\n'
             }
           },
@@ -66,7 +66,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Las cadenas pueden concatenarse usando + o formatearse usando f-strings (f"..."). Los f-strings son más rápidos y legibles al inyectar variables en comandos.',
               instructions: 'Crea un f-string que interpole la variable `target` en la cadena: "Target acquired: [target]". Imprímela.',
-              initialCode: 'target = "Mainframe"\n# Imprime el f-string\nprint(f"Target acquired: {target}")\n',
+              initialCode: 'target = "Mainframe"\n# Imprime el f-string\n# TODO: Imprime "Target acquired: {target}"\n',
               expectedOutput: 'Target acquired: Mainframe\n'
             }
           },
@@ -89,7 +89,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Un agente aliado dejó atrás un script roto. Necesitamos que lo repares para extraer las coordenadas finales.',
               instructions: 'Arregla los errores de sintaxis y lógica en el script para que imprima: Agent 007 coordinates: 45',
-              initialCode: 'agent = "007"\ncoords_1 = "20"\ncoords_2 = 25\n# Arregla la siguiente línea para que imprima correctamente\nprint("Agent " + agent + " coordinates: " + str(int(coords_1) + coords_2))\n',
+              initialCode: 'agent = "007"\ncoords_1 = "20"\ncoords_2 = 25\n# Arregla la siguiente línea para que imprima correctamente\nprint("Agent " + agent + " coordinates: " + coords_1 + coords_2)\n',
               expectedOutput: 'Agent 007 coordinates: 45\n'
             }
           }
@@ -132,7 +132,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Cuando las condiciones fallan, necesitamos mecanismos de respaldo. El bloque `else` captura todo lo que el bloque `if` omite.',
               instructions: 'Completa el bloque else para que imprima "Access Denied".',
-              initialCode: 'clearance = 2\nif clearance >= 4:\n    print("Access Granted")\nelse:\n    print("Access Denied")\n',
+              initialCode: 'clearance = 2\nif clearance >= 4:\n    print("Access Granted")\n# TODO: Añade un bloque else que imprima "Access Denied"\n',
               expectedOutput: 'Access Denied\n'
             }
           },
@@ -143,7 +143,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'La palabra clave `elif` permite realizar múltiples comprobaciones secuenciales. Significa "else if" y deja de comprobar una vez que encuentra una condición verdadera.',
               instructions: 'Escribe un bloque elif que imprima "Warning" si threat_level es exactamente 3.',
-              initialCode: 'threat_level = 3\nif threat_level > 4:\n    print("Evacuate")\nelif threat_level == 3:\n    print("Warning")\nelse:\n    print("Safe")\n',
+              initialCode: 'threat_level = 3\nif threat_level > 4:\n    print("Evacuate")\n# TODO: Añade un bloque elif para threat_level == 3 que imprima "Warning"\nelse:\n    print("Safe")\n',
               expectedOutput: 'Warning\n'
             }
           },
@@ -154,7 +154,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Los bloques lógicos pueden anidarse indefinidamente. Sin embargo, un anidamiento excesivo hace que el código sea difícil de depurar durante escenarios de fuego real.',
               instructions: 'Dentro de la declaración if existente, añade otra declaración if que compruebe si user == "admin". Si es así, imprime "Root Access".',
-              initialCode: 'system_active = True\nuser = "admin"\nif system_active:\n    if user == "admin":\n        print("Root Access")\n',
+              initialCode: 'system_active = True\nuser = "admin"\nif system_active:\n    # TODO: Añade un if anidado que compruebe si user es "admin" e imprima "Root Access"\n    pass\n',
               expectedOutput: 'Root Access\n'
             }
           },
@@ -177,7 +177,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Necesitamos un script para validar las conexiones entrantes basándonos en credenciales específicas.',
               instructions: 'Escribe la lógica que imprima "Welcome" si role es "admin" Y key es "0x99". De lo contrario, imprime "Intruder".',
-              initialCode: 'role = "admin"\nkey = "0x99"\nif role == "admin" and key == "0x99":\n    print("Welcome")\nelse:\n    print("Intruder")\n',
+              initialCode: 'role = "admin"\nkey = "0x99"\n# TODO: Escribe una condición if/else para verificar si role es "admin" y key es "0x99"\n# Si es correcto, imprime "Welcome". Si no, imprime "Intruder"\n',
               expectedOutput: 'Welcome\n'
             }
           }
@@ -220,7 +220,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'El bucle `for` en Python itera sobre los elementos de cualquier secuencia. La función `range(n)` genera números desde 0 hasta n-1.',
               instructions: 'Modifica el rango para que imprima los números del 0 al 4.',
-              initialCode: 'for x in range(5):\n    print(x)\n',
+              initialCode: '# TODO: Modifica el rango para imprimir del 0 al 4\nfor x in range(0):\n    print(x)\n',
               expectedOutput: '0\n1\n2\n3\n4\n'
             }
           },
@@ -231,7 +231,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'La declaración `break` termina el bucle actual por completo. Útil cuando encuentras lo que buscas y quieres salir antes de tiempo.',
               instructions: 'Usa una declaración break para detener el bucle cuando i == 2.',
-              initialCode: 'for i in range(5):\n    if i == 2:\n        break\n    print(i)\n',
+              initialCode: 'for i in range(5):\n    # TODO: Añade una condición que haga un break si i == 2\n    print(i)\n',
               expectedOutput: '0\n1\n'
             }
           },
@@ -242,7 +242,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'La declaración `continue` salta el resto de la iteración actual y pasa a la siguiente iteración del bucle.',
               instructions: 'Usa continue para omitir la impresión del número 2.',
-              initialCode: 'for i in range(4):\n    if i == 2:\n        continue\n    print(i)\n',
+              initialCode: 'for i in range(4):\n    # TODO: Añade una condición que haga continue si i == 2\n    print(i)\n',
               expectedOutput: '0\n1\n3\n'
             }
           },
@@ -265,7 +265,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Hemos interceptado un flujo de datos. Itera a través de los números del 1 al 5 para encontrar anomalías.',
               instructions: 'Imprime los números del 1 al 5 usando un bucle. Si el número es 3, imprime "Anomaly" en lugar del número.',
-              initialCode: 'for i in range(1, 6):\n    if i == 3:\n        print("Anomaly")\n    else:\n        print(i)\n',
+              initialCode: '# TODO: Itera a través de los números del 1 al 5. Si es 3, imprime "Anomaly", si no, imprime el número.\n',
               expectedOutput: '1\n2\nAnomaly\n4\n5\n'
             }
           }
@@ -308,7 +308,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Las funciones pueden aceptar parámetros de entrada, permitiéndoles procesar cargas de datos dinámicas.',
               instructions: 'Define la función greet para que acepte un parámetro `name` e imprima `Hello <name>`.',
-              initialCode: 'def greet(name):\n    print(f"Hello {name}")\n\ngreet("Agent")\n',
+              initialCode: 'def greet(name):\n    # TODO: Imprime "Hello " seguido del nombre\n    pass\n\ngreet("Agent")\n',
               expectedOutput: 'Hello Agent\n'
             }
           },
@@ -319,7 +319,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'La declaración `return` termina una función y envía los datos de vuelta a quien la llamó.',
               instructions: 'Arregla la función multiply para que devuelva el producto de a y b.',
-              initialCode: 'def multiply(a, b):\n    return a * b\n\nresult = multiply(4, 5)\nprint(f"Result: {result}")\n',
+              initialCode: 'def multiply(a, b):\n    # TODO: Devuelve el producto de a y b\n    pass\n\nresult = multiply(4, 5)\nprint(f"Result: {result}")\n',
               expectedOutput: 'Result: 20\n'
             }
           },
@@ -330,7 +330,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Las variables creadas dentro de una función son locales a esa función. No se puede acceder a ellas desde el alcance global.',
               instructions: 'Demuestra el alcance de las variables imprimiendo la variable global `secret` dentro de la función.',
-              initialCode: 'secret = "GlobalKey"\ndef check_scope():\n    print(secret)\n\ncheck_scope()\n',
+              initialCode: 'secret = "GlobalKey"\ndef check_scope():\n    # TODO: Imprime la variable global \'secret\'\n    pass\n\ncheck_scope()\n',
               expectedOutput: 'GlobalKey\n'
             }
           },
@@ -341,7 +341,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Tu prueba final sobre subrutinas. Procesa los datos de transmisión entrantes con precisión.',
               instructions: 'Escribe una función process_data(n) que devuelva el valor absoluto de (n * 10 - 5). Llámarla con -5 e imprime el resultado.',
-              initialCode: 'def process_data(n):\n    return abs(n * 10 - 5)\n\nprint(process_data(-5))\n',
+              initialCode: '# TODO: Escribe la función process_data(n)\n# TODO: Llama a la función con -5 e imprímelo\n',
               expectedOutput: '55\n'
             }
           }
@@ -384,7 +384,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Las comprensiones de listas proporcionan una forma concisa de crear listas. Se ejecutan más rápido que los bucles estándar.',
               instructions: 'Usa una comprensión para crear una lista de cuadrados para los números 1, 2, 3.',
-              initialCode: 'squares = [x*x for x in [1, 2, 3]]\nprint(squares)\n',
+              initialCode: '# TODO: Usa una comprensión de lista para crear los cuadrados de 1, 2, 3\nsquares = []\nprint(squares)\n',
               expectedOutput: '[1, 4, 9]\n'
             }
           },
@@ -395,7 +395,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Los diccionarios son colecciones desordenadas y mutables de pares clave-valor que proporcionan tiempos de búsqueda O(1).',
               instructions: 'Añade una nueva clave "status" con el valor "online" al diccionario, y luego imprime el valor.',
-              initialCode: 'config = {"ip": "192.168.1.1"}\nconfig["status"] = "online"\nprint(config["status"])\n',
+              initialCode: 'config = {"ip": "192.168.1.1"}\n# TODO: Añade la clave "status" con el valor "online" a config\n# TODO: Imprime el valor de "status"\n',
               expectedOutput: 'online\n'
             }
           },
@@ -406,7 +406,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Las tuplas son listas inmutables. Los conjuntos (sets) son colecciones de elementos únicos, perfectos para intersecciones.',
               instructions: 'Crea un conjunto (set) con los elementos 1, 2, 2, 3 y imprímelo para ver cómo se eliminan los duplicados.',
-              initialCode: 'my_set = set([1, 2, 2, 3])\nprint(sorted(list(my_set)))\n',
+              initialCode: '# TODO: Crea un conjunto con los elementos 1, 2, 2, 3\nmy_set = None\nprint(sorted(list(my_set)))\n',
               expectedOutput: '[1, 2, 3]\n'
             }
           },
@@ -417,7 +417,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Extrae datos específicos de una carga útil de diccionario anidado.',
               instructions: 'Imprime el valor de la clave "port" anidada dentro del diccionario "server".',
-              initialCode: 'payload = {"server": {"ip": "10.0.0.1", "port": 8080}}\nprint(payload["server"]["port"])\n',
+              initialCode: 'payload = {"server": {"ip": "10.0.0.1", "port": 8080}}\n# TODO: Imprime el valor de "port"\n',
               expectedOutput: '8080\n'
             }
           },
@@ -428,7 +428,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Procesa una lista de cadenas, filtrando y ordenando datos.',
               instructions: 'Imprime una nueva lista que contenga solo las palabras que comienzan con "c", ordenadas alfabéticamente.',
-              initialCode: 'words = ["cat", "dog", "car", "apple", "cable"]\nc_words = sorted([w for w in words if w.startswith("c")])\nprint(c_words)\n',
+              initialCode: 'words = ["cat", "dog", "car", "apple", "cable"]\n# TODO: Crea una lista c_words con las palabras que empiezan por "c", ordenadas alfabéticamente\n',
               expectedOutput: "['cable', 'car', 'cat']\n"
             }
           }
@@ -471,7 +471,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Los métodos son funciones definidas dentro de una clase. Deben aceptar `self` como su primer parámetro.',
               instructions: 'Añade un método `ping()` a la clase Server que imprima "Pong from Main".',
-              initialCode: 'class Server:\n    def __init__(self, name):\n        self.name = name\n    def ping(self):\n        print(f"Pong from {self.name}")\n\ns = Server("Main")\ns.ping()\n',
+              initialCode: 'class Server:\n    def __init__(self, name):\n        self.name = name\n    # TODO: Añade un método ping() que imprima "Pong from {self.name}"\n\ns = Server("Main")\ns.ping()\n',
               expectedOutput: 'Pong from Main\n'
             }
           },
@@ -482,7 +482,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'La herencia permite que una nueva clase (Hija) herede atributos y métodos de una clase existente (Padre).',
               instructions: 'Crea una clase Admin que herede de User y sobrescriba el __init__ para imprimir "Admin Online".',
-              initialCode: 'class User:\n    def __init__(self):\n        print("User Online")\n\nclass Admin(User):\n    def __init__(self):\n        print("Admin Online")\n\nAdmin()\n',
+              initialCode: 'class User:\n    def __init__(self):\n        print("User Online")\n\n# TODO: Crea la clase Admin que herede de User y cuyo __init__ imprima "Admin Online"\n\nAdmin()\n',
               expectedOutput: 'Admin Online\n'
             }
           },
@@ -493,7 +493,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'El polimorfismo permite a las subclases definir sus propios comportamientos únicos para los métodos compartidos con la clase padre.',
               instructions: 'Sobrescribe el método `execute()` en la clase StealthMode para imprimir "Silent Execution".',
-              initialCode: 'class Mode:\n    def execute(self):\n        print("Standard Execution")\nclass StealthMode(Mode):\n    def execute(self):\n        print("Silent Execution")\n\nStealthMode().execute()\n',
+              initialCode: 'class Mode:\n    def execute(self):\n        print("Standard Execution")\n# TODO: Crea la clase StealthMode que herede de Mode y sobrescriba execute() para imprimir "Silent Execution"\n\nStealthMode().execute()\n',
               expectedOutput: 'Silent Execution\n'
             }
           },
@@ -504,7 +504,7 @@ export const getPythonSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Combina tu conocimiento de clases, herencia y atributos para construir una representación funcional de un Núcleo de IA.',
               instructions: 'Crea una clase AI con un __init__ que tome un name. Añade un método status() que imprima "[name] is operational". Instancia AI("HAL") y llama a status().',
-              initialCode: 'class AI:\n    def __init__(self, name):\n        self.name = name\n    def status(self):\n        print(f"{self.name} is operational")\n\nAI("HAL").status()\n',
+              initialCode: '# TODO: Crea la clase AI con un __init__ que tome un nombre.\n# TODO: Añade el método status() que imprima "{nombre} is operational".\n# TODO: Instancia la clase con el nombre "HAL" y llama a status().\n',
               expectedOutput: 'HAL is operational\n'
             }
           }

@@ -22,7 +22,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Bienvenido a la Consola Nexus. Java es un lenguaje de programación orientado a objetos y fuertemente tipado. Toda ejecución comienza dentro del método `main` de una clase principal. El Cyber-Núcleo requiere una sintaxis estricta: cada declaración debe terminar con un punto y coma, y los bloques de código están encapsulados en llaves `{}`.',
               instructions: 'Inicializa la secuencia de ejecución principal. Muestra la frase exacta "System Booting..." en la terminal usando `System.out.println`.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        // Iniciar secuencia de arranque\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        // TODO: Iniciar secuencia de arranque e imprimir "System Booting..."\n    }\n}',
               expectedOutput: 'System Booting...\n'
             }
           },
@@ -44,7 +44,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Los protocolos de transmisión ofrecen dos métodos principales para el eco de terminal: `print()` y `println()`. Mientras que `println()` añade un carácter de nueva línea tras la transmisión, `print()` deja el cursor en la línea actual, permitiendo la inyección continua en el flujo.',
               instructions: 'Imprime "Access" y "Granted" en la misma línea usando dos declaraciones `System.out.print`, separadas por un espacio.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.print("Access");\n        // Completar la transmisión\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.print("Access");\n        // TODO: Completar la transmisión imprimiendo " Granted"\n    }\n}',
               expectedOutput: 'Access Granted'
             }
           },
@@ -66,7 +66,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Al inyectar código en sistemas hostiles, dejar notas para los operativos aliados es crucial. Java proporciona comentarios de una sola línea usando `//` y comentarios multilínea encapsulados entre `/*` y `*/`. El compilador JVM ignora completamente estos bloques.',
               instructions: '¡El código actual ejecuta una secuencia de autodestrucción! Comenta la línea que imprime "Initiating self-destruct" e imprime "System Safe" en su lugar.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Initiating self-destruct");\n        // Imprimir "System Safe" abajo\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Initiating self-destruct");\n        // TODO: Comenta la línea superior e imprime "System Safe" abajo\n    }\n}',
               expectedOutput: 'System Safe\n'
             }
           },
@@ -186,7 +186,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'A menudo, las rutas de ejecución deben divergir en función de evaluaciones de amenazas en tiempo real. Las declaraciones `if-else` crean rutas lógicas ramificadas, evaluando una expresión booleana para determinar qué bloque de código ejecutar.',
               instructions: 'Comprueba si `clearance` es mayor que 3. Si es verdadero, imprime "Access Granted". De lo contrario, imprime "Denied". La variable `clearance` está establecida en 5.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int clearance = 5;\n        // Escribe tu lógica aquí\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int clearance = 5;\n        // TODO: Escribe tu lógica if-else aquí\n    }\n}',
               expectedOutput: 'Access Granted\n'
             }
           },
@@ -197,7 +197,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Las subrutinas pueden requerir múltiples capas de validación. Anidar declaraciones `if` dentro de otros bloques `if` permite realizar comprobaciones de seguridad multinivel complejas.',
               instructions: 'Comprueba si `isActive` es verdadero. Si lo es, comprueba si `level` es 10. Si ambas son verdaderas, imprime "Max Power".',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        boolean isActive = true;\n        int level = 10;\n        // Agregar condiciones anidadas\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        boolean isActive = true;\n        int level = 10;\n        // TODO: Agregar condiciones anidadas para comprobar isActive y level\n    }\n}',
               expectedOutput: 'Max Power\n'
             }
           },
@@ -219,7 +219,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'El operador ternario `? :` actúa como un microcondicional, condensando bloques if-else simples en una sola expresión para una rápida asignación de variables.',
               instructions: 'Usa un operador ternario para asignar "High" a `status` si `energy > 50`, si no "Low". La energía (`energy`) es 80. Imprime `status`.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int energy = 80;\n        // String status = ...\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int energy = 80;\n        // TODO: Usa un operador ternario para asignar "High" o "Low" a status\n        // String status = ...\n    }\n}',
               expectedOutput: 'High\n'
             }
           },
@@ -230,7 +230,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Combina múltiples métricas de amenaza simultáneamente usando AND Lógico (`&&`), OR Lógico (`||`) y NOT Lógico (`!`).',
               instructions: 'Imprime "Valid" si `x` es mayor que 0 Y `x` es menor que 10. `x` es 5.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int x = 5;\n        if (/* lógica */) {\n            System.out.println("Valid");\n        }\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int x = 5;\n        if (/* TODO: lógica para x > 0 Y x < 10 */) {\n            System.out.println("Valid");\n        }\n    }\n}',
               expectedOutput: 'Valid\n'
             }
           },
@@ -241,7 +241,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Un cortafuegos seguro está bloqueando el nodo principal. Debes diseñar una anulación lógica precisa.',
               instructions: 'Estás interceptando una secuencia de inicio de sesión. Si `user` es "admin" o "root", Y `pass` es "1234", imprime "Bypass Successful". De lo contrario, imprime "Lockout".',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        String user = "root";\n        String pass = "1234";\n        // Escribe la lógica\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        String user = "root";\n        String pass = "1234";\n        // TODO: Escribe la lógica de anulación aquí\n    }\n}',
               expectedOutput: 'Bypass Successful\n'
             }
           }
@@ -273,7 +273,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Cuando se desconoce el volumen de carga, los bucles `while` se ejecutan continuamente mientras una condición booleana siga siendo verdadera. No alterar la condición causará un bucle infinito.',
               instructions: 'Usa un bucle while para imprimir "Ping " 3 veces en la misma línea. Recuerda incrementar tu contador.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int count = 0;\n        // Bucle while aquí\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int count = 0;\n        // TODO: Escribe un bucle while que imprima "Ping " 3 veces\n    }\n}',
               expectedOutput: 'Ping Ping Ping '
             }
           },
@@ -355,7 +355,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Los nodos de datos dentro de un array pueden anularse accediendo a su índice específico.',
               instructions: 'Cambia el valor del segundo elemento (índice 1) a 99. Imprime el valor modificado.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] nodes = {5, 10, 15};\n        // Modificar e imprimir\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] nodes = {5, 10, 15};\n        // TODO: Cambia el valor del índice 1 a 99 e imprime\n    }\n}',
               expectedOutput: '99\n'
             }
           },
@@ -377,7 +377,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'El bucle `for` mejorado (for-each) itera a través de cada elemento en un array de manera sistemática sin manejo manual de índices.',
               instructions: 'Usa un bucle for-each para iterar a través del array `signals` e imprimir cada valor en una nueva línea.',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] signals = {100, 200, 300};\n        // bucle for-each\n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] signals = {100, 200, 300};\n        // TODO: Escribe un bucle for-each para imprimir cada señal\n    }\n}',
               expectedOutput: '100\n200\n300\n'
             }
           },
@@ -388,7 +388,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Los escáneres detectaron picos de energía variables en el sector. Debes localizar la amplitud más alta.',
               instructions: 'Dado el array `int[] data = {12, 45, 7, 89, 23};`, escribe la lógica para encontrar e imprimir el valor máximo en el formato "Max: [valor]".',
-              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] data = {12, 45, 7, 89, 23};\n        \n    }\n}',
+              initialCode: 'public class Main {\n    public static void main(String[] args) {\n        int[] data = {12, 45, 7, 89, 23};\n        // TODO: Encuentra e imprime el valor máximo\n    }\n}',
               expectedOutput: 'Max: 89\n'
             }
           }
@@ -409,7 +409,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Una Clase es el plano de arquitectura fundamental en Java. Define el estado (campos) y comportamientos (métodos) que poseerán los objetos generados a partir de ella.',
               instructions: 'Examina la clase `Agent`. Dentro del main, crea una variable de referencia `Agent` llamada `a1` (no la inicialices con new todavía). Déjala vacía. El código compilará silenciosamente.',
-              initialCode: 'class Agent {\n    String name;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // Declarar una variable Agent\n    }\n}',
+              initialCode: 'class Agent {\n    String name;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // TODO: Declarar una variable Agent llamada a1 (sin new)\n    }\n}',
               expectedOutput: ''
             }
           },
@@ -420,7 +420,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'La palabra clave `new` asigna memoria en el heap, instanciando un objeto físico a partir del plano de una Clase. Esto devuelve una referencia de memoria.',
               instructions: 'Instancia un objeto `Agent` en `a1` usando `new Agent()`. Establece su campo `name` a "Smith" e imprímelo.',
-              initialCode: 'class Agent {\n    String name;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Agent a1 = new Agent();\n        // Establecer name e imprimir\n    }\n}',
+              initialCode: 'class Agent {\n    String name;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Agent a1 = new Agent();\n        // TODO: Establecer name a "Smith" e imprimir a1.name\n    }\n}',
               expectedOutput: 'Smith\n'
             }
           },
@@ -442,7 +442,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Múltiples objetos instanciados de la misma clase actúan como instancias independientes. Mudar el estado de uno no afecta a los demás.',
               instructions: 'Crea dos instancias de `Node`. Establece `id` a 1 para la primera, y 2 para la segunda. Imprime ambos `id` en líneas separadas.',
-              initialCode: 'class Node {\n    int id;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
+              initialCode: 'class Node {\n    int id;\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // TODO: Crea dos instancias de Node, establece id 1 y 2, e imprímelas\n    }\n}',
               expectedOutput: '1\n2\n'
             }
           },
@@ -453,7 +453,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'El centro de mando necesita una nueva unidad de reconocimiento desplegada inmediatamente.',
               instructions: 'Crea una clase `Drone` con un campo `int` llamado `serial`. En main, instancia un `Drone`, establece `serial` en 999, e imprime "Drone Deployed: 999".',
-              initialCode: '// Escribe la clase Drone aquí\n\npublic class Main {\n    public static void main(String[] args) {\n        \n    }\n}',
+              initialCode: '// TODO: Escribe la clase Drone aquí con un campo int serial\n\npublic class Main {\n    public static void main(String[] args) {\n        // TODO: Instancia un Drone, establece serial a 999 e imprime el mensaje\n    }\n}',
               expectedOutput: 'Drone Deployed: 999\n'
             }
           },
@@ -491,7 +491,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Los métodos encapsulan la lógica en bloques reutilizables, reduciendo la duplicación de código y aislando los hilos de ejecución. Los métodos `void` ejecutan acciones pero no devuelven datos.',
               instructions: 'Crea un método static void `triggerAlert()` dentro de Main que imprima "Alert!". Llámalo desde `main()`.',
-              initialCode: 'public class Main {\n    // Crea el método triggerAlert aquí\n\n    public static void main(String[] args) {\n        \n    }\n}',
+              initialCode: 'public class Main {\n    // TODO: Crea el método static void triggerAlert aquí\n\n    public static void main(String[] args) {\n        // TODO: Llama a triggerAlert()\n    }\n}',
               expectedOutput: 'Alert!\n'
             }
           },
@@ -502,7 +502,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'Los métodos pueden devolver cargas útiles calculadas al invocador al definir un tipo de retorno (p. ej., `int`) y utilizar la palabra clave `return`.',
               instructions: 'Completa el método `getSecretCode` para devolver el entero `42`. Imprime el resultado en `main`.',
-              initialCode: 'public class Main {\n    static int getSecretCode() {\n        // Devolver 42\n    }\n\n    public static void main(String[] args) {\n        System.out.println(getSecretCode());\n    }\n}',
+              initialCode: 'public class Main {\n    static int getSecretCode() {\n        // TODO: Devolver 42\n    }\n\n    public static void main(String[] args) {\n        System.out.println(getSecretCode());\n    }\n}',
               expectedOutput: '42\n'
             }
           },
@@ -524,7 +524,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'La sobrecarga de métodos permite que varios métodos compartan el mismo nombre dentro de una clase, siempre que sus listas de parámetros (firmas) difieran.',
               instructions: 'Sobrecarga el método `send`. Uno debe aceptar un `String` e imprimirlo. El otro debe aceptar un `int` e imprimirlo. Llama a ambos desde main: send("Data") y send(5).',
-              initialCode: 'public class Main {\n    static void send(String msg) {\n        System.out.println(msg);\n    }\n    // Escribe el método send sobrecargado aquí\n\n    public static void main(String[] args) {\n        send("Data");\n        send(5);\n    }\n}',
+              initialCode: 'public class Main {\n    static void send(String msg) {\n        System.out.println(msg);\n    }\n    // TODO: Escribe el método send sobrecargado para int aquí\n\n    public static void main(String[] args) {\n        send("Data");\n        send(5);\n    }\n}',
               expectedOutput: 'Data\n5\n'
             }
           },
@@ -535,7 +535,7 @@ export const getJavaSeed: SeederFunction = async (prisma) => {
             content: {
               theory: 'El último cortafuegos requiere un paquete de carga útil firmado matemáticamente.',
               instructions: 'Escribe un método estático `calculateHash` que tome dos enteros, los multiplique y devuelva el resultado. En el main, llámalo con 7 y 6, e imprime "Hash: [resultado]".',
-              initialCode: 'public class Main {\n    \n    public static void main(String[] args) {\n        \n    }\n}',
+              initialCode: 'public class Main {\n    // TODO: Crea el método calculateHash\n    \n    public static void main(String[] args) {\n        // TODO: Llama a calculateHash con 7 y 6, e imprime el resultado\n    }\n}',
               expectedOutput: 'Hash: 42\n'
             }
           }

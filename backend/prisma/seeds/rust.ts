@@ -43,8 +43,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 20,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar el Protocolo Cero: Inicialización, debes comprender los algoritmos subyacentes. El Nodo 3 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -54,8 +54,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 25,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar el Protocolo Cero: Inicialización, debes comprender los algoritmos subyacentes. El Nodo 4 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -76,8 +76,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 50,
           "content": {
             "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento del Protocolo Cero: Inicialización.",
-            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
+            "instructions": "> DESTRUYE AL CENTINELA. Completa la subrutina para que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // TODO: Escribe tu exploit aquí para imprimir el código de anulación\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         }
@@ -119,8 +119,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 20,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar La Matriz de Memoria: Propiedad, debes comprender los algoritmos subyacentes. El Nodo 8 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -130,8 +130,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 25,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar La Matriz de Memoria: Propiedad, debes comprender los algoritmos subyacentes. El Nodo 9 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -152,8 +152,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 50,
           "content": {
             "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento de La Matriz de Memoria: Propiedad.",
-            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
+            "instructions": "> DESTRUYE AL CENTINELA. Completa la subrutina para que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // TODO: Escribe tu exploit aquí para imprimir el código de anulación\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         },
@@ -163,8 +163,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 50,
           "content": {
             "theory": "[ADVERTENCIA] Intrusión detectada. El firewall requiere verificación de autorización de seguridad.",
-            "instructions": "> RESPONDE LA PREGUNTA DE SEGURIDAD PARA CONTINUAR. ¿Cuál es la directiva principal de este sector?",
-            "initialCode": "// Esperando código de autorización...",
+            "instructions": "> DESTRUYE AL CENTINELA. Completa la subrutina para que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // TODO: Escribe tu exploit aquí para imprimir el código de anulación\n}",
             "quizOptions": [
               "Explotación de fugas de memoria",
               "Propiedad y préstamo estrictos",
@@ -211,8 +211,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 20,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Organismos Cibernéticos: Structs y Traits, debes comprender los algoritmos subyacentes. El Nodo 13 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -222,8 +222,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 25,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Organismos Cibernéticos: Structs y Traits, debes comprender los algoritmos subyacentes. El Nodo 14 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -244,8 +244,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 50,
           "content": {
             "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento de Organismos Cibernéticos: Structs y Traits.",
-            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
+            "instructions": "> DESTRUYE AL CENTINELA. Completa la subrutina para que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // TODO: Escribe tu exploit aquí para imprimir el código de anulación\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         },
@@ -255,8 +255,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 50,
           "content": {
             "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento de Organismos Cibernéticos: Structs y Traits.",
-            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
+            "instructions": "> DESTRUYE AL CENTINELA. Completa la subrutina para que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // TODO: Escribe tu exploit aquí para imprimir el código de anulación\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         }
@@ -298,8 +298,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 20,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Ramificación Cuántica: Enums y Coincidencia de Patrones, debes comprender los algoritmos subyacentes. El Nodo 18 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -309,8 +309,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 25,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Ramificación Cuántica: Enums y Coincidencia de Patrones, debes comprender los algoritmos subyacentes. El Nodo 19 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -331,8 +331,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 50,
           "content": {
             "theory": "[ADVERTENCIA] Intrusión detectada. El firewall requiere verificación de autorización de seguridad.",
-            "instructions": "> RESPONDE LA PREGUNTA DE SEGURIDAD PARA CONTINUAR. ¿Cuál es la directiva principal de este sector?",
-            "initialCode": "// Esperando código de autorización...",
+            "instructions": "> DESTRUYE AL CENTINELA. Completa la subrutina para que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // TODO: Escribe tu exploit aquí para imprimir el código de anulación\n}",
             "quizOptions": [
               "Explotación de fugas de memoria",
               "Propiedad y préstamo estrictos",
@@ -390,8 +390,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 20,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Mecanismos de Seguridad del Sistema: Manejo de Errores, debes comprender los algoritmos subyacentes. El Nodo 23 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -401,8 +401,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 25,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Mecanismos de Seguridad del Sistema: Manejo de Errores, debes comprender los algoritmos subyacentes. El Nodo 24 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -423,8 +423,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 50,
           "content": {
             "theory": "[ENCUENTRO DE JEFE] El centinela del Mainframe está bloqueando el puerto. Debes explotar la vulnerabilidad usando tu conocimiento de Mecanismos de Seguridad del Sistema: Manejo de Errores.",
-            "instructions": "> DESTRUYE AL CENTINELA. Escribe una subrutina completa que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
-            "initialCode": "fn main() {\n    // Tu código de exploit\n}",
+            "instructions": "> DESTRUYE AL CENTINELA. Completa la subrutina para que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // TODO: Escribe tu exploit aquí para imprimir el código de anulación\n}",
             "expectedOutput": "OVERRIDE_ACCEPTED"
           }
         }
@@ -466,8 +466,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 20,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Hilos Neuronales: Concurrencia, debes comprender los algoritmos subyacentes. El Nodo 28 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -477,8 +477,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 25,
           "content": {
             "theory": "[TRANSMISIÓN ENCRIPTADA] Para dominar Hilos Neuronales: Concurrencia, debes comprender los algoritmos subyacentes. El Nodo 29 introduce la sintaxis principal y las reglas para interactuar con el subsistema.",
-            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Modifica el payload para emitir la firma biométrica exacta requerida por el firewall.",
-            "initialCode": "fn main() {\n    // Inicializa el payload aquí\n    println!(\"Status: READY\");\n}",
+            "instructions": "> SEÑAL ENTRANTE... Ejecuta la secuencia de inicialización. Completa el código para emitir la firma biométrica exacta requerida por el firewall.",
+            "initialCode": "fn main() {\n    // TODO: Imprime el estado correspondiente aquí\n}",
             "expectedOutput": "Status: READY"
           }
         },
@@ -499,8 +499,8 @@ export const getRustSeed: SeederFunction = async (prisma) => {
           "xpReward": 50,
           "content": {
             "theory": "[ADVERTENCIA] Intrusión detectada. El firewall requiere verificación de autorización de seguridad.",
-            "instructions": "> RESPONDE LA PREGUNTA DE SEGURIDAD PARA CONTINUAR. ¿Cuál es la directiva principal de este sector?",
-            "initialCode": "// Esperando código de autorización...",
+            "instructions": "> DESTRUYE AL CENTINELA. Completa la subrutina para que emita el código de la secuencia de destrucción exactamente como 'OVERRIDE_ACCEPTED'.",
+            "initialCode": "fn main() {\n    // TODO: Escribe tu exploit aquí para imprimir el código de anulación\n}",
             "quizOptions": [
               "Explotación de fugas de memoria",
               "Propiedad y préstamo estrictos",
