@@ -7,9 +7,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
     version: '17',
     sections: [
       {
-        title: "Phase 1: Boot Sequence & Core Mechanics",
-        order: 1,
-        lessons: [
+      concept: { slug: "phase-1-boot-sequence-core-mechanics", title: "Phase 1: Boot Sequence & Core Mechanics", description: "Infiltrate and master this sector.", orderIndex: 1 },
+      lessons: [
           {
             title: "Initialization Protocol",
             order: 1,
@@ -85,9 +84,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-        title: "Phase 2: Conditional Branches & Data Flow",
-        order: 2,
-        lessons: [
+      concept: { slug: "phase-2-conditional-branches-data-flow", title: "Phase 2: Conditional Branches & Data Flow", description: "Infiltrate and master this sector.", orderIndex: 2 },
+      lessons: [
           {
             title: "If/Else Statements",
             order: 1,
@@ -157,9 +155,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-        title: "Phase 3: Data Structures & Iteration",
-        order: 3,
-        lessons: [
+      concept: { slug: "phase-3-data-structures-iteration", title: "Phase 3: Data Structures & Iteration", description: "Infiltrate and master this sector.", orderIndex: 3 },
+      lessons: [
           {
             title: "C-Style Arrays",
             order: 1,
@@ -235,9 +232,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-        title: "Phase 4: Modular Subroutines (Functions)",
-        order: 4,
-        lessons: [
+      concept: { slug: "phase-4-modular-subroutines-functions", title: "Phase 4: Modular Subroutines (Functions)", description: "Infiltrate and master this sector.", orderIndex: 4 },
+      lessons: [
           {
             title: "Function Declaration & Definition",
             order: 1,
@@ -313,9 +309,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-        title: "Phase 5: Memory Access (Pointers & References)",
-        order: 5,
-        lessons: [
+      concept: { slug: "phase-5-memory-access-pointers-references", title: "Phase 5: Memory Access (Pointers & References)", description: "Infiltrate and master this sector.", orderIndex: 5 },
+      lessons: [
           {
             title: "Memory Addresses",
             order: 1,
@@ -391,9 +386,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-        title: "Phase 6: Object-Oriented Schematics",
-        order: 6,
-        lessons: [
+      concept: { slug: "phase-6-object-oriented-schematics", title: "Phase 6: Object-Oriented Schematics", description: "Infiltrate and master this sector.", orderIndex: 6 },
+      lessons: [
           {
             title: "Classes & Objects",
             order: 1,
@@ -458,9 +452,8 @@ export const getCppSeed: SeederFunction = async (prisma) => {
         ]
       },
       {
-        title: "Phase 7: Advanced Systems & STL",
-        order: 7,
-        lessons: [
+      concept: { slug: "phase-7-advanced-systems-stl", title: "Phase 7: Advanced Systems & STL", description: "Infiltrate and master this sector.", orderIndex: 7 },
+      lessons: [
           {
             title: "Templates",
             order: 1,
