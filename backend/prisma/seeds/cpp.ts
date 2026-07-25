@@ -1,3 +1,4 @@
+import { LessonType } from '@prisma/client';
 import { SeederFunction } from './types';
 
 export const getCppSeed: SeederFunction = async (prisma) => {
@@ -11,8 +12,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
       lessons: [
           {
             title: "Initialization Protocol",
-            order: 1,
-            type: "INTRO",
+            
+            type: LessonType.INTRO,
+            xpReward: 10,
             content: {
               theory: "C++ is a high-performance, statically-typed compiled language. The entry point of every C++ program is the `int main()` function. To output text, we use `std::cout` from the `<iostream>` library.",
               instructions: "Operative, we need to verify the terminal's structural integrity. Output 'System Online' to confirm.",
@@ -22,8 +24,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Directives and Namespaces",
-            order: 2,
-            type: "DEMO",
+            
+            type: LessonType.DEMO,
+            xpReward: 10,
             content: {
               theory: "`using namespace std;` brings the standard library namespace into the global scope. While useful for small scripts, it can cause name collisions in large architectures. Directives like `#include` are handled by the preprocessor before compilation.",
               instructions: "Analyze the provided transmission script. Run the code to observe how `std::` can be omitted when the namespace is declared.",
@@ -33,8 +36,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Primitive Variables",
-            order: 3,
-            type: "EXERCISE_GUIDED",
+            
+            type: LessonType.EXERCISE_GUIDED,
+            xpReward: 10,
             content: {
               theory: "Variables are typed memory allocations. C++ requires explicit type declaration: `int` for integers, `double` for floating-point, `char` for single characters, and `bool` for booleans.",
               instructions: "We need to store the target server's access code. Declare an `int` named `accessCode` and assign it the value `404`.",
@@ -44,8 +48,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "The String Standard",
-            order: 4,
-            type: "EXERCISE_FREE",
+            
+            type: LessonType.EXERCISE_FREE,
+            xpReward: 10,
             content: {
               theory: "Unlike basic `char` arrays (C-strings), modern C++ utilizes the `std::string` class from the `<string>` library for robust text manipulation, providing built-in methods for appending, comparing, and sizing.",
               instructions: "Construct a `std::string` variable named `payload` containing 'Trojan_v1'. Output it to the terminal.",
@@ -55,8 +60,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Mathematical Operators",
-            order: 5,
-            type: "EXERCISE_GUIDED",
+            
+            type: LessonType.EXERCISE_GUIDED,
+            xpReward: 10,
             content: {
               theory: "C++ supports standard arithmetic operations: `+`, `-`, `*`, `/`, and `%`. Note that integer division truncates decimals. To get a floating-point result, at least one operand must be a float or double.",
               instructions: "Calculate the encryption key multiplier. Multiply 7 by 8 and store it in an `int` variable called `key`. Output the result.",
@@ -66,8 +72,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Boss: Knowledge Check - Basics",
-            order: 6,
-            type: "BOSS",
+            
+            type: LessonType.BOSS,
+            xpReward: 10,
             content: {
               theory: "Assessment of fundamental C++ syntax, variable declaration, and basic I/O operations.",
               instructions: "Which of the following is the correct way to output 'Hacked' to the console in C++ using the standard library?",
@@ -88,8 +95,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
       lessons: [
           {
             title: "If/Else Statements",
-            order: 1,
-            type: "INTRO",
+            
+            type: LessonType.INTRO,
+            xpReward: 10,
             content: {
               theory: "Conditional branching allows a program to execute different code blocks based on boolean evaluations. The syntax is `if (condition) { ... } else { ... }`.",
               instructions: "A firewall is blocking our path. If `bypass` is true, output 'Access Granted'. Otherwise, output 'Access Denied'.",
@@ -99,8 +107,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Logical Operators",
-            order: 2,
-            type: "EXERCISE_GUIDED",
+            
+            type: LessonType.EXERCISE_GUIDED,
+            xpReward: 10,
             content: {
               theory: "Multiple conditions can be combined using logical operators: `&&` (AND), `||` (OR), and `!` (NOT). Short-circuit evaluation applies.",
               instructions: "We can only inject the payload if `isAdmin` is true AND `firewallDown` is true. Create an if statement to check this, outputting 'Injecting...' if successful.",
@@ -110,8 +119,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "The Switch Statement",
-            order: 3,
-            type: "DEMO",
+            
+            type: LessonType.DEMO,
+            xpReward: 10,
             content: {
               theory: "A `switch` statement evaluates a single integral expression against multiple `case` labels. Without a `break;` statement, execution 'falls through' to subsequent cases.",
               instructions: "Run this simulation to see how the system routes requests based on the `port` variable.",
@@ -121,8 +131,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "While & Do-While Loops",
-            order: 4,
-            type: "EXERCISE_FREE",
+            
+            type: LessonType.EXERCISE_FREE,
+            xpReward: 10,
             content: {
               theory: "A `while` loop continuously executes its block as long as the condition evaluates to true. A `do-while` loop executes at least once before checking its condition.",
               instructions: "Create a `while` loop that counts down from 3 to 1, outputting each number, then output 'Ignition'.",
@@ -132,8 +143,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "For Loops",
-            order: 5,
-            type: "EXERCISE_GUIDED",
+            
+            type: LessonType.EXERCISE_GUIDED,
+            xpReward: 10,
             content: {
               theory: "The `for` loop condenses initialization, condition checking, and iteration into a single statement: `for (init; condition; increment)`.",
               instructions: "Use a `for` loop to iterate exactly 5 times, outputting 'Ping' each time.",
@@ -143,8 +155,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Boss: Algorithm Decryption",
-            order: 6,
-            type: "BOSS",
+            
+            type: LessonType.BOSS,
+            xpReward: 10,
             content: {
               theory: "Synthesizing conditionals and loops to traverse and manipulate data sets.",
               instructions: "Write a program that uses a loop to output all even numbers between 1 and 10, sequentially with no spaces.",
@@ -159,8 +172,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
       lessons: [
           {
             title: "C-Style Arrays",
-            order: 1,
-            type: "INTRO",
+            
+            type: LessonType.INTRO,
+            xpReward: 10,
             content: {
               theory: "An array is a fixed-size contiguous block of memory storing elements of the same type. Array indices start at 0. Accessing out-of-bounds indices leads to undefined behavior.",
               instructions: "Access the third element of the `serverNodes` array and output it.",
@@ -170,8 +184,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Iterating Arrays",
-            order: 2,
-            type: "EXERCISE_GUIDED",
+            
+            type: LessonType.EXERCISE_GUIDED,
+            xpReward: 10,
             content: {
               theory: "Loops are commonly used to traverse arrays. The length of a standard C-array isn't inherently known by the array itself, so you often calculate it with `sizeof(array) / sizeof(array[0])`.",
               instructions: "Use a `for` loop to print every element in the `ports` array.",
@@ -181,8 +196,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "std::array",
-            order: 3,
-            type: "DEMO",
+            
+            type: LessonType.DEMO,
+            xpReward: 10,
             content: {
               theory: "Modern C++ introduced `std::array` in `<array>`, providing a safer, object-oriented alternative to C-style arrays without performance overhead. It knows its own size via `.size()`.",
               instructions: "Run this script to observe the safety and syntax of `std::array`.",
@@ -192,8 +208,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "std::vector",
-            order: 4,
-            type: "EXERCISE_FREE",
+            
+            type: LessonType.EXERCISE_FREE,
+            xpReward: 10,
             content: {
               theory: "`std::vector` in `<vector>` is a dynamic array. It automatically resizes itself when elements are added via `.push_back()`. It is the default sequence container in C++.",
               instructions: "Include `<vector>`. Create a `std::vector<int>` named `logs`. Push the values `404` and `500` into it. Output the first element.",
@@ -203,8 +220,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Range-Based For Loops",
-            order: 5,
-            type: "EXERCISE_GUIDED",
+            
+            type: LessonType.EXERCISE_GUIDED,
+            xpReward: 10,
             content: {
               theory: "C++11 introduced range-based for loops, which provide a cleaner syntax for iterating over containers like arrays and vectors: `for (type var : container) { ... }`.",
               instructions: "Use a range-based for loop to iterate through the `signatures` vector and print each.",
@@ -214,8 +232,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Boss: Data Manipulation Quiz",
-            order: 6,
-            type: "BOSS",
+            
+            type: LessonType.BOSS,
+            xpReward: 10,
             content: {
               theory: "Understanding the difference between fixed-size and dynamic data structures in C++ memory management.",
               instructions: "Which STL container should you choose if you need an array that can change size at runtime?",
@@ -236,8 +255,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
       lessons: [
           {
             title: "Function Declaration & Definition",
-            order: 1,
-            type: "INTRO",
+            
+            type: LessonType.INTRO,
+            xpReward: 10,
             content: {
               theory: "Functions break code into reusable modules. A function must be declared before it is called. The signature includes the return type, name, and parameters.",
               instructions: "We need a subroutine to initiate an override. Define a void function `overrideProtocol()` that outputs 'Override'. Call it from `main`.",
@@ -247,8 +267,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Parameters & Arguments",
-            order: 2,
-            type: "EXERCISE_GUIDED",
+            
+            type: LessonType.EXERCISE_GUIDED,
+            xpReward: 10,
             content: {
               theory: "Functions accept inputs via parameters. When you call the function, you pass arguments. By default, arguments are passed by value (a copy is made).",
               instructions: "Complete the `decrypt` function so it takes an `int` parameter `cipher`, adds 10 to it, and returns the result. Output the result for `cipher = 5`.",
@@ -258,8 +279,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Return Types",
-            order: 3,
-            type: "DEMO",
+            
+            type: LessonType.DEMO,
+            xpReward: 10,
             content: {
               theory: "The return type specifies what data the function sends back to the caller. If a function returns nothing, its type is `void`. Any non-void function must have a `return` statement in all code paths.",
               instructions: "Analyze this function that checks if a port is secure, returning a boolean.",
@@ -269,8 +291,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Function Overloading",
-            order: 4,
-            type: "EXERCISE_FREE",
+            
+            type: LessonType.EXERCISE_FREE,
+            xpReward: 10,
             content: {
               theory: "C++ allows function overloading: defining multiple functions with the same name but different parameter lists (signatures). The compiler determines which one to call based on the arguments.",
               instructions: "Create two `printData` functions. One takes an `int` and outputs 'Int', the other takes a `std::string` and outputs 'Str'. Call both from main.",
@@ -280,8 +303,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Boss: Default Arguments Logic",
-            order: 5,
-            type: "BOSS",
+            
+            type: LessonType.BOSS,
+            xpReward: 10,
             content: {
               theory: "Parameters can have default values. If the caller omits the argument, the default is used. Default arguments must be the right-most parameters in the list.",
               instructions: "Modify the `connect` function so that the `port` parameter defaults to `80`. Call `connect(\"192\")` without the second argument.",
@@ -291,8 +315,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Boss: Modularity Architecture",
-            order: 6,
-            type: "BOSS",
+            
+            type: LessonType.BOSS,
+            xpReward: 10,
             content: {
               theory: "Evaluating function signatures and return types.",
               instructions: "What is the output of the following code snippet?",
@@ -313,8 +338,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
       lessons: [
           {
             title: "Memory Addresses",
-            order: 1,
-            type: "INTRO",
+            
+            type: LessonType.INTRO,
+            xpReward: 10,
             content: {
               theory: "Every variable resides at a specific memory address in RAM. You can retrieve this address using the address-of operator `&`. Hexadecimal formats are typically used to display addresses.",
               instructions: "Retrieve the memory address of the `core` variable. (Note: Since addresses change every run, output a dummy address like '0x7ffd' for this exercise).",
@@ -324,8 +350,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Introduction to Pointers",
-            order: 2,
-            type: "EXERCISE_GUIDED",
+            
+            type: LessonType.EXERCISE_GUIDED,
+            xpReward: 10,
             content: {
               theory: "A pointer is a variable that stores a memory address. Declared with `*`, such as `int* ptr`. Pointers are the heart of C++, allowing direct manipulation of hardware and memory.",
               instructions: "Declare a pointer `int* ptr` and assign it the address of `secretKey`. Then output '0xabcd' to represent it.",
@@ -335,8 +362,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Dereferencing Pointers",
-            order: 3,
-            type: "EXERCISE_FREE",
+            
+            type: LessonType.EXERCISE_FREE,
+            xpReward: 10,
             content: {
               theory: "To access or modify the value at the memory address a pointer holds, you use the dereference operator `*`. E.g., `*ptr = 10;` changes the original variable.",
               instructions: "We have intercepted a pointer to the main security firewall switch. Dereference `ptr` and change its value to `0` to disable it. Output `fireStatus`.",
@@ -346,8 +374,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Pass by Reference",
-            order: 4,
-            type: "DEMO",
+            
+            type: LessonType.DEMO,
+            xpReward: 10,
             content: {
               theory: "C++ introduces references (`&`). A reference is an alias to an existing variable. Passing by reference to a function allows the function to modify the original variable without dealing with pointer syntax.",
               instructions: "Observe how `hackTerminal` modifies the original `attempts` variable because it accepts it by reference.",
@@ -357,8 +386,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Boss: Pointer Arithmetic",
-            order: 5,
-            type: "BOSS",
+            
+            type: LessonType.BOSS,
+            xpReward: 10,
             content: {
               theory: "Pointers and arrays are deeply connected. Arrays decay into pointers to their first element. You can add to a pointer to traverse an array.",
               instructions: "We have an array `int data[] = {10, 20, 30}`. Using a pointer initialized to `data`, dereference `ptr + 1` to output the second element.",
@@ -368,8 +398,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Boss: Memory Leak Quiz",
-            order: 6,
-            type: "BOSS",
+            
+            type: LessonType.BOSS,
+            xpReward: 10,
             content: {
               theory: "Understanding dynamic memory allocation with `new` and `delete`.",
               instructions: "When you allocate memory on the heap using the `new` keyword, what must you eventually do to prevent a memory leak?",
@@ -390,8 +421,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
       lessons: [
           {
             title: "Classes & Objects",
-            order: 1,
-            type: "INTRO",
+            
+            type: LessonType.INTRO,
+            xpReward: 10,
             content: {
               theory: "C++ is an Object-Oriented language. A `class` is a blueprint for objects, encapsulating data (attributes) and functions (methods). Objects are instances of classes.",
               instructions: "Define a class `Drone` with a public integer `battery`. In `main`, create a `Drone` object, set its battery to 100, and print it.",
@@ -401,8 +433,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Constructors",
-            order: 2,
-            type: "EXERCISE_GUIDED",
+            
+            type: LessonType.EXERCISE_GUIDED,
+            xpReward: 10,
             content: {
               theory: "A constructor is a special class method invoked automatically when an object is instantiated. It shares the same name as the class and has no return type.",
               instructions: "Add a constructor to the `Server` class that takes an `int` and initializes the `uptime` attribute. Instantiate a Server with uptime 99 and print it.",
@@ -412,8 +445,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Encapsulation (Private & Public)",
-            order: 3,
-            type: "DEMO",
+            
+            type: LessonType.DEMO,
+            xpReward: 10,
             content: {
               theory: "By default, class members are `private`. They cannot be accessed outside the class. We use `public` getter and setter methods to control access to private data.",
               instructions: "Observe how the private `encryptionKey` is protected, and only accessible via `setKey()` and `getKey()`.",
@@ -423,8 +457,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Inheritance",
-            order: 4,
-            type: "EXERCISE_FREE",
+            
+            type: LessonType.EXERCISE_FREE,
+            xpReward: 10,
             content: {
               theory: "Inheritance allows a new class (derived) to inherit attributes and methods from an existing class (base). Syntax: `class Derived : public Base {}`.",
               instructions: "Create a base class `Entity` with a public method `void scan() { std::cout << \"Scan\"; }`. Create a `Virus` class inheriting `Entity`. In `main`, call `scan()` on a `Virus` object.",
@@ -434,8 +469,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Boss: Polymorphism Quiz",
-            order: 5,
-            type: "BOSS",
+            
+            type: LessonType.BOSS,
+            xpReward: 10,
             content: {
               theory: "Polymorphism allows methods to do different things based on the object it is acting upon, typically utilizing virtual functions.",
               instructions: "To allow a derived class to override a base class method, what keyword must precede the base class method declaration?",
@@ -456,8 +492,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
       lessons: [
           {
             title: "Templates",
-            order: 1,
-            type: "INTRO",
+            
+            type: LessonType.INTRO,
+            xpReward: 10,
             content: {
               theory: "Templates allow functions and classes to operate with generic types, preventing code duplication. Syntax starts with `template <typename T>`.",
               instructions: "Create a template function `getMax` that takes two parameters of type `T` and returns the larger one using the ternary operator `(a > b) ? a : b`. Call it with 5 and 10.",
@@ -467,8 +504,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Maps & Dictionaries",
-            order: 2,
-            type: "EXERCISE_GUIDED",
+            
+            type: LessonType.EXERCISE_GUIDED,
+            xpReward: 10,
             content: {
               theory: "`std::map` (in `<map>`) stores key-value pairs, sorting them by key automatically. `std::unordered_map` does the same but with faster O(1) access via hashing.",
               instructions: "Include `<map>`. Create a `std::map<std::string, int>` called `credentials`. Insert `\"admin\"` with value `1234`. Output the value for `\"admin\"`.",
@@ -478,8 +516,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Structs",
-            order: 3,
-            type: "DEMO",
+            
+            type: LessonType.DEMO,
+            xpReward: 10,
             content: {
               theory: "A `struct` in C++ is nearly identical to a `class`, but its members are `public` by default. They are typically used for grouping simple data variables.",
               instructions: "Run the code to see how a `struct` groups a target's IP and status.",
@@ -489,8 +528,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Boss: Final Algorithm Exam",
-            order: 4,
-            type: "BOSS",
+            
+            type: LessonType.BOSS,
+            xpReward: 10,
             content: {
               theory: "Comprehensive synthesis of variables, loops, arrays, and standard libraries.",
               instructions: "Write a program that iterates from 1 to 5. If the number is even, push it into a `std::vector<int>`. After the loop, output the size of the vector.",
@@ -500,8 +540,9 @@ export const getCppSeed: SeederFunction = async (prisma) => {
           },
           {
             title: "Boss: The Ultimate Override",
-            order: 5,
-            type: "BOSS",
+            
+            type: LessonType.BOSS,
+            xpReward: 10,
             content: {
               theory: "Final evaluation of C++ compilation, execution, and memory.",
               instructions: "Which standard library function is commonly used to dynamically allocate an array in modern C++ to avoid raw pointers?",
