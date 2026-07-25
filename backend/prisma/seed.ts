@@ -1,4 +1,7 @@
 import { PrismaClient } from '@prisma/client';
+import { Pool } from 'pg';
+import { PrismaPg } from '@prisma/adapter-pg';
+import * as dotenv from 'dotenv';
 import { getPythonSeed } from './seeds/python';
 import { getJavascriptSeed } from './seeds/javascript';
 import { getTypescriptSeed } from './seeds/typescript';
@@ -9,7 +12,11 @@ import { getJavaSeed } from './seeds/java';
 import { getSqlSeed } from './seeds/sql';
 import { LanguageSeed } from './seeds/types';
 
-const prisma = new PrismaClient();
+dotenv.config();
+const connectionString = process.env.DATABASE_URL;
+const pool = new Pool({ connectionString });
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log('🌱 Iniciando la superpoblación de la base de datos CodeNexus...');
