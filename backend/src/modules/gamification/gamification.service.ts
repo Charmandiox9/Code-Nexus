@@ -136,6 +136,42 @@ export class GamificationService {
     const newLevel = Math.floor(Math.sqrt(newXp / 100)) + 1;
     const newCrystals = profile.crystals + crystalsToAdd;
 
+    // Obtener información de la lección para el progreso de habilidades
+    const lesson = await this.prisma.lesson.findUnique({
+      where: { id: lessonId },
+      include: { language: true }
+    });
+
+    let skills: Record<string, any> = (profile.skills as Record<string, any>) || {};
+    if (typeof skills !== 'object' || Array.isArray(skills)) skills = {};
+    
+    let inventory: string[] = (profile.inventory as string[]) || [];
+    if (!Array.isArray(inventory)) inventory = [];
+
+    if (lesson && lesson.language) {
+      const lang = lesson.language.name; // Ej: "JavaScript", "Python"
+      if (!skills[lang]) {
+        skills[lang] = { xp: 0, completed: 0 };
+      }
+      skills[lang].xp += actualXpToAdd;
+      skills[lang].completed += 1;
+
+      // Desbloquear recompensas según el avance (10, 20, 30 y 40 lecciones)
+      const completedCount = skills[lang].completed;
+      if (completedCount === 10 && !inventory.includes(`Póster Holográfico de ${lang}`)) {
+        inventory.push(`Póster Holográfico de ${lang}`);
+      }
+      if (completedCount === 20 && !inventory.includes(`Tema Hacker ${lang}`)) {
+        inventory.push(`Tema Hacker ${lang}`);
+      }
+      if (completedCount === 30 && !inventory.includes(`Servidor Dedicado ${lang}`)) {
+        inventory.push(`Servidor Dedicado ${lang}`);
+      }
+      if (completedCount === 40 && !inventory.includes(`Trofeo de Maestría en ${lang}`)) {
+        inventory.push(`Trofeo de Maestría en ${lang}`);
+      }
+    }
+
     await this.prisma.gamificationProfile.update({
       where: { userId },
       data: {
@@ -144,7 +180,9 @@ export class GamificationService {
         crystals: newCrystals,
         completedLessons: {
           push: lessonId
-        }
+        },
+        skills: skills,
+        inventory: inventory
       },
     });
 
