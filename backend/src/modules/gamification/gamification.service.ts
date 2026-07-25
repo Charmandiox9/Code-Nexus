@@ -149,26 +149,74 @@ export class GamificationService {
     if (!Array.isArray(inventory)) inventory = [];
 
     if (lesson && lesson.language) {
-      const lang = lesson.language.name; // Ej: "JavaScript", "Python"
+      const lang = lesson.language.name;
       if (!skills[lang]) {
         skills[lang] = { xp: 0, completed: 0 };
       }
       skills[lang].xp += actualXpToAdd;
       skills[lang].completed += 1;
 
-      // Desbloquear recompensas según el avance (10, 20, 30 y 40 lecciones)
+      // 1. PET EVOLUTION LOGIC
+      const petName = `Mascota de ${lang}`;
+      let pet = await this.prisma.codePet.findFirst({
+        where: { profileId: profile.id, name: petName }
+      });
+      if (!pet) {
+        pet = await this.prisma.codePet.create({
+          data: { profileId: profile.id, name: petName, type: 'BOT', level: 1, xp: 0, evolutionStage: 1 }
+        });
+      }
+      const newPetXp = pet.xp + actualXpToAdd;
+      const newPetLevel = Math.floor(Math.sqrt(newPetXp / 50)) + 1; // Subida rápida
+      let newEvolutionStage = pet.evolutionStage;
+      
+      // Evolucionar en niveles 5, 15 y 30
+      if (newPetLevel >= 5 && newEvolutionStage < 2) newEvolutionStage = 2; // Evolución 1
+      if (newPetLevel >= 15 && newEvolutionStage < 3) newEvolutionStage = 3; // Evolución 2
+      if (newPetLevel >= 30 && newEvolutionStage < 4) newEvolutionStage = 4; // Evolución final (Forma Definitiva)
+      
+      await this.prisma.codePet.update({
+        where: { id: pet.id },
+        data: { xp: newPetXp, level: newPetLevel, evolutionStage: newEvolutionStage }
+      });
+
+      // Función auxiliar para desbloquear Títulos
+      const unlockTitle = async (titleName: string, desc: string) => {
+        let title = await this.prisma.title.findFirst({ where: { name: titleName } });
+        if (!title) title = await this.prisma.title.create({ data: { name: titleName, description: desc } });
+        const hasTitle = await this.prisma.userTitle.findUnique({ where: { profileId_titleId: { profileId: profile.id, titleId: title.id } } });
+        if (!hasTitle) await this.prisma.userTitle.create({ data: { profileId: profile.id, titleId: title.id } });
+      };
+
+      // Función auxiliar para desbloquear Logros
+      const unlockAchievement = async (slug: string, name: string, desc: string) => {
+        let ach = await this.prisma.achievement.findUnique({ where: { slug } });
+        if (!ach) ach = await this.prisma.achievement.create({ data: { slug, name, description: desc, icon: 'trophy', xpReward: 50, crystalReward: 20 } });
+        const hasAch = await this.prisma.userAchievement.findUnique({ where: { profileId_achievementId: { profileId: profile.id, achievementId: ach.id } } });
+        if (!hasAch) await this.prisma.userAchievement.create({ data: { profileId: profile.id, achievementId: ach.id } });
+      };
+
+      // 2. DESBLOQUEO DE HITOS (Logros, Títulos y Objetos)
       const completedCount = skills[lang].completed;
-      if (completedCount === 10 && !inventory.includes(`Póster Holográfico de ${lang}`)) {
-        inventory.push(`Póster Holográfico de ${lang}`);
+      if (completedCount === 10) {
+        if (!inventory.includes(`Póster Holográfico de ${lang}`)) inventory.push(`Póster Holográfico de ${lang}`);
+        await unlockAchievement(`primer-paso-${lang.toLowerCase()}`, `Primeros Pasos en ${lang}`, `Completa 10 lecciones de ${lang}.`);
+        await unlockTitle(`Novato de ${lang}`, `Comenzó su viaje en ${lang}.`);
       }
-      if (completedCount === 20 && !inventory.includes(`Tema Hacker ${lang}`)) {
-        inventory.push(`Tema Hacker ${lang}`);
+      if (completedCount === 20) {
+        if (!inventory.includes(`Tema Hacker ${lang}`)) inventory.push(`Tema Hacker ${lang}`);
+        await unlockAchievement(`explorador-${lang.toLowerCase()}`, `Explorador de ${lang}`, `Completa 20 lecciones de ${lang}.`);
+        await unlockTitle(`Explorador de ${lang}`, `Superó la mitad del entrenamiento de ${lang}.`);
       }
-      if (completedCount === 30 && !inventory.includes(`Servidor Dedicado ${lang}`)) {
-        inventory.push(`Servidor Dedicado ${lang}`);
+      if (completedCount === 30) {
+        if (!inventory.includes(`Servidor Dedicado ${lang}`)) inventory.push(`Servidor Dedicado ${lang}`);
+        await unlockAchievement(`experto-${lang.toLowerCase()}`, `Experto en ${lang}`, `Completa 30 lecciones de ${lang}.`);
+        await unlockTitle(`Arquitecto de ${lang}`, `Dominó los conceptos avanzados de ${lang}.`);
       }
-      if (completedCount === 40 && !inventory.includes(`Trofeo de Maestría en ${lang}`)) {
-        inventory.push(`Trofeo de Maestría en ${lang}`);
+      if (completedCount === 40) {
+        if (!inventory.includes(`Trofeo de Maestría en ${lang}`)) inventory.push(`Trofeo de Maestría en ${lang}`);
+        await unlockAchievement(`maestro-${lang.toLowerCase()}`, `Maestro de ${lang}`, `Completa el 100% del currículum de ${lang}.`);
+        await unlockTitle(`Dios de ${lang}`, `Alcanzó la maestría total en ${lang}.`);
       }
     }
 
