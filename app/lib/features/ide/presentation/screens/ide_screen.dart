@@ -13,7 +13,7 @@ import '../../../../core/network/graphql_provider.dart';
 import '../../../gamification/providers/gamification_provider.dart';
 import '../../providers/editor_theme_provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import '../../profile/presentation/screens/premium_screen.dart';
+import '../../../profile/presentation/screens/premium_screen.dart';
 class IdeScreen extends ConsumerStatefulWidget {
   final String lessonId;
   final String language;
@@ -176,7 +176,7 @@ class _IdeScreenState extends ConsumerState<IdeScreen> {
     final isPremium = profileData?['user']?['plan'] == 'PREMIUM';
 
     if (!isPremium) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const PremiumScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => PremiumScreen()));
       return;
     }
 

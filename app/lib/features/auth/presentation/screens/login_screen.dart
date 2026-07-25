@@ -73,7 +73,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       final result = await client.mutate(options);
 
       if (result.hasException) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error del servidor: \${result.exception?.graphqlErrors.firstOrNull?.message ?? result.exception.toString()}')));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error del servidor: ${result.exception?.graphqlErrors.firstOrNull?.message ?? result.exception.toString()}')));
         await _googleSignIn.signOut();
         setState(() => _isLoading = false);
         return;
@@ -97,7 +97,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         }
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error de Autenticación: \$e')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error de Autenticación: $e')));
       setState(() => _isLoading = false);
     }
   }
