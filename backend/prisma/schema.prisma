@@ -28,7 +28,6 @@ model User {
   friends      Friendship[] @relation("UserFriends")
   friendOf     Friendship[] @relation("FriendUsers")
   activities   ActivityFeed[]
-  pets            CodePet[]
   dailyQuests     UserDailyQuest[]
 
   @@map("users")
