@@ -10,6 +10,7 @@ import { getCSeed } from './seeds/c';
 import { getCppSeed } from './seeds/cpp';
 import { getJavaSeed } from './seeds/java';
 import { getSqlSeed } from './seeds/sql';
+import { seedDailyQuests } from './seeds/quests';
 import { LanguageSeed } from './seeds/types';
 
 dotenv.config();
@@ -88,7 +89,10 @@ async function main() {
     }
   }
 
-  console.log('\n🎉 ¡Superpoblación de la base de datos completada con éxito!');
+  // Ejecutar el poblador de Misiones Diarias
+  await seedDailyQuests(prisma);
+
+  console.log('\n🚀 ¡Superpoblación de la base de datos completada con éxito!');
 }
 
 main()

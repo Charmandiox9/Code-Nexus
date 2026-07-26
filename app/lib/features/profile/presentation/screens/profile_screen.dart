@@ -14,6 +14,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import '../../../ide/providers/editor_theme_provider.dart';
 import 'physical_lab_screen.dart';
 import 'premium_screen.dart';
+import 'pet_nursery_screen.dart';
 class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -286,6 +287,34 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                           side: BorderSide(color: AppColors.primary.withOpacity(0.5)),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PetNurseryScreen(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.pets),
+                      label: Text(
+                        'Entrar al Vivero de Mascotas',
+                        style: GoogleFonts.inter(fontWeight: FontWeight.bold),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.pink.withOpacity(0.2),
+                        foregroundColor: Colors.pinkAccent,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          side: BorderSide(color: Colors.pinkAccent.withOpacity(0.5)),
                         ),
                       ),
                     ),
