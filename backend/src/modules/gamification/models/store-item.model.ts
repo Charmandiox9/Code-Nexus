@@ -20,7 +20,7 @@ export class StoreItem {
   @Field()
   rarity: string;
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   imageUrl?: string | null;
 
   @Field()
