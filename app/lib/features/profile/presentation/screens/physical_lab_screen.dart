@@ -112,7 +112,7 @@ class _PhysicalLabScreenState extends ConsumerState<PhysicalLabScreen> {
       try {
         final userId = ref.read(authUserIdProvider);
         if (userId != null) {
-          final client = ref.read(graphqlClientProvider).value;
+          final client = ref.read(graphqlClientProvider);
           if (client != null) {
             // Note: Use a generic map for JSON
             await client.mutate(

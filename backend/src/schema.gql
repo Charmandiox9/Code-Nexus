@@ -68,6 +68,8 @@ type GamificationProfile {
   id: ID!
   inventory: [String!]!
   labItems: [UserLabItem!]
+  labPositions: JSONObject
+  labRotations: JSONObject
   lastActivityAt: DateTime!
   level: Int!
   pets: [CodePet!]
@@ -153,6 +155,9 @@ type Mutation {
 
   """Envía un fragmento de código al motor de ejecución aislado"""
   submitCode(input: SubmitCodeInput!): ExecutionResult!
+
+  """Actualiza la disposición del laboratorio 3D del usuario"""
+  updateLabLayout(positions: JSONObject!, rotations: JSONObject!, userId: String!): GamificationProfile!
 
   """Actualiza el perfil del usuario"""
   updateUser(input: UpdateUserInput!): User!
