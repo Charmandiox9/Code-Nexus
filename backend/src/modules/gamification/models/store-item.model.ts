@@ -21,7 +21,7 @@ export class StoreItem {
   rarity: string;
 
   @Field({ nullable: true })
-  imageUrl?: string;
+  imageUrl?: string | null;
 
   @Field()
   isRotative: boolean;
