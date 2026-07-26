@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import '../../../../core/theme/app_colors.dart';
@@ -193,7 +194,7 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                     const Icon(Icons.diamond, color: Colors.cyanAccent, size: 16),
                     const SizedBox(width: 6),
                     Text(
-                      '\$crystals',
+                      '$crystals',
                       style: GoogleFonts.inter(
                         color: Colors.cyanAccent,
                         fontWeight: FontWeight.bold,
@@ -208,6 +209,7 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: _buildBottomNav(context),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator(color: AppColors.primary))
           : _error != null
@@ -258,18 +260,24 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                           crossAxisCount: 2,
                           crossAxisSpacing: 16,
                           mainAxisSpacing: 16,
-                          childAspectRatio: 0.65,
+                          childAspectRatio: 0.50, // Evitar overflow
                         ),
                         itemCount: _storeItems.length,
                         itemBuilder: (context, index) {
                           final item = _storeItems[index];
                           final rarityColor = _getRarityColor(item['rarity']);
                           
-                          // Verificar si ya lo tiene (asumiendo que inventory es una lista de nombres de item por ahora)
+                          // Contar escudos u objetos consumibles
                           bool alreadyOwned = false;
+                          int ownedCount = 0;
                           profileAsync.whenData((p) {
                             final inv = p?['inventory'] as List<dynamic>? ?? [];
-                            alreadyOwned = inv.contains(item['name']);
+                            if (item['type'] == 'BOOST' || item['type'] == 'CONSUMABLE' || item['type'] == 'OTHER' || item['name'].contains('Escudo')) {
+                               ownedCount = inv.where((i) => i == item['name']).length;
+                               alreadyOwned = false; // Se pueden comprar múltiples veces
+                            } else {
+                               alreadyOwned = inv.contains(item['name']);
+                            }
                           });
 
                           return Container(
@@ -373,9 +381,13 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         if (!alreadyOwned) ...[
-                                          Text('\${item["price"]}', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                                          Text('${item["price"]}', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
                                           const SizedBox(width: 4),
                                           const Icon(Icons.diamond, size: 14, color: Colors.cyanAccent),
+                                          if (ownedCount > 0) ...[
+                                            const SizedBox(width: 4),
+                                            Text('(Tienes $ownedCount)', style: GoogleFonts.inter(fontSize: 10, color: Colors.white70)),
+                                          ]
                                         ] else ...[
                                           Text('Comprado', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
                                         ]
@@ -392,6 +404,31 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                     ],
                   ),
                 ),
+    );
+  }
+
+  Widget _buildBottomNav(BuildContext context) {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: AppColors.background,
+      selectedItemColor: AppColors.primary,
+      unselectedItemColor: AppColors.textSecondary,
+      currentIndex: 2, // Tienda
+      showUnselectedLabels: true,
+      onTap: (index) {
+        if (index == 0) context.go('/');
+        if (index == 1) context.go('/lab');
+        if (index == 2) return; // Ya estamos en tienda
+        if (index == 3) context.go('/social');
+        if (index == 4) context.go('/profile');
+      },
+      items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Ruta'),
+        BottomNavigationBarItem(icon: Icon(Icons.science), label: 'Lab'),
+        BottomNavigationBarItem(icon: Icon(Icons.store), label: 'Tienda'),
+        BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Social'),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
+      ],
     );
   }
 }

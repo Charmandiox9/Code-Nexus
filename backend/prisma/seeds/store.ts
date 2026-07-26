@@ -95,6 +95,23 @@ export const getStoreSeed = async (prisma: PrismaClient) => {
       rarity: 'COMMON',
       isRotative: false,
     },
+    // CONSUMIBLES (BOOSTS / SHIELDS)
+    {
+      name: 'Escudo de Racha',
+      description: 'Protege tu racha de programación si no puedes entrar un día.',
+      type: 'CONSUMABLE',
+      price: 150,
+      rarity: 'RARE',
+      isRotative: false,
+    },
+    {
+      name: 'Potenciador x2 (1 hora)',
+      description: 'Multiplica por 2 la experiencia obtenida durante 1 hora.',
+      type: 'BOOST',
+      price: 300,
+      rarity: 'EPIC',
+      isRotative: false,
+    },
   ];
 
   for (const item of storeItems) {
