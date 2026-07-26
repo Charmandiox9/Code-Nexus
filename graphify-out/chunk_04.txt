@@ -1,0 +1,3 @@
+C:\Users\Charm\Documents\GitHub\CodeNexus\app\android\app\src\main\res\mipmap-xxhdpi\ic_launcher.png
+C:\Users\Charm\Documents\GitHub\CodeNexus\app\android\app\src\main\res\mipmap-xxhdpi\launcher_icon.png
+C:\Users\Charm\Documents\GitHub\CodeNexus\app\android\app\src\main\res\mipmap-xxxhdpi\ic_launcher.png

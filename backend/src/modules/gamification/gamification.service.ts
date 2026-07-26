@@ -256,6 +256,43 @@ export class GamificationService {
     });
   }
 
+  async equipTitle(userId: string, titleId: string): Promise<boolean> {
+    const profile = await this.getProfile(userId);
+    
+    // Check if user owns the title
+    const userTitle = await this.prisma.userTitle.findUnique({
+      where: {
+        profileId_titleId: {
+          profileId: profile.id,
+          titleId: titleId,
+        }
+      }
+    });
+
+    if (!userTitle) {
+      throw new NotFoundException('You do not own this title');
+    }
+
+    // Unequip all other titles
+    await this.prisma.userTitle.updateMany({
+      where: { profileId: profile.id },
+      data: { isEquipped: false }
+    });
+
+    // Equip the selected title
+    await this.prisma.userTitle.update({
+      where: {
+        profileId_titleId: {
+          profileId: profile.id,
+          titleId: titleId,
+        }
+      },
+      data: { isEquipped: true }
+    });
+
+    return true;
+  }
+
   async useItem(userId: string, itemName: string): Promise<GamificationProfile> {
     const profile = await this.getProfile(userId);
     let inventory = Array.isArray(profile.inventory) ? [...profile.inventory] : [];

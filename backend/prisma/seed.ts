@@ -11,6 +11,7 @@ import { getCppSeed } from './seeds/cpp';
 import { getJavaSeed } from './seeds/java';
 import { getSqlSeed } from './seeds/sql';
 import { seedDailyQuests } from './seeds/quests';
+import { seedRewards } from './seeds/rewards';
 import { LanguageSeed } from './seeds/types';
 
 dotenv.config();
@@ -91,6 +92,9 @@ async function main() {
 
   // Ejecutar el poblador de Misiones Diarias
   await seedDailyQuests(prisma);
+
+  // Ejecutar el poblador de Recompensas (Logros y Títulos)
+  await seedRewards(prisma);
 
   console.log('\n🚀 ¡Superpoblación de la base de datos completada con éxito!');
 }

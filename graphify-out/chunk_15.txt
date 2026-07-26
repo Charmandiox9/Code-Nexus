@@ -1,0 +1,3 @@
+C:\Users\Charm\Documents\GitHub\CodeNexus\app\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_32.png
+C:\Users\Charm\Documents\GitHub\CodeNexus\app\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_512.png
+C:\Users\Charm\Documents\GitHub\CodeNexus\app\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_64.png

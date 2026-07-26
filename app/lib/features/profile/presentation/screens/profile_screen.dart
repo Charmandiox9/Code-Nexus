@@ -328,6 +328,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 _buildThemesInventory(context, profile['inventory'] as List<dynamic>?),
                 const SizedBox(height: 32),
 
+                // Títulos
+                _buildSectionTitle('Colección de Títulos'),
+                const SizedBox(height: 16),
+                _buildTitlesInventory(context, profile['titles'] as List<dynamic>?),
+                const SizedBox(height: 32),
+
                 // Dominio de Lenguajes
                 _buildSectionTitle('Dominio de Lenguajes'),
                 const SizedBox(height: 16),
@@ -747,6 +753,142 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             ),
           );
         }).toList(),
+      ),
+    );
+  }
+
+  Widget _buildTitlesInventory(BuildContext context, List<dynamic>? titles) {
+    if (titles == null || titles.isEmpty) {
+      return Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: AppColors.surface,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: AppColors.surfaceHighlight),
+        ),
+        child: Center(
+          child: Text('No has desbloqueado ningún título.', style: GoogleFonts.inter(color: Colors.white54)),
+        ),
+      );
+    }
+    
+    final equipped = titles.firstWhere((t) => t['isEquipped'] == true, orElse: () => null);
+    
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.surfaceHighlight),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: AppColors.background,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: const Icon(Icons.badge, color: AppColors.primary, size: 32),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Título Equipado:',
+                  style: GoogleFonts.inter(color: AppColors.textSecondary, fontSize: 12),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  equipped != null ? equipped['title']['name'] : 'Sin Título',
+                  style: GoogleFonts.inter(color: AppColors.textPrimary, fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 16),
+          ElevatedButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                backgroundColor: AppColors.surface,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+                ),
+                builder: (ctx) {
+                  return SafeArea(
+                    bottom: true,
+                    child: Container(
+                      padding: const EdgeInsets.all(24),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text('Tus Títulos', style: GoogleFonts.inter(color: AppColors.textPrimary, fontWeight: FontWeight.bold, fontSize: 20)),
+                          const SizedBox(height: 16),
+                          Flexible(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: titles.map((t) {
+                                  final titleData = t['title'];
+                                  final isEq = t['isEquipped'] == true;
+                                  return ListTile(
+                                    leading: Icon(Icons.badge, color: isEq ? AppColors.primary : AppColors.textSecondary),
+                                    title: Text(titleData['name'], style: GoogleFonts.inter(color: AppColors.textPrimary, fontWeight: FontWeight.bold)),
+                                    subtitle: Text(titleData['description'], style: GoogleFonts.inter(color: AppColors.textSecondary, fontSize: 12)),
+                                    trailing: isEq 
+                                      ? const Icon(Icons.check_circle, color: AppColors.primary)
+                                      : TextButton(
+                                          onPressed: () async {
+                                            Navigator.pop(ctx);
+                                            final client = ref.read(graphqlClientProvider);
+                                            final userId = ref.read(authUserIdProvider);
+                                            
+                                            const mutation = '''
+                                              mutation EquipTitle(\$userId: String!, \$titleId: String!) {
+                                                equipTitle(userId: \$userId, titleId: \$titleId)
+                                              }
+                                            ''';
+                                            
+                                            try {
+                                              await client.mutate(
+                                                MutationOptions(
+                                                  document: gql(mutation),
+                                                  variables: {
+                                                    'userId': userId,
+                                                    'titleId': titleData['id'],
+                                                  },
+                                                ),
+                                              );
+                                              ref.invalidate(gamificationProfileProvider(userId));
+                                            } catch (e) {
+                                              debugPrint('Error equipping title: \$e');
+                                            }
+                                          },
+                                          child: Text('Equipar', style: GoogleFonts.inter(color: AppColors.primary)),
+                                        ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.background,
+              foregroundColor: AppColors.primary,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            ),
+            child: const Text('Cambiar'),
+          ),
+        ],
       ),
     );
   }

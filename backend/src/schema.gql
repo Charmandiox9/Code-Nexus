@@ -143,6 +143,9 @@ type Mutation {
   """Registra un nuevo usuario en la plataforma"""
   createUser(input: CreateUserInput!): User!
 
+  """Interactúa con la mascota (FEED o PLAY)"""
+  interactWithPet(action: String!, petId: String!, userId: String!): CodePet!
+
   """Inicia sesión y devuelve un JWT"""
   login(input: LoginInput!): AuthResponse!
 
@@ -184,6 +187,9 @@ type Query {
   getFriends(userId: String!): [JSON!]!
   getLeaderboard(language: String, userId: String!): [JSON!]!
   getMentorHint(code: String!, errorMessage: String!): String!
+
+  """Obtiene las mascotas del usuario"""
+  getMyPets(userId: String!): [CodePet!]!
   getProMentorAnalysis(code: String!, errorMessage: String!, task: String!, userId: String!): String!
 
   """Obtiene la lista de todos los usuarios"""

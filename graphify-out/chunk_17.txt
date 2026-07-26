@@ -1,0 +1,3 @@
+C:\Users\Charm\Documents\GitHub\CodeNexus\app\web\icons\Icon-maskable-192.png
+C:\Users\Charm\Documents\GitHub\CodeNexus\app\web\icons\Icon-maskable-512.png
+C:\Users\Charm\Documents\GitHub\CodeNexus\imgs\contexto.png

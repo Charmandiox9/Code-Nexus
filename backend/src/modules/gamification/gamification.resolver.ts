@@ -110,4 +110,15 @@ export class GamificationResolver {
   ): Promise<CodePet> {
     return this.gamificationService.interactWithPet(userId, petId, action as 'FEED' | 'PLAY');
   }
+
+  @Mutation(() => Boolean, {
+    name: 'equipTitle',
+    description: 'Equipa un título en el perfil del usuario',
+  })
+  async equipTitle(
+    @Args('userId') userId: string,
+    @Args('titleId') titleId: string,
+  ): Promise<boolean> {
+    return this.gamificationService.equipTitle(userId, titleId);
+  }
 }
