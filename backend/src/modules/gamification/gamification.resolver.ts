@@ -1,6 +1,7 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GamificationService } from './gamification.service';
 import { GamificationProfile, CodePet } from './models/gamification-profile.model';
+import { StoreItem } from './models/store-item.model';
 import { GraphQLJSONObject } from 'graphql-type-json';
 
 @Resolver(() => GamificationProfile)
@@ -120,5 +121,24 @@ export class GamificationResolver {
     @Args('titleId') titleId: string,
   ): Promise<boolean> {
     return this.gamificationService.equipTitle(userId, titleId);
+  }
+
+  @Query(() => [StoreItem], {
+    name: 'getDailyStore',
+    description: 'Obtiene los ítems de la tienda, rotando cada 24 horas',
+  })
+  async getDailyStore(): Promise<StoreItem[]> {
+    return this.gamificationService.getDailyStore();
+  }
+
+  @Mutation(() => GamificationProfile, {
+    name: 'buyStoreItem',
+    description: 'Compra un ítem en la tienda',
+  })
+  async buyStoreItem(
+    @Args('userId') userId: string,
+    @Args('itemId') itemId: string,
+  ): Promise<GamificationProfile | any> {
+    return this.gamificationService.buyStoreItem(userId, itemId);
   }
 }

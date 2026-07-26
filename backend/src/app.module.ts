@@ -12,12 +12,14 @@ import { ExecutionModule } from './modules/execution/execution.module';
 import { LearningModule } from './modules/learning/learning.module';
 import { MentorModule } from './modules/mentor/mentor.module';
 import { SocialModule } from './modules/social/social.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    ScheduleModule.forRoot(),
     DatabaseModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

@@ -29,6 +29,7 @@ model User {
   friendOf     Friendship[] @relation("FriendUsers")
   activities   ActivityFeed[]
   dailyQuests     UserDailyQuest[]
+  notifications   Notification[]
 
   @@map("users")
 }
@@ -320,4 +321,31 @@ model UserDailyQuest {
 
   @@id([userId, questId])
   @@map("user_daily_quests")
+}
+
+model StoreItem {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String
+  type        String   // THEME, LAB_ITEM, PET_ACCESSORY, BOOST, OTHER
+  price       Int      @default(100)
+  rarity      String   @default("COMMON") // COMMON, RARE, EPIC, LEGENDARY
+  imageUrl    String?
+  isRotative  Boolean  @default(true) // Si rota diariamente
+  
+  @@map("store_items")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  title     String
+  body      String
+  type      String   @default("INFO") // INFO, ACHIEVEMENT, LEVEL_UP, FRIEND_REQUEST, QUEST_COMPLETED
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
 }

@@ -12,6 +12,7 @@ import { getJavaSeed } from './seeds/java';
 import { getSqlSeed } from './seeds/sql';
 import { seedDailyQuests } from './seeds/quests';
 import { seedRewards } from './seeds/rewards';
+import { getStoreSeed } from './seeds/store';
 import { LanguageSeed } from './seeds/types';
 
 dotenv.config();
@@ -96,7 +97,10 @@ async function main() {
   // Ejecutar el poblador de Recompensas (Logros y Títulos)
   await seedRewards(prisma);
 
-  console.log('\n🚀 ¡Superpoblación de la base de datos completada con éxito!');
+  // Ejecutar el poblador de la Tienda
+  await getStoreSeed(prisma);
+
+  console.log('\n✨ ¡Superpoblación de la base de datos completada con éxito!');
 }
 
 main()

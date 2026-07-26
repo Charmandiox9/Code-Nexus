@@ -14,6 +14,8 @@ import '../../../gamification/providers/gamification_provider.dart';
 import '../../providers/editor_theme_provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../../../profile/presentation/screens/premium_screen.dart';
+import '../../../../core/services/local_notifications_service.dart';
+
 class IdeScreen extends ConsumerStatefulWidget {
   final String lessonId;
   final String language;
@@ -222,20 +224,23 @@ class _IdeScreenState extends ConsumerState<IdeScreen> {
 
   Future<void> _addRewards(int xp, int crystals) async {
     final client = ref.read(graphqlClientProvider);
-    try {
-      if (xp > 0) {
-        final addXpMutation = r'''
-          mutation AddXp($userId: String!, $xp: Int!) {
-            addXp(userId: $userId, xp: $xp) {
-              xp
+      try {
+        if (xp > 0) {
+          final addXpMutation = r'''
+            mutation AddXp($userId: String!, $xp: Int!) {
+              addXp(userId: $userId, xp: $xp) {
+                xp
+              }
             }
-          }
-        ''';
-        await client.mutate(MutationOptions(
-          document: gql(addXpMutation),
-          variables: {'userId': ref.read(authUserIdProvider), 'xp': xp},
-        ));
-      }
+          ''';
+          await client.mutate(MutationOptions(
+            document: gql(addXpMutation),
+            variables: {'userId': ref.read(authUserIdProvider), 'xp': xp},
+          ));
+          
+          // Programar notificación de recordatorio para 24h después de completar la lección
+          await LocalNotificationsService().scheduleDailyPracticeReminder();
+        }
       
       if (crystals > 0) {
         final addCrystalsMutation = r'''

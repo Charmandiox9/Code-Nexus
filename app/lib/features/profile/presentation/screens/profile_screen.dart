@@ -15,6 +15,8 @@ import '../../../ide/providers/editor_theme_provider.dart';
 import 'physical_lab_screen.dart';
 import 'premium_screen.dart';
 import 'pet_nursery_screen.dart';
+import 'store_screen.dart';
+
 class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -403,14 +405,23 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
     final pet = pets.firstWhere((p) => p['isEquipped'] == true, orElse: () => pets.first);
 
-    IconData getPetIcon(String type) {
-      switch (type) {
-        case 'SNAKE': return Icons.gesture;
-        case 'COFFEE_CUP': return Icons.local_cafe;
-        case 'GOPHER': return Icons.adb;
-        case 'CRAB': return Icons.bug_report;
-        default: return Icons.smart_toy;
+    Widget buildPetVisuals(String type, int stage, double size) {
+      if (stage >= 4) {
+        if (type == 'SNAKE') return Image.asset('assets/images/pets/python_ai_leviathan.jpg', width: size, height: size, fit: BoxFit.cover);
+        if (type == 'COFFEE_CUP') return Image.asset('assets/images/pets/java_caffeine_mech.jpg', width: size, height: size, fit: BoxFit.cover);
+        if (type == 'CRAB' || type == 'CPP' || type == 'C') return Image.asset('assets/images/pets/cpp_quantum_rocket.jpg', width: size, height: size, fit: BoxFit.cover);
+        if (type == 'JS' || type == 'JAVASCRIPT') return Image.asset('assets/images/pets/js_dragon.jpg', width: size, height: size, fit: BoxFit.cover);
       }
+      
+      IconData icon;
+      switch (stage) {
+        case 1: icon = Icons.egg; break;
+        case 2: icon = Icons.bug_report; break;
+        case 3: icon = Icons.smart_toy; break;
+        case 4: icon = Icons.rocket_launch; break;
+        default: icon = Icons.adb; break;
+      }
+      return Icon(icon, size: size, color: stage >= 4 ? Colors.amber : AppColors.accent);
     }
 
     return Container(
@@ -424,15 +435,18 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         children: [
           Row(
             children: [
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: AppColors.background,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: AppColors.accent, width: 2),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(40),
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: AppColors.background,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: AppColors.accent, width: 2),
+                    ),
+                    child: buildPetVisuals(pet['type'] as String? ?? 'BOT', pet['evolutionStage'] as int? ?? 1, 48),
+                  ),
                 ),
-                child: Icon(getPetIcon(pet['type'] as String), size: 48, color: AppColors.accent),
-              ),
               const SizedBox(width: 20),
               Expanded(
                 child: Column(

@@ -386,4 +386,61 @@ export class GamificationService {
       data: { happiness, xp, level: newLevel, evolutionStage: newEvolutionStage }
     });
   }
+
+  async getDailyStore() {
+    // Para simplificar, obtenemos todos los items fijos y rotativos aleatorios
+    // La rotación se puede basar en la fecha
+    const today = new Date().toISOString().split('T')[0];
+    const seed = today.split('-').join(''); // "20231024"
+    const seedNum = parseInt(seed, 10);
+    
+    const allItems = await this.prisma.storeItem.findMany();
+    
+    const fixedItems = allItems.filter(i => !i.isRotative);
+    const rotativeItems = allItems.filter(i => i.isRotative);
+    
+    // Elegimos unos cuantos rotativos basados en el seed
+    // Pseudo-random usando el seedNum
+    const shuffled = rotativeItems.sort((a, b) => {
+      const pseudoRandom = (seedNum * a.name.length) % 100;
+      const pseudoRandomB = (seedNum * b.name.length) % 100;
+      return pseudoRandom - pseudoRandomB;
+    });
+    
+    // Mostrar 3 rotativos diarios
+    const dailyRotative = shuffled.slice(0, 3);
+    
+    return [...fixedItems, ...dailyRotative];
+  }
+
+  async buyStoreItem(userId: string, itemId: string) {
+    const profile = await this.prisma.gamificationProfile.findUnique({
+      where: { userId }
+    });
+    if (!profile) throw new Error('Perfil no encontrado');
+    
+    const item = await this.prisma.storeItem.findUnique({ where: { id: itemId } });
+    if (!item) throw new Error('Item no encontrado en la tienda');
+    
+    if (profile.crystals < item.price) {
+      throw new Error('Cristales insuficientes');
+    }
+    
+    // Descontar cristales
+    await this.prisma.gamificationProfile.update({
+      where: { id: profile.id },
+      data: { crystals: profile.crystals - item.price }
+    });
+    
+    // Añadir al inventario. (Como guardamos JSON para simplificar y luego refactorizamos):
+    let inventory = Array.isArray(profile.inventory) ? profile.inventory : [];
+    if (!inventory.includes(item.name)) {
+      inventory.push(item.name);
+    }
+    
+    return this.prisma.gamificationProfile.update({
+      where: { id: profile.id },
+      data: { inventory }
+    });
+  }
 }

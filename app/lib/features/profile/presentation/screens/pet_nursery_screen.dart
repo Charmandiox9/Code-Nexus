@@ -150,14 +150,23 @@ class _PetNurseryScreenState extends ConsumerState<PetNurseryScreen> {
     );
   }
 
-  IconData _getIconForEvolution(int stage) {
-    switch (stage) {
-      case 1: return Icons.egg;
-      case 2: return Icons.bug_report;
-      case 3: return Icons.smart_toy;
-      case 4: return Icons.rocket_launch;
-      default: return Icons.adb;
+  Widget _buildPetVisuals(String type, int stage, double size) {
+    if (stage >= 4) {
+      if (type == 'SNAKE') return Image.asset('assets/images/pets/python_ai_leviathan.jpg', width: size, height: size, fit: BoxFit.cover);
+      if (type == 'COFFEE_CUP') return Image.asset('assets/images/pets/java_caffeine_mech.jpg', width: size, height: size, fit: BoxFit.cover);
+      if (type == 'CRAB' || type == 'CPP' || type == 'C') return Image.asset('assets/images/pets/cpp_quantum_rocket.jpg', width: size, height: size, fit: BoxFit.cover);
+      if (type == 'JS' || type == 'JAVASCRIPT') return Image.asset('assets/images/pets/js_dragon.jpg', width: size, height: size, fit: BoxFit.cover);
     }
+    
+    IconData icon;
+    switch (stage) {
+      case 1: icon = Icons.egg; break;
+      case 2: icon = Icons.bug_report; break;
+      case 3: icon = Icons.smart_toy; break;
+      case 4: icon = Icons.rocket_launch; break;
+      default: icon = Icons.adb; break;
+    }
+    return Icon(icon, size: size, color: stage >= 4 ? Colors.amber : AppColors.primary);
   }
 
   @override
@@ -221,10 +230,9 @@ class _PetNurseryScreenState extends ConsumerState<PetNurseryScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        _getIconForEvolution(evolution),
-                        size: 64,
-                        color: evolution >= 4 ? Colors.amber : AppColors.primary,
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: _buildPetVisuals(pet['type'] as String? ?? 'BOT', evolution, 64),
                       ),
                       const SizedBox(height: 16),
                       Text(
