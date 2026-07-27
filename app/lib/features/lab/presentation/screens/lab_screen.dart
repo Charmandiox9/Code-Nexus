@@ -657,7 +657,8 @@ Widget _buildDailyQuests(BuildContext context) {
                   'Misiones Diarias',
                   style: GoogleFonts.inter(color: AppColors.textPrimary, fontSize: 16, fontWeight: FontWeight.bold),
                 ),
-                              Expanded(
+              ),
+              Expanded(
                     child: ListView.builder(
                       padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 100.0),
                       itemCount: quests.length,
@@ -701,7 +702,7 @@ Widget _buildDailyQuests(BuildContext context) {
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                '\$progress / \$target',
+                                '$progress / $target',
                                 style: GoogleFonts.inter(fontSize: 12, color: AppColors.textSecondary),
                               ),
                               const SizedBox(height: 16),
@@ -712,11 +713,11 @@ Widget _buildDailyQuests(BuildContext context) {
                                     children: [
                                       const Icon(Icons.star, color: Colors.amber, size: 16),
                                       const SizedBox(width: 4),
-                                      Text('+\${questDetails['xpReward']} XP', style: GoogleFonts.inter(color: Colors.amber, fontWeight: FontWeight.bold)),
+                                      Text('+${questDetails['xpReward']} XP', style: GoogleFonts.inter(color: Colors.amber, fontWeight: FontWeight.bold)),
                                       const SizedBox(width: 12),
                                       const Icon(Icons.diamond, color: Colors.lightBlueAccent, size: 16),
                                       const SizedBox(width: 4),
-                                      Text('+\${questDetails['crystals']}', style: GoogleFonts.inter(color: Colors.lightBlueAccent, fontWeight: FontWeight.bold)),
+                                      Text('+${questDetails['crystals']}', style: GoogleFonts.inter(color: Colors.lightBlueAccent, fontWeight: FontWeight.bold)),
                                     ],
                                   ),
                                   ElevatedButton(
