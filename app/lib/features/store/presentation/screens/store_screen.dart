@@ -461,16 +461,29 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                         ),
                       ),
                       const SizedBox(width: 4),
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () => _useItem(item['name']),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.secondary,
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                      if (!item['name'].toString().toLowerCase().contains('escudo'))
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () => _useItem(item['name']),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.secondary,
+                              padding: const EdgeInsets.symmetric(horizontal: 4),
+                            ),
+                            child: Text('Usar ($ownedCount)', style: GoogleFonts.inter(fontSize: 12, color: AppColors.background)),
                           ),
-                          child: Text('Usar ($ownedCount)', style: GoogleFonts.inter(fontSize: 12, color: AppColors.background)),
+                        )
+                      else
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: AppColors.primary.withOpacity(0.5)),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Text('Tienes: $ownedCount', style: GoogleFonts.inter(fontSize: 12, color: AppColors.primary, fontWeight: FontWeight.bold)),
+                          ),
                         ),
-                      ),
                     ],
                   ),
                 ),
