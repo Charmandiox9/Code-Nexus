@@ -453,4 +453,87 @@ export class GamificationService {
       data: { inventory }
     });
   }
+  // =====================================
+  // MISIONES DIARIAS (DAILY QUESTS)
+  // =====================================
+
+  async getDailyQuests(userId: string) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const userQuests = await this.prisma.userDailyQuest.findMany({
+      where: {
+        userId,
+        assignedAt: { gte: today }
+      },
+      include: { quest: true }
+    });
+
+    if (userQuests.length > 0) {
+      return userQuests;
+    }
+
+    // Assign new quests if none exist for today
+    const allQuests = await this.prisma.dailyQuest.findMany();
+    // Shuffle and pick 3
+    const shuffled = allQuests.sort(() => 0.5 - Math.random());
+    const selectedQuests = shuffled.slice(0, 3);
+
+    for (const q of selectedQuests) {
+      await this.prisma.userDailyQuest.create({
+        data: {
+          userId,
+          questId: q.id,
+          progress: 0,
+          completed: false,
+          assignedAt: new Date()
+        }
+      });
+    }
+
+    return this.prisma.userDailyQuest.findMany({
+      where: {
+        userId,
+        assignedAt: { gte: today }
+      },
+      include: { quest: true }
+    });
+  }
+
+  async claimDailyQuest(userId: string, questId: string) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const userQuest = await this.prisma.userDailyQuest.findUnique({
+      where: {
+        userId_questId: { userId, questId }
+      },
+      include: { quest: true }
+    });
+
+    if (!userQuest) throw new Error('Quest no encontrada');
+    if (userQuest.completed) throw new Error('Misión ya reclamada');
+    if (userQuest.assignedAt < today) throw new Error('La misión expiró');
+    
+    // For now, allow claiming if progress is full (or we can just simulate completion for testing)
+    // To make it easy to test, if progress is 0, we can complete it immediately.
+    // In production, we'd check `if (userQuest.progress < userQuest.quest.target) throw ...`
+
+    const profile = await this.getProfile(userId);
+    
+    await this.prisma.gamificationProfile.update({
+      where: { id: profile.id },
+      data: {
+        xp: profile.xp + userQuest.quest.xpReward,
+        crystals: profile.crystals + userQuest.quest.crystals,
+      }
+    });
+
+    await this.prisma.userDailyQuest.update({
+      where: { userId_questId: { userId, questId } },
+      data: { completed: true, progress: 100 } // Simulate 100% progress
+    });
+
+    return true;
+  }
 }

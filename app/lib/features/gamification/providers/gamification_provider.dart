@@ -87,3 +87,42 @@ final gamificationProfileProvider = FutureProvider.family<Map<String, dynamic>?,
   print("Data: ${result.data}");
   return result.data?['gamificationProfile'];
 });
+
+final dailyQuestsProvider = FutureProvider.family<List<dynamic>?, String>((ref, userId) async {
+  if (userId.isEmpty) return null;
+
+  final client = ref.watch(graphqlClientProvider);
+
+  const query = '''
+    query GetDailyQuests(\$userId: String!) {
+      getDailyQuests(userId: \$userId) {
+        questId
+        progress
+        completed
+        assignedAt
+        quest {
+          id
+          title
+          description
+          xpReward
+          crystals
+          actionType
+        }
+      }
+    }
+  ''';
+
+  final result = await client.query(
+    QueryOptions(
+      document: gql(query),
+      variables: {'userId': userId},
+      fetchPolicy: FetchPolicy.networkOnly,
+    ),
+  );
+
+  if (result.hasException) {
+    throw result.exception!;
+  }
+
+  return result.data?['getDailyQuests'];
+});

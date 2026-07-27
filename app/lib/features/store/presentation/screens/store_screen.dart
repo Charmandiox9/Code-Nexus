@@ -274,7 +274,7 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                           crossAxisCount: 2,
                           crossAxisSpacing: 16,
                           mainAxisSpacing: 16,
-                          childAspectRatio: 0.50, // Evitar overflow
+                          childAspectRatio: 0.58, // Más altura para evitar overflow
                         ),
                         itemCount: _storeItems.length,
                         itemBuilder: (context, index) {
@@ -353,7 +353,7 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                                 ),
                                 // Textos
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                                  padding: const EdgeInsets.symmetric(horizontal: 8),
                                   child: Text(
                                     item['name'],
                                     style: GoogleFonts.inter(
@@ -368,19 +368,19 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                                 ),
                                 const SizedBox(height: 4),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                                  padding: const EdgeInsets.symmetric(horizontal: 8),
                                   child: Text(
                                     item['description'],
                                     style: GoogleFonts.inter(
                                       color: AppColors.textSecondary,
                                       fontSize: 10,
                                     ),
-                                    maxLines: 2,
+                                    maxLines: 3, // Más líneas para que quepa todo el texto
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
-                                const SizedBox(height: 12),
+                                const Spacer(),
                                 // Botón comprar
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),

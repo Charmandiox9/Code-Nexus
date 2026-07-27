@@ -17,10 +17,24 @@ class PetNurseryScreen extends ConsumerStatefulWidget {
 class _PetNurseryScreenState extends ConsumerState<PetNurseryScreen> {
   bool _isInteracting = false;
 
-  Future<void> _interactWithPet(String petId, String action) async {
+  Future<void> _interactWithPet(String petId, String action, int cost) async {
+    final userId = ref.read(authUserIdProvider);
+    final profile = ref.read(gamificationProfileProvider(userId)).value;
+    
+    if (profile == null) return;
+    
+    final crystals = profile['crystals'] as int? ?? 0;
+    if (crystals < cost) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No tienes suficientes cristales.'), backgroundColor: Colors.red),
+        );
+      }
+      return;
+    }
+
     setState(() => _isInteracting = true);
     final client = ref.read(graphqlClientProvider);
-    final userId = ref.read(authUserIdProvider);
 
     const mutation = '''
       mutation InteractWithPet(\$userId: String!, \$petId: String!, \$action: String!) {
@@ -109,40 +123,43 @@ class _PetNurseryScreenState extends ConsumerState<PetNurseryScreen> {
               ),
               const SizedBox(height: 32),
               SafeArea(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green.shade700,
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green.shade700,
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          ),
+                          onPressed: _isInteracting ? null : () {
+                            Navigator.pop(ctx);
+                            _interactWithPet(pet['id'], 'FEED', 10);
+                          },
+                          icon: const Icon(Icons.restaurant),
+                          label: const Text('Alimentar (10💎)'),
                         ),
-                        onPressed: _isInteracting ? null : () {
-                          Navigator.pop(ctx);
-                          _interactWithPet(pet['id'], 'FEED');
-                        },
-                        icon: const Icon(Icons.restaurant),
-                        label: const Text('Alimentar (10💎)'),
                       ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue.shade700,
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue.shade700,
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          ),
+                          onPressed: _isInteracting ? null : () {
+                            Navigator.pop(ctx);
+                            _interactWithPet(pet['id'], 'PLAY', 20);
+                          },
+                          icon: const Icon(Icons.sports_esports),
+                          label: const Text('Jugar (20💎)'),
                         ),
-                        onPressed: _isInteracting ? null : () {
-                          Navigator.pop(ctx);
-                          _interactWithPet(pet['id'], 'PLAY');
-                        },
-                        icon: const Icon(Icons.sports_esports),
-                        label: const Text('Jugar (20💎)'),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               )
             ],

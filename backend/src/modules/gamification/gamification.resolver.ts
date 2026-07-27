@@ -2,6 +2,7 @@ import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GamificationService } from './gamification.service';
 import { GamificationProfile, CodePet } from './models/gamification-profile.model';
 import { StoreItem } from './models/store-item.model';
+import { DailyQuest, UserDailyQuest } from './models/daily-quest.model';
 import { GraphQLJSONObject } from 'graphql-type-json';
 
 @Resolver(() => GamificationProfile)
@@ -140,5 +141,24 @@ export class GamificationResolver {
     @Args('itemId') itemId: string,
   ): Promise<GamificationProfile | any> {
     return this.gamificationService.buyStoreItem(userId, itemId);
+  }
+
+  @Query(() => [UserDailyQuest], {
+    name: 'getDailyQuests',
+    description: 'Obtiene las misiones diarias asignadas al usuario',
+  })
+  async getDailyQuests(@Args('userId') userId: string): Promise<UserDailyQuest[]> {
+    return this.gamificationService.getDailyQuests(userId) as any;
+  }
+
+  @Mutation(() => Boolean, {
+    name: 'claimDailyQuest',
+    description: 'Reclama la recompensa de una misión diaria',
+  })
+  async claimDailyQuest(
+    @Args('userId') userId: string,
+    @Args('questId') questId: string,
+  ): Promise<boolean> {
+    return this.gamificationService.claimDailyQuest(userId, questId);
   }
 }

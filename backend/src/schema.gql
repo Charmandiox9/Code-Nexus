@@ -44,6 +44,15 @@ input CreateUserInput {
   username: String!
 }
 
+type DailyQuest {
+  actionType: String!
+  crystals: Int!
+  description: String!
+  id: String!
+  title: String!
+  xpReward: Int!
+}
+
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
@@ -143,6 +152,9 @@ type Mutation {
   """Compra un ítem en la tienda"""
   buyStoreItem(itemId: String!, userId: String!): GamificationProfile!
 
+  """Reclama la recompensa de una misión diaria"""
+  claimDailyQuest(questId: String!, userId: String!): Boolean!
+
   """Registra un nuevo usuario en la plataforma"""
   createUser(input: CreateUserInput!): User!
 
@@ -201,6 +213,9 @@ type Query {
 
   """Obtiene el perfil de gamificación (niveles, xp, rachas) de un usuario"""
   gamificationProfile(userId: String!): GamificationProfile!
+
+  """Obtiene las misiones diarias asignadas al usuario"""
+  getDailyQuests(userId: String!): [UserDailyQuest!]!
 
   """Obtiene los ítems de la tienda, rotando cada 24 horas"""
   getDailyStore: [StoreItem!]!
@@ -262,6 +277,15 @@ type User {
 
 type UserAchievement {
   achievement: Achievement!
+}
+
+type UserDailyQuest {
+  assignedAt: DateTime!
+  completed: Boolean!
+  progress: Int!
+  quest: DailyQuest!
+  questId: String!
+  userId: String!
 }
 
 type UserLabItem {

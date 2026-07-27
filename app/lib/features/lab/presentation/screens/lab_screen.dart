@@ -149,7 +149,7 @@ class _LabScreenState extends ConsumerState<LabScreen> {
                         border: Border.all(color: _selectedMode == 'sandbox' ? AppColors.primary : AppColors.textSecondary.withOpacity(0.2)),
                       ),
                       alignment: Alignment.center,
-                      child: Text('Modo Libre', style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 12, color: _selectedMode == 'sandbox' ? AppColors.primary : AppColors.textSecondary)),
+                      child: Text('Libre', style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 12, color: _selectedMode == 'sandbox' ? AppColors.primary : AppColors.textSecondary)),
                     ),
                   ),
                 ),
@@ -172,6 +172,22 @@ class _LabScreenState extends ConsumerState<LabScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () => setState(() => _selectedMode = 'daily'),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                        color: _selectedMode == 'daily' ? Colors.amber.withOpacity(0.2) : Colors.transparent,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: _selectedMode == 'daily' ? Colors.amber : AppColors.textSecondary.withOpacity(0.2)),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text('Diarias', style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 12, color: _selectedMode == 'daily' ? Colors.amber : AppColors.textSecondary)),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -179,7 +195,9 @@ class _LabScreenState extends ConsumerState<LabScreen> {
           Expanded(
             child: _selectedMode == 'sandbox' 
                 ? _buildSandboxContent() 
-                : _buildMissions(context),
+                : _selectedMode == 'missions' 
+                    ? _buildMissions(context)
+                    : _buildDailyQuests(context),
           ),
         ],
       ),
@@ -599,7 +617,7 @@ class _LabScreenState extends ConsumerState<LabScreen> {
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                       ),
-                      child: Text(_completedMissions.contains(mission['title']) ? 'Repetir' : 'Iniciar'),
+                      child: Text(isLocked ? 'Bloqueado' : 'Iniciar', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
                     )
                   ],
                 )
@@ -608,11 +626,142 @@ class _LabScreenState extends ConsumerState<LabScreen> {
           );
         },
       ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: _buildBottomNav(context),
     );
+  }
+
+  Widget _buildDailyQuests(BuildContext context) {
+    final userId = ref.read(authUserIdProvider);
+    final dailyQuestsAsync = ref.watch(dailyQuestsProvider(userId));
+
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      body: dailyQuestsAsync.when(
+        data: (quests) {
+          if (quests == null || quests.isEmpty) {
+            return const Center(child: Text('No hay misiones diarias disponibles.', style: TextStyle(color: Colors.white70)));
+          }
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
+                child: Text(
+                  'Misiones Diarias',
+                  style: GoogleFonts.inter(color: AppColors.textPrimary, fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(24.0),
+                  itemCount: quests.length,
+                  itemBuilder: (context, index) {
+                    final q = quests[index];
+                    final questDetails = q['quest'];
+                    final bool isCompleted = q['completed'] == true;
+                    final int progress = q['progress'] ?? 0;
+
+                    return Container(
+                      margin: const EdgeInsets.only(bottom: 16),
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: AppColors.surface,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(
+                          color: isCompleted ? Colors.amber : AppColors.primary.withOpacity(0.5),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(questDetails['title'], style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.textPrimary)),
+                              if (isCompleted)
+                                const Icon(Icons.check_circle, color: Colors.amber, size: 24),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Text(questDetails['description'], style: GoogleFonts.inter(color: AppColors.textSecondary, height: 1.5)),
+                          const SizedBox(height: 16),
+                          LinearProgressIndicator(
+                            value: progress / 100,
+                            backgroundColor: AppColors.background,
+                            color: isCompleted ? Colors.amber : AppColors.primary,
+                          ),
+                          const SizedBox(height: 16),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(Icons.star, color: Colors.amber, size: 16),
+                                  const SizedBox(width: 4),
+                                  Text('+${questDetails['xpReward']} XP', style: GoogleFonts.inter(color: Colors.amber, fontWeight: FontWeight.bold)),
+                                  const SizedBox(width: 12),
+                                  const Icon(Icons.diamond, color: Colors.lightBlueAccent, size: 16),
+                                  const SizedBox(width: 4),
+                                  Text('+${questDetails['crystals']}', style: GoogleFonts.inter(color: Colors.lightBlueAccent, fontWeight: FontWeight.bold)),
+                                ],
+                              ),
+                              ElevatedButton(
+                                onPressed: isCompleted ? null : () => _claimDailyQuest(q['questId']),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: isCompleted ? Colors.grey : AppColors.primary,
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                                ),
+                                child: Text(isCompleted ? 'Completado' : 'Reclamar', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          );
+        },
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, stack) => Center(child: Text('Error: $err', style: const TextStyle(color: Colors.redAccent))),
+      ),
+    );
+  }
+
+  Future<void> _claimDailyQuest(String questId) async {
+    try {
+      final client = ref.read(graphqlClientProvider);
+      final userId = ref.read(authUserIdProvider);
+
+      const mutation = '''
+        mutation ClaimDailyQuest(\$userId: String!, \$questId: String!) {
+          claimDailyQuest(userId: \$userId, questId: \$questId)
+        }
+      ''';
+
+      final result = await client.mutate(MutationOptions(
+        document: gql(mutation),
+        variables: {
+          'userId': userId,
+          'questId': questId,
+        },
+      ));
+
+      if (result.hasException) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: ${result.exception?.graphqlErrors.first.message ?? 'Unknown error'}')));
+        return;
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('¡Misión completada! Recompensas recibidas.')));
+      
+      ref.invalidate(dailyQuestsProvider(userId));
+      ref.invalidate(gamificationProfileProvider(userId));
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $e')));
+    }
   }
 
   Widget _buildPhysicalLab() {
