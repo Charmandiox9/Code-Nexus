@@ -27,7 +27,7 @@ class LocalNotificationsService {
     );
     
     await flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
+      settings: initializationSettings,
       onDidReceiveNotificationResponse: (NotificationResponse response) {
         // Manejar cuando se toca la notificación
       },
@@ -36,7 +36,7 @@ class LocalNotificationsService {
 
   Future<void> scheduleDailyPracticeReminder() async {
     // Cancelar recordatorios anteriores para no saturar
-    await flutterLocalNotificationsPlugin.cancel(100);
+    await flutterLocalNotificationsPlugin.cancel(id: 100);
 
     // Programar para 24 horas después de la última actividad
     final tz.TZDateTime scheduledDate = tz.TZDateTime.now(tz.local).add(const Duration(hours: 24));
@@ -55,18 +55,17 @@ class LocalNotificationsService {
     );
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
-      100, // ID de la notificación
-      '¡Es hora de programar! 💻',
-      'Tus mascotas te extrañan. Practica hoy y mantén viva tu racha.',
-      scheduledDate,
-      platformChannelSpecifics,
+      id: 100, // ID de la notificación
+      title: '¡Es hora de programar! 💻',
+      body: 'Tus mascotas te extrañan. Practica hoy y mantén viva tu racha.',
+      scheduledDate: scheduledDate,
+      notificationDetails: platformChannelSpecifics,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
       matchDateTimeComponents: DateTimeComponents.time, // Repetir todos los días a esta hora
     );
   }
   
   Future<void> cancelPracticeReminder() async {
-    await flutterLocalNotificationsPlugin.cancel(100);
+    await flutterLocalNotificationsPlugin.cancel(id: 100);
   }
 }

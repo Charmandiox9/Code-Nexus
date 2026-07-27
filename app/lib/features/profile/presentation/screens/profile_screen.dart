@@ -15,7 +15,7 @@ import '../../../ide/providers/editor_theme_provider.dart';
 import 'physical_lab_screen.dart';
 import 'premium_screen.dart';
 import 'pet_nursery_screen.dart';
-import 'store_screen.dart';
+import '../../../../features/store/presentation/screens/store_screen.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);

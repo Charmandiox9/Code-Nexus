@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/network/graphql_provider.dart';
-import '../../../auth/providers/auth_provider.dart';
+import '../../../../core/providers/auth_provider.dart';
 import '../../../gamification/providers/gamification_provider.dart';
 
 class PetNurseryScreen extends ConsumerStatefulWidget {
@@ -102,7 +102,7 @@ class _PetNurseryScreenState extends ConsumerState<PetNurseryScreen> {
                     children: [
                       const Icon(Icons.star, color: Colors.amber, size: 32),
                       const SizedBox(height: 8),
-                      Text('XP: \${pet['xp']}', style: const TextStyle(color: Colors.white)),
+                      Text('XP: ${pet['xp']}', style: const TextStyle(color: Colors.white)),
                     ],
                   ),
                 ],
@@ -244,7 +244,7 @@ class _PetNurseryScreenState extends ConsumerState<PetNurseryScreen> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'Nivel \${pet['level']} • Fase \$evolution',
+                        'Nivel ${pet['level']} • Fase $evolution',
                         style: GoogleFonts.inter(color: Colors.white54, fontSize: 12),
                       ),
                       const SizedBox(height: 8),
