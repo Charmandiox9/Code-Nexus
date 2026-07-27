@@ -8,7 +8,7 @@ async function bootstrap() {
   
   // Añadimos cristales a todos los perfiles de gamificación
   const res = await service['prisma'].gamificationProfile.updateMany({
-    data: { crystals: 5000 }
+    data: { crystals: { increment: 5000 } }
   });
   console.log('Cristales añadidos a', res.count, 'usuarios.');
   
