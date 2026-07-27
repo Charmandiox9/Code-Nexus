@@ -69,9 +69,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           final progress = (xp - currentLevelXP) / (nextLevelXP - currentLevelXP);
 
           final languageMastery = _calculateLanguageMastery(profile['completedLessons'] as List<dynamic>?, allConcepts);
-          List<dynamic> dynamicPets = _generatePetsFromMastery(languageMastery);
-          if (dynamicPets.isEmpty && profile['pets'] != null) {
-            dynamicPets = profile['pets'] as List<dynamic>;
+          List<dynamic> dynamicPets = List.from(profile['pets'] as List<dynamic>? ?? []);
+          if (dynamicPets.isEmpty) {
+            dynamicPets = _generatePetsFromMastery(languageMastery);
           }
 
           // Aplicar la selección de mascota

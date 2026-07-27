@@ -244,15 +244,15 @@ class _IdeScreenState extends ConsumerState<IdeScreen> {
       
       if (crystals > 0) {
         final addCrystalsMutation = r'''
-          mutation AddCrystals($userId: String!, $crystals: Int!) {
-            addCrystals(userId: $userId, crystals: $crystals) {
+          mutation AddCrystals($userId: String!, $amount: Int!) {
+            addCrystals(userId: $userId, amount: $amount) {
               crystals
             }
           }
         ''';
         await client.mutate(MutationOptions(
           document: gql(addCrystalsMutation),
-          variables: {'userId': ref.read(authUserIdProvider), 'crystals': crystals},
+          variables: {'userId': ref.read(authUserIdProvider), 'amount': crystals},
         ));
       }
       

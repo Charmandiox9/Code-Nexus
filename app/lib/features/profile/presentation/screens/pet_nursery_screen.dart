@@ -86,7 +86,7 @@ class _PetNurseryScreenState extends ConsumerState<PetNurseryScreen> {
             children: [
               Text(pet['name'], style: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
               const SizedBox(height: 8),
-              Text('Fase \$evolution - Nivel \$level', style: GoogleFonts.inter(color: AppColors.primary)),
+              Text('Fase $evolution - Nivel $level', style: GoogleFonts.inter(color: AppColors.primary)),
               const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -95,7 +95,7 @@ class _PetNurseryScreenState extends ConsumerState<PetNurseryScreen> {
                     children: [
                       const Icon(Icons.favorite, color: Colors.pink, size: 32),
                       const SizedBox(height: 8),
-                      Text('Felicidad: \$happiness%', style: const TextStyle(color: Colors.white)),
+                      Text('Felicidad: $happiness%', style: const TextStyle(color: Colors.white)),
                     ],
                   ),
                   Column(
@@ -108,40 +108,42 @@ class _PetNurseryScreenState extends ConsumerState<PetNurseryScreen> {
                 ],
               ),
               const SizedBox(height: 32),
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade700,
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              SafeArea(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.green.shade700,
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        ),
+                        onPressed: _isInteracting ? null : () {
+                          Navigator.pop(ctx);
+                          _interactWithPet(pet['id'], 'FEED');
+                        },
+                        icon: const Icon(Icons.restaurant),
+                        label: const Text('Alimentar (10💎)'),
                       ),
-                      onPressed: _isInteracting ? null : () {
-                        Navigator.pop(ctx);
-                        _interactWithPet(pet['id'], 'FEED');
-                      },
-                      icon: const Icon(Icons.restaurant),
-                      label: const Text('Alimentar'),
                     ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue.shade700,
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue.shade700,
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        ),
+                        onPressed: _isInteracting ? null : () {
+                          Navigator.pop(ctx);
+                          _interactWithPet(pet['id'], 'PLAY');
+                        },
+                        icon: const Icon(Icons.sports_esports),
+                        label: const Text('Jugar (20💎)'),
                       ),
-                      onPressed: _isInteracting ? null : () {
-                        Navigator.pop(ctx);
-                        _interactWithPet(pet['id'], 'PLAY');
-                      },
-                      icon: const Icon(Icons.sports_esports),
-                      label: const Text('Jugar'),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               )
             ],
           ),

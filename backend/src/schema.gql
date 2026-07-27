@@ -140,8 +140,14 @@ type Mutation {
   """Añade XP a un usuario (solo para uso interno/backend en el futuro)"""
   addXp(userId: String!, xp: Int!): GamificationProfile!
 
+  """Compra un ítem en la tienda"""
+  buyStoreItem(itemId: String!, userId: String!): GamificationProfile!
+
   """Registra un nuevo usuario en la plataforma"""
   createUser(input: CreateUserInput!): User!
+
+  """Equipa un título en el perfil del usuario"""
+  equipTitle(titleId: String!, userId: String!): Boolean!
 
   """Interactúa con la mascota (FEED o PLAY)"""
   interactWithPet(action: String!, petId: String!, userId: String!): CodePet!
@@ -151,6 +157,8 @@ type Mutation {
 
   """Inicia sesión o registra usuario con Google"""
   loginWithGoogle(input: LoginWithGoogleInput!): AuthResponse!
+  markAllNotificationsAsRead(userId: String!): Boolean!
+  markNotificationAsRead(id: String!, userId: String!): Notification!
   sendFriendRequest(targetUsername: String!, userId: String!): Boolean!
 
   """Gasta cristales para comprar en la tienda"""
@@ -172,6 +180,16 @@ type Mutation {
   useItem(itemName: String!, userId: String!): GamificationProfile!
 }
 
+type Notification {
+  body: String!
+  createdAt: DateTime!
+  id: ID!
+  isRead: Boolean!
+  title: String!
+  type: String!
+  userId: String!
+}
+
 """Tipo de plan de monetización del usuario"""
 enum PlanType {
   FREE
@@ -183,6 +201,9 @@ type Query {
 
   """Obtiene el perfil de gamificación (niveles, xp, rachas) de un usuario"""
   gamificationProfile(userId: String!): GamificationProfile!
+
+  """Obtiene los ítems de la tienda, rotando cada 24 horas"""
+  getDailyStore: [StoreItem!]!
   getFriendActivityFeed(userId: String!): [JSON!]!
   getFriends(userId: String!): [JSON!]!
   getLeaderboard(language: String, userId: String!): [JSON!]!
@@ -190,10 +211,23 @@ type Query {
 
   """Obtiene las mascotas del usuario"""
   getMyPets(userId: String!): [CodePet!]!
+  getNotifications(userId: String!): [Notification!]!
   getProMentorAnalysis(code: String!, errorMessage: String!, task: String!, userId: String!): String!
+  getUnreadNotificationsCount(userId: String!): Int!
 
   """Obtiene la lista de todos los usuarios"""
   users: [User!]!
+}
+
+type StoreItem {
+  description: String!
+  id: ID!
+  imageUrl: String
+  isRotative: Boolean!
+  name: String!
+  price: Int!
+  rarity: String!
+  type: String!
 }
 
 input SubmitCodeInput {

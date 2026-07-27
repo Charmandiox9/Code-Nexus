@@ -181,6 +181,8 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
             data: (profile) {
               if (profile == null) return const SizedBox.shrink();
               final crystals = profile['crystals'] as int? ?? 0;
+              final inventory = profile['inventory'] as List<dynamic>? ?? [];
+              final shields = inventory.where((i) => i.toString().contains('Escudo')).length;
               return Container(
                 margin: const EdgeInsets.only(right: 16),
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -191,6 +193,18 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                 ),
                 child: Row(
                   children: [
+                    if (shields > 0) ...[
+                      const Icon(Icons.security, color: Colors.orangeAccent, size: 16),
+                      const SizedBox(width: 4),
+                      Text(
+                        '$shields',
+                        style: GoogleFonts.inter(
+                          color: Colors.orangeAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                    ],
                     const Icon(Icons.diamond, color: Colors.cyanAccent, size: 16),
                     const SizedBox(width: 6),
                     Text(

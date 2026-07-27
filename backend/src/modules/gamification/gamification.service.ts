@@ -365,6 +365,16 @@ export class GamificationService {
 
     let happiness = pet.happiness;
     let xp = pet.xp;
+    
+    // Costo en cristales
+    const cost = action === 'FEED' ? 10 : 20;
+    if (profile.crystals < cost) throw new Error('No tienes suficientes cristales');
+
+    // Descontar cristales
+    await this.prisma.gamificationProfile.update({
+      where: { id: profile.id },
+      data: { crystals: profile.crystals - cost }
+    });
 
     if (action === 'FEED') {
       happiness = Math.min(100, happiness + 20);
