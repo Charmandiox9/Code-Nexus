@@ -316,7 +316,6 @@ class _LabScreenState extends ConsumerState<LabScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: _buildBottomNav(context),
     );
   }
 
