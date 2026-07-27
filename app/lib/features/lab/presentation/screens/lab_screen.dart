@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/providers/auth_provider.dart';
+import '../../../../core/network/graphql_provider.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -635,7 +637,7 @@ class _LabScreenState extends ConsumerState<LabScreen> {
 );
 }
 
-  Widget _buildDailyQuests(BuildContext context) {
+Widget _buildDailyQuests(BuildContext context) {
     final userId = ref.read(authUserIdProvider);
     final dailyQuestsAsync = ref.watch(dailyQuestsProvider(userId));
 
