@@ -105,6 +105,7 @@ export class GamificationService {
 
     const newBestStreak = Math.max(profile.bestStreak, newStreak);
 
+    await this.incrementDailyQuestProgress(userId, 'LOGIN');
     return this.prisma.gamificationProfile.update({
       where: { userId },
       data: {
@@ -118,6 +119,7 @@ export class GamificationService {
 
   async addXpForLesson(userId: string, lessonId: string, xpToAdd: number): Promise<boolean> {
     await this.recordActivity(userId);
+    await this.incrementDailyQuestProgress(userId, 'LESSON_COMPLETED');
     const profile = await this.getProfile(userId);
     
     if (profile.completedLessons && profile.completedLessons.includes(lessonId)) {
@@ -333,6 +335,7 @@ export class GamificationService {
 
   async updateLabLayout(userId: string, positions: any, rotations: any): Promise<GamificationProfile> {
     const profile = await this.getProfile(userId);
+    await this.incrementDailyQuestProgress(userId, 'ITEM_EQUIPPED');
     
     return this.prisma.gamificationProfile.update({
       where: { userId },
@@ -391,6 +394,7 @@ export class GamificationService {
     if (newLevel >= 15 && newEvolutionStage < 3) newEvolutionStage = 3;
     if (newLevel >= 30 && newEvolutionStage < 4) newEvolutionStage = 4;
 
+    await this.incrementDailyQuestProgress(userId, action === 'FEED' ? 'PET_FED' : 'PET_PLAYED');
     return this.prisma.codePet.update({
       where: { id: pet.id },
       data: { happiness, xp, level: newLevel, evolutionStage: newEvolutionStage }
@@ -448,11 +452,42 @@ export class GamificationService {
       inventory.push(item.name);
     }
     
-    return this.prisma.gamificationProfile.update({
+    const updatedProfile = await this.prisma.gamificationProfile.update({
       where: { id: profile.id },
       data: { inventory }
     });
+
+    await this.incrementDailyQuestProgress(userId, 'STORE_PURCHASE');
+    return updatedProfile;
   }
+
+  // =====================================
+  // DAILY QUESTS
+  // =====================================
+
+  async incrementDailyQuestProgress(userId: string, actionType: string, amount: number = 1) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const userQuests = await this.prisma.userDailyQuest.findMany({
+      where: {
+        userId,
+        assignedAt: { gte: today },
+        completed: false,
+        quest: { actionType: actionType }
+      },
+      include: { quest: true }
+    });
+
+    for (const uq of userQuests) {
+      const newProgress = uq.progress + amount;
+      await this.prisma.userDailyQuest.update({
+        where: { userId_questId: { userId: uq.userId, questId: uq.questId } },
+        data: { progress: newProgress }
+      });
+    }
+  }
+
   // =====================================
   // MISIONES DIARIAS (DAILY QUESTS)
   // =====================================

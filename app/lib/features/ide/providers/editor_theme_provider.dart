@@ -65,6 +65,24 @@ final editorThemeDataProvider = Provider<EditorThemeData>((ref) {
         primary: const Color(0xFF00FF41),
         accent: const Color(0xFF008F11),
       );
+    case 'Tema Dracula':
+      return EditorThemeData(
+        background: const Color(0xFF282A36),
+        textPrimary: const Color(0xFFF8F8F2),
+        surface: const Color(0xFF44475A),
+        surfaceHighlight: const Color(0xFF6272A4),
+        primary: const Color(0xFFFF79C6),
+        accent: const Color(0xFFBD93F9),
+      );
+    case 'Tema Synthwave':
+      return EditorThemeData(
+        background: const Color(0xFF262335),
+        textPrimary: const Color(0xFFFF7EDB),
+        surface: const Color(0xFF241B2F),
+        surfaceHighlight: const Color(0xFF362749),
+        primary: const Color(0xFFFE4450),
+        accent: const Color(0xFFF97E72),
+      );
     default:
       return EditorThemeData(
         background: AppColors.background,

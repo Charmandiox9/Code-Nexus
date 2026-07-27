@@ -33,6 +33,17 @@ const String _buyItemMutation = '''
   }
 ''';
 
+const String _useItemMutation = '''
+  mutation UseItem(\$userId: String!, \$itemName: String!) {
+    useItem(userId: \$userId, itemName: \$itemName) {
+      id
+      inventory
+      xpMultiplier
+      xpMultiplierUntil
+    }
+  }
+''';
+
 class StoreScreen extends ConsumerStatefulWidget {
   const StoreScreen({Key? key}) : super(key: key);
 
@@ -135,6 +146,48 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error al comprar: \$e', style: GoogleFonts.inter()),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> _useItem(String itemName) async {
+    final client = ref.read(graphqlClientProvider);
+    final userId = ref.read(authUserIdProvider);
+    if (userId == null) return;
+
+    try {
+      final result = await client.mutate(
+        MutationOptions(
+          document: gql(_useItemMutation),
+          variables: {
+            'userId': userId,
+            'itemName': itemName,
+          },
+        ),
+      );
+
+      if (result.hasException) {
+        throw Exception(result.exception.toString());
+      }
+
+      ref.invalidate(gamificationProfileProvider(userId));
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('¡Ítem usado con éxito!', style: GoogleFonts.inter()),
+            backgroundColor: Colors.green,
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error al usar ítem: \$e', style: GoogleFonts.inter()),
             backgroundColor: Colors.redAccent,
           ),
         );
@@ -257,7 +310,7 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              'El inventario rota cada 24 horas. ¡Atrapa estos ítems antes de que desaparezcan!',
+                              'Descubre ítems especiales y permanentes.',
                               style: GoogleFonts.inter(
                                 fontSize: 14,
                                 color: Colors.white.withOpacity(0.9),
@@ -267,158 +320,191 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                         ),
                       ),
                       const SizedBox(height: 24),
-                      GridView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 16,
-                          mainAxisSpacing: 16,
-                          childAspectRatio: 0.58, // Más altura para evitar overflow
-                        ),
-                        itemCount: _storeItems.length,
-                        itemBuilder: (context, index) {
-                          final item = _storeItems[index];
-                          final rarityColor = _getRarityColor(item['rarity']);
-                          
-                          // Contar escudos u objetos consumibles
-                          bool alreadyOwned = false;
-                          int ownedCount = 0;
-                          profileAsync.whenData((p) {
-                            final inv = p?['inventory'] as List<dynamic>? ?? [];
-                            if (item['type'] == 'BOOST' || item['type'] == 'CONSUMABLE' || item['type'] == 'OTHER' || item['name'].contains('Escudo')) {
-                               ownedCount = inv.where((i) => i == item['name']).length;
-                               alreadyOwned = false; // Se pueden comprar múltiples veces
-                            } else {
-                               alreadyOwned = inv.contains(item['name']);
-                            }
-                          });
-
-                          return Container(
-                            decoration: BoxDecoration(
-                              color: AppColors.surface,
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(color: rarityColor.withOpacity(0.5), width: 2),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: rarityColor.withOpacity(0.1),
-                                  blurRadius: 10,
-                                  spreadRadius: 2,
-                                )
-                              ],
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                // Header: Tipo y Rareza
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-                                  decoration: BoxDecoration(
-                                    color: rarityColor.withOpacity(0.2),
-                                    borderRadius: const BorderRadius.vertical(top: Radius.circular(14)),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          _getTypeLabel(item['type']),
-                                          style: GoogleFonts.inter(
-                                            color: rarityColor,
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                      if (item['isRotative'] == true)
-                                        const Icon(Icons.access_time, color: Colors.white70, size: 12),
-                                    ],
-                                  ),
-                                ),
-                                // Icono / Imagen placeholders
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(12),
-                                    child: Center(
-                                      child: Icon(
-                                        item['type'] == 'THEME' ? Icons.color_lens
-                                            : item['type'] == 'LAB_ITEM' ? Icons.chair
-                                            : Icons.pets,
-                                        size: 48,
-                                        color: Colors.white54,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                // Textos
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                                  child: Text(
-                                    item['name'],
-                                    style: GoogleFonts.inter(
-                                      color: AppColors.textPrimary,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14,
-                                    ),
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                                  child: Text(
-                                    item['description'],
-                                    style: GoogleFonts.inter(
-                                      color: AppColors.textSecondary,
-                                      fontSize: 10,
-                                    ),
-                                    maxLines: 3, // Más líneas para que quepa todo el texto
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                const Spacer(),
-                                // Botón comprar
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: ElevatedButton(
-                                    onPressed: alreadyOwned ? null : () => _buyItem(item['id'], item['price']),
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: alreadyOwned ? Colors.grey.shade800 : AppColors.primary,
-                                      foregroundColor: Colors.white,
-                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        if (!alreadyOwned) ...[
-                                          Text('${item["price"]}', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
-                                          const SizedBox(width: 4),
-                                          const Icon(Icons.diamond, size: 14, color: Colors.cyanAccent),
-                                          if (ownedCount > 0) ...[
-                                            const SizedBox(width: 4),
-                                            Text('(Tienes $ownedCount)', style: GoogleFonts.inter(fontSize: 10, color: Colors.white70)),
-                                          ]
-                                        ] else ...[
-                                          Text('Comprado', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
-                                        ]
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
+                      Text('Ítems Permanentes', style: GoogleFonts.inter(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 12),
+                      _buildItemGrid(_storeItems.where((i) => i['isRotative'] == false).toList(), profileAsync),
+                      const SizedBox(height: 32),
+                      Text('Ofertas del Día', style: GoogleFonts.inter(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 12),
+                      _buildItemGrid(_storeItems.where((i) => i['isRotative'] == true).toList(), profileAsync),
                       const SizedBox(height: 32),
                     ],
                   ),
                 ),
     );
+  }
+
+  Widget _buildItemGrid(List<dynamic> items, AsyncValue<dynamic> profileAsync) {
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 16,
+        mainAxisSpacing: 16,
+        childAspectRatio: 0.58,
+      ),
+      itemCount: items.length,
+      itemBuilder: (context, index) {
+        final item = items[index];
+        final rarityColor = _getRarityColor(item['rarity']);
+        
+        bool alreadyOwned = false;
+        int ownedCount = 0;
+        profileAsync.whenData((p) {
+          final inv = p?['inventory'] as List<dynamic>? ?? [];
+          if (item['type'] == 'BOOST' || item['type'] == 'CONSUMABLE' || item['type'] == 'OTHER' || item['name'].contains('Escudo')) {
+             ownedCount = inv.where((i) => i == item['name']).length;
+             alreadyOwned = false; 
+          } else {
+             alreadyOwned = inv.contains(item['name']);
+          }
+        });
+
+        return Container(
+          decoration: BoxDecoration(
+            color: AppColors.surface,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: rarityColor.withOpacity(0.5), width: 2),
+            boxShadow: [
+              BoxShadow(
+                color: rarityColor.withOpacity(0.1),
+                blurRadius: 10,
+                spreadRadius: 2,
+              )
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                decoration: BoxDecoration(
+                  color: rarityColor.withOpacity(0.2),
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(14)),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        _getTypeLabel(item['type']),
+                        style: GoogleFonts.inter(
+                          color: rarityColor,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    if (item['isRotative'] == true)
+                      const Icon(Icons.access_time, color: Colors.white70, size: 12),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Center(
+                    child: Icon(
+                      item['type'] == 'THEME' ? Icons.color_lens
+                          : item['type'] == 'LAB_ITEM' ? Icons.chair
+                          : Icons.pets,
+                      size: 48,
+                      color: Colors.white54,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  item['name'],
+                  style: GoogleFonts.inter(
+                    color: AppColors.textPrimary,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  item['description'],
+                  style: GoogleFonts.inter(
+                    color: AppColors.textSecondary,
+                    fontSize: 10,
+                  ),
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const Spacer(),
+              if (ownedCount > 0 && (item['type'] == 'BOOST' || item['type'] == 'CONSUMABLE' || item['name'].contains('Escudo'))) ...[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () => _buyItem(item['id'], item['price']),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.primary,
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                          ),
+                          child: Text('Comprar', style: GoogleFonts.inter(fontSize: 12, color: Colors.white)),
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () => _useItem(item['name']),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.secondary,
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                          ),
+                          child: Text('Usar ($ownedCount)', style: GoogleFonts.inter(fontSize: 12, color: AppColors.background)),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ] else ...[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: alreadyOwned ? null : () => _buyItem(item['id'], item['price']),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: alreadyOwned ? Colors.grey.shade800 : AppColors.primary,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (!alreadyOwned) ...[
+                          Text('${item["price"]}', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                          const SizedBox(width: 4),
+                          const Icon(Icons.diamond, size: 14, color: Colors.cyanAccent),
+                        ] else ...[
+                          Text('Comprado', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                        ]
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ],
+          ),
+        );
+      },
+    );
+
   }
 
   Widget _buildBottomNav(BuildContext context) {
